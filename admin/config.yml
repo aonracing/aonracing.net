@@ -101,6 +101,16 @@ collections:
             summary: "{{fields.name}} — {{fields.nextDate}}"
             fields:
               - { label: "Nome Circuito e Città", name: "name", widget: "string" }
+              - label: "Tracciato Animato Predefinito"
+                name: "mapPreset"
+                widget: "select"
+                default: "custom"
+                options:
+                  - { label: "Magione (Tracciato Animato)", value: "magione" }
+                  - { label: "Modena (Tracciato Animato)", value: "modena" }
+                  - { label: "Varano (Tracciato Animato)", value: "varano" }
+                  - { label: "Tracciato Generico Animato", value: "custom" }
+              - { label: "Oppure carica Foto Mappa personalizzata (opzionale)", name: "mapImage", widget: "image", required: false }
               - { label: "Lunghezza e Curve", name: "length", widget: "string" }
               - { label: "Prossime Date", name: "nextDate", widget: "string" }
               - { label: "Stato (es. Disponibile / Posti Limitati)", name: "status", widget: "string" }

@@ -33,18 +33,24 @@
   "circuits": [
     {
       "name": "Autodromo dell'Umbria — Magione (PG)",
+      "mapPreset": "magione",
+      "mapImage": "",
       "length": "2.507 m • 11 Curve",
       "nextDate": "Primavera 2027 — Date in definizione",
       "status": "Disponibile"
     },
     {
       "name": "Autodromo di Modena — Marzaglia (MO)",
+      "mapPreset": "modena",
+      "mapImage": "",
       "length": "2.007 m • 11 Curve",
       "nextDate": "Primavera 2027 — Date in definizione",
       "status": "Disponibile"
     },
     {
       "name": "Autodromo Riccardo Paletti — Varano (PR)",
+      "mapPreset": "varano",
+      "mapImage": "",
       "length": "2.350 m • 14 Curve",
       "nextDate": "Stagione 2027 — Su prenotazione",
       "status": "Su richiesta"
