@@ -1,0 +1,49 @@
+backend:
+  name: github
+  repo: aonracing/aonracing.net
+  branch: main
+
+media_folder: "assets"
+public_folder: "assets"
+
+collections:
+  - name: "contenuti"
+    label: "Gestione Sito AON Racing"
+    files:
+      - name: "site"
+        label: "Testi, Pacchetti, Prezzi e Foto"
+        file: "data/site.json"
+        fields:
+          - { label: "Numero WhatsApp (con 39 davanti, senza +)", name: "whatsapp", widget: "string" }
+          - { label: "Email di contatto", name: "email", widget: "string" }
+          - { label: "Etichetta in alto (Hero)", name: "heroBadge", widget: "string" }
+          - { label: "Titolo Principale - Riga 1", name: "heroTitleLine1", widget: "string" }
+          - { label: "Titolo Principale - Riga Colorata", name: "heroTitleHighlight", widget: "string" }
+          - { label: "Sottotitolo Principale", name: "heroSubtitle", widget: "text" }
+          - { label: "Video Sfondo Hero (.mp4)", name: "heroVideo", widget: "file" }
+          - { label: "Immagine Anteprima Video", name: "heroPoster", widget: "image" }
+          - { label: "Titolo Sezione Chi Siamo", name: "aboutTitle", widget: "string" }
+          - { label: "Testo Chi Siamo (Paragrafo 1)", name: "aboutText1", widget: "text" }
+          - { label: "Testo Chi Siamo (Paragrafo 2)", name: "aboutText2", widget: "text" }
+          - { label: "Foto del Team", name: "teamImage", widget: "image" }
+          - label: "Pacchetti Regalo & Prezzi"
+            name: "packages"
+            widget: "list"
+            fields:
+              - { label: "ID interno (es. bronze, silver, gold)", name: "id", widget: "string" }
+              - { label: "Etichetta superiore (es. PIÙ REGALATO)", name: "badge", widget: "string" }
+              - { label: "Nome Pacchetto", name: "name", widget: "string" }
+              - { label: "Sottotitolo Giri/Durata", name: "laps", widget: "string" }
+              - { label: "Prezzo (es. 199€)", name: "price", widget: "string" }
+              - { label: "Evidenziato in Rosso?", name: "featured", widget: "boolean", default: false }
+              - { label: "Link Pagamento Stripe (lascia vuoto per WhatsApp)", name: "stripeUrl", widget: "string", required: false }
+              - label: "Cosa include (punti elenco)"
+                name: "features"
+                widget: "list"
+                field: { label: "Voce", name: "item", widget: "string" }
+          - label: "Galleria Foto in Pista"
+            name: "gallery"
+            widget: "list"
+            fields:
+              - { label: "Foto", name: "image", widget: "image" }
+              - { label: "Descrizione foto", name: "caption", widget: "string" }

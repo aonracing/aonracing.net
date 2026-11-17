@@ -1,0 +1,69 @@
+{
+  "whatsapp": "393772548557",
+  "email": "info@aonracing.net",
+  "heroBadge": "Speciale Natale 2026 • Buoni Regalo Pista",
+  "heroTitleLine1": "Metti un vero volante",
+  "heroTitleHighlight": "sotto l'albero",
+  "heroSubtitle": "Vivi o regala l'emozione pura di guidare una vera monoposto Formula in circuito, assistito dai meccanici e dagli istruttori del team AON RACING.",
+  "heroVideo": "assets/hero-bg.mp4",
+  "heroPoster": "assets/pista-1.jpg",
+  "aboutTitle": "Non un semplice noleggio, ma una vera scuderia al tuo fianco",
+  "aboutText1": "AON RACING nasce dalla passione per le competizioni su pista e dal desiderio di far provare anche agli appassionati e agli amatori le sensazioni autentiche di una vera monoposto da corsa.",
+  "aboutText2": "Dal briefing iniziale fino all'uscita dai box, sarai seguito passo dopo passo dai nostri meccanici e istruttori: nessuna esperienza pregressa richiesta, solo la voglia di vivere un'esperienza indimenticabile in totale sicurezza.",
+  "teamImage": "assets/team.jpg",
+  "packages": [
+    {
+      "id": "bronze",
+      "badge": "IDEA REGALO",
+      "name": "Pacchetto Bronze — Battesimo della Pista",
+      "laps": "3 Giri in Monoposto Formula",
+      "price": "199€",
+      "featured": false,
+      "stripeUrl": "",
+      "features": [
+        "Briefing tecnico e sicurezza in pista con il team",
+        "Fornitura completa attrezzatura ignifuga (casco, tuta, guanti)",
+        "3 giri completi al volante della monoposto",
+        "Attestato ufficiale di partecipazione AON RACING"
+      ]
+    },
+    {
+      "id": "silver",
+      "badge": "PIÙ REGALATO A NATALE",
+      "name": "Pacchetto Silver — Adrenalina Pura",
+      "laps": "5 Giri + Telemetria & Video",
+      "price": "299€",
+      "featured": true,
+      "stripeUrl": "",
+      "features": [
+        "Tutto ciò che è incluso nel Pacchetto Bronze",
+        "5 giri completi con analisi delle traiettorie ai box",
+        "Video On-Board HD della sessione incluso",
+        "Buono Regalo digitale personalizzato con nome destinatario"
+      ]
+    },
+    {
+      "id": "gold",
+      "badge": "ESPERIENZA PRO",
+      "name": "Pacchetto Gold — Pilota per un Giorno",
+      "laps": "10 Giri (2 Turni) + Coaching",
+      "price": "499€",
+      "featured": false,
+      "stripeUrl": "",
+      "features": [
+        "2 sessioni in pista da 5 giri ciascuna (10 giri totali)",
+        "Debriefing telemetrico 1-a-1 tra il primo e il secondo turno",
+        "Video On-Board HD + set foto professionali ai box",
+        "Pass ospite paddock per 1 accompagnatore"
+      ]
+    }
+  ],
+  "gallery": [
+    { "image": "assets/pista-1.jpg", "caption": "Monoposto AON Racing in curva" },
+    { "image": "assets/box.jpg", "caption": "Monoposto nei box AON Racing" },
+    { "image": "assets/pista-2.jpg", "caption": "Passaggio veloce in rettilineo" },
+    { "image": "assets/briefing.jpg", "caption": "Preparazione pilota prima del turno" },
+    { "image": "assets/paddock.jpg", "caption": "Monoposto AON Racing nel paddock" },
+    { "image": "assets/tramonto.jpg", "caption": "Sessione in pista al tramonto" }
+  ]
+}
