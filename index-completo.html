@@ -61,11 +61,12 @@
         <div class="logo-stripe w-full mt-1"></div>
       </a>
 
-      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold uppercase tracking-wider text-zinc-300">
+      <nav class="hidden md:flex items-center gap-7 text-xs lg:text-sm font-semibold uppercase tracking-wider text-zinc-300">
+        <a href="#come-funziona" class="hover:text-white transition">Come Funziona</a>
         <a href="#pacchetti" class="hover:text-white transition">Pacchetti Natale</a>
         <a href="#chi-siamo" class="hover:text-white transition">Il Team</a>
         <a href="#galleria" class="hover:text-white transition">In Pista</a>
-        <a href="#contatti" class="hover:text-white transition">Contatti</a>
+        <a href="#faq" class="hover:text-white transition">FAQ</a>
       </nav>
 
       <a href="#pacchetti" class="bg-brand-red hover:bg-red-700 text-white font-racing italic font-extrabold uppercase text-xs sm:text-sm px-5 py-2.5 rounded transition shadow-lg shadow-red-950/50">
@@ -102,8 +103,8 @@
         <a href="#pacchetti" class="w-full sm:w-auto bg-brand-red hover:bg-red-700 text-white font-racing italic font-extrabold uppercase tracking-wide px-8 py-4 rounded text-base transition shadow-xl shadow-red-950/60">
           Scegli il Pacchetto Natale
         </a>
-        <a href="#chi-siamo" class="w-full sm:w-auto bg-zinc-900/90 hover:bg-zinc-800 border border-zinc-700 text-white font-semibold uppercase tracking-wide px-8 py-4 rounded text-sm transition">
-          Scopri il Team
+        <a href="#come-funziona" class="w-full sm:w-auto bg-zinc-900/90 hover:bg-zinc-800 border border-zinc-700 text-white font-semibold uppercase tracking-wide px-8 py-4 rounded text-sm transition">
+          Come Funziona
         </a>
       </div>
 
@@ -121,6 +122,19 @@
           <div class="text-xs text-zinc-400 uppercase tracking-wider">Tuta, Casco & Box</div>
         </div>
       </div>
+    </div>
+  </section>
+
+  <!-- COME FUNZIONA (4 STEP) -->
+  <section id="come-funziona" class="py-20 bg-zinc-950 border-t border-zinc-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto">
+        <span class="text-brand-green font-racing italic font-extrabold uppercase tracking-widest text-sm">Semplice & Veloce</span>
+        <h2 class="mt-2 font-racing italic font-black text-3xl sm:text-4xl uppercase text-white">Come Funziona il Buono Regalo</h2>
+        <div class="logo-stripe w-24 mx-auto mt-3"></div>
+      </div>
+
+      <div id="steps-grid" class="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"></div>
     </div>
   </section>
 
@@ -142,7 +156,7 @@
     </div>
   </section>
 
-  <!-- CHI SIAMO -->
+  <!-- CHI SIAMO + SCHEDA TECNICA MONOPOSTO -->
   <section id="chi-siamo" class="py-24 bg-zinc-950 border-t border-zinc-900">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
@@ -161,36 +175,47 @@
           <p id="about-text-1" class="mt-6 text-zinc-300 leading-relaxed"></p>
           <p id="about-text-2" class="mt-4 text-zinc-400 leading-relaxed"></p>
 
-          <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div class="bg-brand-card border border-zinc-800/90 p-4 rounded-lg">
-              <div class="font-racing italic font-bold text-white uppercase text-sm">Assistenza Completa ai Box</div>
-              <p class="text-xs text-zinc-400 mt-1">Setup vettura, regolazione sedile/pedaliera e supporto continuo in pit-lane.</p>
+          <!-- SCHEDA TECNICA MONOPOSTO -->
+          <div class="mt-8 bg-brand-card border border-zinc-800 rounded-xl p-5">
+            <div class="font-racing italic font-extrabold text-xs uppercase tracking-widest text-brand-red mb-3">
+              Specifiche Monoposto Formula AON RACING
             </div>
-            <div class="bg-brand-card border border-zinc-800/90 p-4 rounded-lg">
-              <div class="font-racing italic font-bold text-white uppercase text-sm">Regalo Senza Pensieri</div>
-              <p class="text-xs text-zinc-400 mt-1">Il destinatario sceglie la data migliore tra gli eventi in calendario.</p>
-            </div>
+            <div id="car-specs-grid" class="grid grid-cols-1 sm:grid-cols-2 gap-3.5"></div>
           </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- GALLERIA IN PISTA -->
+  <!-- GALLERIA IN PISTA CON LIGHTBOX -->
   <section id="galleria" class="py-24 bg-brand-dark border-t border-zinc-900">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-2xl mx-auto">
         <span class="text-brand-red font-racing italic font-extrabold uppercase tracking-widest text-sm">Scatti dal Circuito</span>
         <h2 class="mt-2 font-racing italic font-black text-3xl sm:text-4xl uppercase text-white">AON RACING in Azione</h2>
         <div class="logo-stripe w-24 mx-auto mt-3"></div>
+        <p class="mt-3 text-xs text-zinc-400 uppercase tracking-wider">Clicca su una foto per ingrandirla a schermo intero</p>
       </div>
 
-      <div id="gallery-grid" class="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+      <div id="gallery-grid" class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+    </div>
+  </section>
+
+  <!-- FAQ (DOMANDE FREQUENTI) -->
+  <section id="faq" class="py-24 bg-zinc-950 border-t border-zinc-900">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="text-center">
+        <span class="text-brand-green font-racing italic font-extrabold uppercase tracking-widest text-sm">Tutto quello che c'è da sapere</span>
+        <h2 class="mt-2 font-racing italic font-black text-3xl sm:text-4xl uppercase text-white">Domande Frequenti</h2>
+        <div class="logo-stripe w-24 mx-auto mt-3"></div>
+      </div>
+
+      <div id="faq-list" class="mt-12 space-y-4"></div>
     </div>
   </section>
 
   <!-- CONTATTI & FOOTER -->
-  <footer id="contatti" class="bg-zinc-950 border-t border-zinc-900 pt-20 pb-12">
+  <footer id="contatti" class="bg-brand-dark border-t border-zinc-900 pt-20 pb-12">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
       <div class="inline-block">
         <div class="font-racing italic font-black text-3xl tracking-tight text-white leading-none">
@@ -221,6 +246,23 @@
       </div>
     </div>
   </footer>
+
+  <!-- PULSANTE WHATSAPP FLOTTANTE -->
+  <a id="floating-wa-btn" href="#" target="_blank" rel="noopener" aria-label="Contattaci su WhatsApp" class="fixed bottom-5 right-5 z-40 flex items-center gap-2.5 bg-brand-green hover:bg-emerald-600 text-white font-racing italic font-extrabold uppercase text-xs px-4 py-3.5 rounded-full shadow-2xl shadow-black/80 transition hover:scale-105">
+    <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/></svg>
+    <span class="hidden sm:inline">Info WhatsApp</span>
+  </a>
+
+  <!-- LIGHTBOX FOTO SCHERMO INTERO -->
+  <div id="lightbox-modal" onclick="closeLightbox(event)" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/95 backdrop-blur-md p-4">
+    <button onclick="closeLightbox()" class="absolute top-5 right-6 text-zinc-400 hover:text-white text-4xl leading-none">&times;</button>
+    <button onclick="prevPhoto(event)" class="absolute left-4 sm:left-8 text-white/80 hover:text-white bg-zinc-900/80 border border-zinc-700 w-11 h-11 rounded-full text-xl">&#10094;</button>
+    <div class="max-w-5xl w-full text-center">
+      <img id="lightbox-img" src="" alt="" class="max-h-[80vh] mx-auto rounded-xl border border-zinc-800 shadow-2xl object-contain" />
+      <p id="lightbox-caption" class="mt-4 text-sm text-zinc-300 font-medium"></p>
+    </div>
+    <button onclick="nextPhoto(event)" class="absolute right-4 sm:right-8 text-white/80 hover:text-white bg-zinc-900/80 border border-zinc-700 w-11 h-11 rounded-full text-xl">&#10095;</button>
+  </div>
 
   <!-- MODALE PERSONALIZZAZIONE BUONO REGALO -->
   <div id="voucher-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-sm p-4">
@@ -277,6 +319,7 @@
   <script>
     let SITE_DATA = null;
     let selectedPkg = null;
+    let currentPhotoIdx = 0;
 
     async function initSite() {
       try {
@@ -297,11 +340,33 @@
       document.getElementById('hero-video-src').src = SITE_DATA.heroVideo;
       video.load();
 
+      // Steps (Come Funziona)
+      if (SITE_DATA.steps) {
+        document.getElementById('steps-grid').innerHTML = SITE_DATA.steps.map(s => `
+          <div class="bg-brand-card border border-zinc-800/90 rounded-2xl p-6 relative overflow-hidden">
+            <div class="font-racing italic font-black text-4xl text-zinc-800 select-none">${s.num}</div>
+            <h3 class="mt-3 font-racing italic font-extrabold text-lg uppercase text-white">${s.title}</h3>
+            <p class="mt-2 text-sm text-zinc-400 leading-relaxed">${s.desc}</p>
+          </div>
+        `).join('');
+      }
+
+      // Chi Siamo & Scheda Tecnica
       document.getElementById('about-title').textContent = SITE_DATA.aboutTitle;
       document.getElementById('about-text-1').textContent = SITE_DATA.aboutText1;
       document.getElementById('about-text-2').textContent = SITE_DATA.aboutText2;
       document.getElementById('team-img').src = SITE_DATA.teamImage;
 
+      if (SITE_DATA.carSpecs) {
+        document.getElementById('car-specs-grid').innerHTML = SITE_DATA.carSpecs.map(spec => `
+          <div class="border-l-2 border-brand-green pl-3">
+            <div class="text-[11px] uppercase tracking-wider text-zinc-400">${spec.label}</div>
+            <div class="text-xs sm:text-sm font-semibold text-white mt-0.5">${spec.value}</div>
+          </div>
+        `).join('');
+      }
+
+      // Pacchetti
       const grid = document.getElementById('packages-grid');
       grid.innerHTML = SITE_DATA.packages.map(pkg => `
         <div class="relative flex flex-col justify-between rounded-2xl p-8 transition ${
@@ -342,18 +407,68 @@
         </div>
       `).join('');
 
+      // Galleria con Lightbox
       const galleryGrid = document.getElementById('gallery-grid');
-      galleryGrid.innerHTML = SITE_DATA.gallery.map(item => `
-        <div class="group overflow-hidden rounded-xl border border-zinc-800 bg-brand-card aspect-[4/3]">
+      galleryGrid.innerHTML = SITE_DATA.gallery.map((item, idx) => `
+        <button type="button" onclick="openLightbox(${idx})" class="group relative overflow-hidden rounded-xl border border-zinc-800 bg-brand-card aspect-[4/3] text-left focus:outline-none">
           <img src="${item.image}" alt="${item.caption || 'AON Racing'}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
-        </div>
+          <div class="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/85 via-black/40 to-transparent p-4 opacity-0 group-hover:opacity-100 transition">
+            <span class="text-xs font-semibold text-white">${item.caption || ''}</span>
+          </div>
+        </button>
       `).join('');
 
-      document.getElementById('footer-wa-btn').href = `https://wa.me/${SITE_DATA.whatsapp}?text=${encodeURIComponent("Ciao Aldo! Vorrei informazioni sui Buoni Regalo di Natale AON RACING.")}`;
+      // FAQ
+      if (SITE_DATA.faqs) {
+        document.getElementById('faq-list').innerHTML = SITE_DATA.faqs.map(faq => `
+          <details class="group bg-brand-card border border-zinc-800 rounded-xl p-5 open:border-zinc-700">
+            <summary class="flex items-center justify-between cursor-pointer list-none font-racing italic font-bold text-base sm:text-lg text-white">
+              <span>${faq.q}</span>
+              <span class="text-brand-green text-xl font-normal group-open:rotate-45 transition-transform">+</span>
+            </summary>
+            <p class="mt-3 text-sm text-zinc-400 leading-relaxed border-t border-zinc-800/80 pt-3">${faq.a}</p>
+          </details>
+        `).join('');
+      }
+
+      const waHref = `https://wa.me/${SITE_DATA.whatsapp}?text=${encodeURIComponent("Ciao Aldo! Vorrei informazioni sui Buoni Regalo di Natale AON RACING.")}`;
+      document.getElementById('footer-wa-btn').href = waHref;
+      document.getElementById('floating-wa-btn').href = waHref;
       document.getElementById('footer-mail-btn').href = `mailto:${SITE_DATA.email}`;
       document.getElementById('footer-mail-btn').textContent = SITE_DATA.email;
     }
 
+    // Lightbox Gallery
+    function openLightbox(idx) {
+      currentPhotoIdx = idx;
+      updateLightbox();
+      const lb = document.getElementById('lightbox-modal');
+      lb.classList.remove('hidden');
+      lb.classList.add('flex');
+    }
+    function closeLightbox(e) {
+      if (e && e.target.id !== 'lightbox-modal') return;
+      const lb = document.getElementById('lightbox-modal');
+      lb.classList.add('hidden');
+      lb.classList.remove('flex');
+    }
+    function prevPhoto(e) {
+      e.stopPropagation();
+      currentPhotoIdx = (currentPhotoIdx - 1 + SITE_DATA.gallery.length) % SITE_DATA.gallery.length;
+      updateLightbox();
+    }
+    function nextPhoto(e) {
+      e.stopPropagation();
+      currentPhotoIdx = (currentPhotoIdx + 1) % SITE_DATA.gallery.length;
+      updateLightbox();
+    }
+    function updateLightbox() {
+      const item = SITE_DATA.gallery[currentPhotoIdx];
+      document.getElementById('lightbox-img').src = item.image;
+      document.getElementById('lightbox-caption').textContent = item.caption || '';
+    }
+
+    // Modale Buono Regalo
     function openModal(pkgId) {
       selectedPkg = SITE_DATA.packages.find(p => p.id === pkgId);
       if (!selectedPkg) return;
@@ -366,20 +481,17 @@
       modal.classList.remove('hidden');
       modal.classList.add('flex');
     }
-
     function closeModal() {
       const modal = document.getElementById('voucher-modal');
       modal.classList.add('hidden');
       modal.classList.remove('flex');
     }
-
     function updateVoucherPreview() {
       const name = document.getElementById('recipient-name').value.trim();
       const note = document.getElementById('recipient-note').value.trim();
       document.getElementById('preview-recipient').textContent = name ? name.toUpperCase() : "IL FUTURO PILOTA";
       document.getElementById('preview-note').textContent = note ? `"${note}"` : '"Buon Natale! Preparati a scendere in pista!"';
     }
-
     function confirmOrder() {
       if (!selectedPkg) return;
       if (selectedPkg.stripeUrl) {

@@ -7,10 +7,38 @@
   "heroSubtitle": "Vivi o regala l'emozione pura di guidare una vera monoposto Formula in circuito, assistito dai meccanici e dagli istruttori del team AON RACING.",
   "heroVideo": "assets/hero-bg.mp4",
   "heroPoster": "assets/pista-1.jpg",
+  "steps": [
+    {
+      "num": "01",
+      "title": "Scegli il Pacchetto",
+      "desc": "Seleziona l'esperienza più adatta tra i pacchetti Natale e personalizza il buono con il nome del destinatario."
+    },
+    {
+      "num": "02",
+      "title": "Ricevi il Voucher",
+      "desc": "Ottieni subito il Buono Regalo digitale pronto da stampare e mettere in busta sotto l'albero o inviare via WhatsApp."
+    },
+    {
+      "num": "03",
+      "title": "Data Libera in Calendario",
+      "desc": "Chi riceve il regalo ha 12 mesi di tempo per scegliere la giornata in pista più comoda tra gli eventi AON RACING."
+    },
+    {
+      "num": "04",
+      "title": "Scendi in Pista",
+      "desc": "Indossa tuta e casco ignifughi forniti dal team, segui il briefing ai box e lanciati tra i cordoli al volante."
+    }
+  ],
   "aboutTitle": "Non un semplice noleggio, ma una vera scuderia al tuo fianco",
   "aboutText1": "AON RACING nasce dalla passione per le competizioni su pista e dal desiderio di far provare anche agli appassionati e agli amatori le sensazioni autentiche di una vera monoposto da corsa.",
   "aboutText2": "Dal briefing iniziale fino all'uscita dai box, sarai seguito passo dopo passo dai nostri meccanici e istruttori: nessuna esperienza pregressa richiesta, solo la voglia di vivere un'esperienza indimenticabile in totale sicurezza.",
   "teamImage": "assets/team.jpg",
+  "carSpecs": [
+    { "label": "Telaio & Aerodinamica", "value": "Monoposto Formula tubolare con ali regolabili" },
+    { "label": "Peso a Vuoto", "value": "~390 kg — Rapporto peso/potenza estremo" },
+    { "label": "Trasmissione", "value": "Cambio sequenziale da competizione" },
+    { "label": "Pneumatici & Freni", "value": "Slick da gara Hoosier / Hankook • Freni a disco" }
+  ],
   "packages": [
     {
       "id": "bronze",
@@ -65,5 +93,27 @@
     { "image": "assets/briefing.jpg", "caption": "Preparazione pilota prima del turno" },
     { "image": "assets/paddock.jpg", "caption": "Monoposto AON Racing nel paddock" },
     { "image": "assets/tramonto.jpg", "caption": "Sessione in pista al tramonto" }
+  ],
+  "faqs": [
+    {
+      "q": "Serve esperienza in pista o una licenza da pilota?",
+      "a": "Assolutamente no. È sufficiente essere maggiorenni con patente B valida. Prima di salire in abitacolo effettui un briefing completo con i nostri istruttori su traiettorie, punti di frenata, utilizzo del cambio e bandiere di segnalazione."
+    },
+    {
+      "q": "Devo portare casco o abbigliamento tecnico?",
+      "a": "No, tutta l'attrezzatura omologata (tuta ignifuga, casco, sottocasco, guanti e scarpe) viene fornita direttamente dal team AON RACING ai box. Ti consigliamo solo di indossare abiti comodi sotto la tuta."
+    },
+    {
+      "q": "Ci sono limiti di altezza o peso per entrare nell'abitacolo?",
+      "a": "La monoposto è regolabile su pedaliera e sedile per accogliere piloti fino a circa 1,90 m di altezza e 100 kg di peso. Se hai dubbi specifici scrivici su WhatsApp prima dell'acquisto e verifichiamo insieme."
+    },
+    {
+      "q": "Cosa succede in caso di pioggia o maltempo?",
+      "a": "La sicurezza viene prima di tutto: se le condizioni meteo non consentono di girare in sicurezza, la sessione viene riprogrammata gratuitamente in una nuova data a scelta senza alcuna perdita dei giri acquistati."
+    },
+    {
+      "q": "Posso portare amici o familiari a guardare dai box?",
+      "a": "Certamente! Gli accompagnatori possono accedere all'area paddock del circuito per scattare foto, girare video e vivere l'atmosfera del box insieme a te."
+    }
   ]
 }
