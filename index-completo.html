@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="it" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AON RACING | Esperienze in Pista & Buoni Regalo Natale</title>
+  <meta name="description" content="Regala l'adrenalina della vera guida su monoposto Formula in pista. Scopri i pacchetti regalo di Natale AON RACING." />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:ital,wght@0,700;0,800;0,900;1,800;1,900&display=swap" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            racing: ['Montserrat', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              red: '#e10600',
+              green: '#00a859',
+              dark: '#09090b',
+              card: '#121216',
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    .logo-stripe {
+      height: 5px;
+      background: linear-gradient(90deg, #e10600 0%, #e10600 50%, #00a859 50%, #00a859 100%);
+      transform: skewX(-18deg);
+    }
+    @media print {
+      body * { visibility: hidden; }
+      #printable-voucher, #printable-voucher * { visibility: visible; }
+      #printable-voucher {
+        position: fixed;
+        left: 0; top: 0; width: 100%;
+        background: #09090b !important;
+        color: #ffffff !important;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+      }
+    }
+  </style>
+</head>
+<body class="bg-brand-dark text-zinc-100 antialiased selection:bg-brand-red selection:text-white">
+
+  <script>
+    // =========================================================================
+    // CONFIGURAZIONE RAPIDA AON RACING (Aggiorna qui i dati reali di Aldo)
+    // =========================================================================
+    const CONFIG = {
+      WHATSAPP_NUMBER: "393330000000", // Inserisci il numero WhatsApp di Aldo con 39 davanti
+      TEAM_EMAIL: "info@aonracing.net",
+      PACKAGES: [
+        {
+          id: "bronze",
+          badge: "IDEA REGALO",
+          name: "Pacchetto Bronze — Battesimo della Pista",
+          laps: "3 Giri in Monoposto Formula",
+          price: "199€",
+          featured: false,
+          stripeUrl: "", // Lascia vuoto per ricevere prenotazioni su WhatsApp
+          features: [
+            "Briefing tecnico e sicurezza in pista con il team",
+            "Fornitura completa attrezzatura ignifuga (casco, tuta, guanti)",
+            "3 giri completi al volante della monoposto",
+            "Attestato ufficiale di partecipazione AON RACING"
+          ]
+        },
+        {
+          id: "silver",
+          badge: "PIÙ REGALATO A NATALE",
+          name: "Pacchetto Silver — Adrenalina Pura",
+          laps: "5 Giri + Telemetria & Video",
+          price: "299€",
+          featured: true,
+          stripeUrl: "",
+          features: [
+            "Tutto ciò che è incluso nel Pacchetto Bronze",
+            "5 giri completi con analisi delle traiettorie ai box",
+            "Video On-Board HD della sessione incluso",
+            "Buono Regalo digitale personalizzato con nome destinatario"
+          ]
+        },
+        {
+          id: "gold",
+          badge: "ESPERIENZA PRO",
+          name: "Pacchetto Gold — Pilota per un Giorno",
+          laps: "10 Giri (2 Turni) + Coaching",
+          price: "499€",
+          featured: false,
+          stripeUrl: "",
+          features: [
+            "2 sessioni in pista da 5 giri ciascuna (10 giri totali)",
+            "Debriefing telemetrico 1-a-1 tra il primo e il secondo turno",
+            "Video On-Board HD + set foto professionali ai box",
+            "Pass ospite paddock per 1 accompagnatore"
+          ]
+        }
+      ]
+    };
+  </script>
+
+  <!-- NAVBAR -->
+  <header class="fixed top-0 inset-x-0 z-50 bg-brand-dark/90 backdrop-blur-md border-b border-zinc-800/80">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+      <a href="#" class="inline-block group">
+        <div class="font-racing italic font-black text-2xl sm:text-3xl tracking-tight text-white leading-none">
+          AON <span class="text-zinc-200">RACING</span>
+        </div>
+        <div class="logo-stripe w-full mt-1"></div>
+      </a>
+
+      <nav class="hidden md:flex items-center gap-8 text-sm font-semibold uppercase tracking-wider text-zinc-300">
+        <a href="#pacchetti" class="hover:text-white transition">Pacchetti Natale</a>
+        <a href="#chi-siamo" class="hover:text-white transition">Il Team</a>
+        <a href="#galleria" class="hover:text-white transition">In Pista</a>
+        <a href="#contatti" class="hover:text-white transition">Contatti</a>
+      </nav>
+
+      <a href="#pacchetti" class="bg-brand-red hover:bg-red-700 text-white font-racing italic font-extrabold uppercase text-xs sm:text-sm px-5 py-2.5 rounded transition shadow-lg shadow-red-950/50">
+        Regala un Buono
+      </a>
+    </div>
+  </header>
+
+  <!-- HERO CON VIDEO ON-BOARD -->
+  <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+    <video autoplay loop muted playsinline poster="assets/pista-1.jpg" class="absolute inset-0 w-full h-full object-cover scale-105">
+      <source src="assets/hero-bg.mp4" type="video/mp4" />
+    </video>
+    <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/70 to-brand-dark/50"></div>
+
+    <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 text-center">
+      <div class="inline-flex items-center gap-2 bg-zinc-900/90 border border-zinc-700/80 px-4 py-1.5 rounded-full text-xs font-bold uppercase tracking-widest text-brand-green mb-6">
+        <span class="w-2 h-2 rounded-full bg-brand-green animate-pulse"></span>
+        Speciale Natale 2026 • Buoni Regalo Pista
+      </div>
+
+      <h1 class="font-racing italic font-black text-4xl sm:text-6xl md:text-7xl uppercase tracking-tight text-white leading-[1.05]">
+        Metti un vero volante<br />
+        <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-red via-red-500 to-brand-green">
+          sotto l'albero
+        </span>
+      </h1>
+
+      <p class="mt-6 text-base sm:text-xl text-zinc-300 max-w-2xl mx-auto leading-relaxed">
+        Vivi o regala l'emozione pura di guidare una vera monoposto Formula in circuito, assistito dai meccanici e dagli istruttori del team <strong class="text-white">AON RACING</strong>.
+      </p>
+
+      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#pacchetti" class="w-full sm:w-auto bg-brand-red hover:bg-red-700 text-white font-racing italic font-extrabold uppercase tracking-wide px-8 py-4 rounded text-base transition shadow-xl shadow-red-950/60">
+          Scegli il Pacchetto Natale
+        </a>
+        <a href="#chi-siamo" class="w-full sm:w-auto bg-zinc-900/90 hover:bg-zinc-800 border border-zinc-700 text-white font-semibold uppercase tracking-wide px-8 py-4 rounded text-sm transition">
+          Scopri il Team
+        </a>
+      </div>
+
+      <div class="mt-14 grid grid-cols-3 gap-4 max-w-xl mx-auto border-t border-zinc-800/80 pt-6 text-center">
+        <div>
+          <div class="font-racing italic font-black text-xl sm:text-2xl text-white">12 MESI</div>
+          <div class="text-xs text-zinc-400 uppercase tracking-wider">Validità Buono</div>
+        </div>
+        <div>
+          <div class="font-racing italic font-black text-xl sm:text-2xl text-brand-green">100% REALE</div>
+          <div class="text-xs text-zinc-400 uppercase tracking-wider">Monoposto Formula</div>
+        </div>
+        <div>
+          <div class="font-racing italic font-black text-xl sm:text-2xl text-white">ALL-INCLUSIVE</div>
+          <div class="text-xs text-zinc-400 uppercase tracking-wider">Tuta, Casco & Box</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PACCHETTI NATALE -->
+  <section id="pacchetti" class="py-24 bg-brand-dark border-t border-zinc-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto">
+        <span class="text-brand-red font-racing italic font-extrabold uppercase tracking-widest text-sm">Edizione Limitata Natale</span>
+        <h2 class="mt-2 font-racing italic font-black text-3xl sm:text-5xl uppercase text-white">
+          Pacchetti Regalo in Pista
+        </h2>
+        <div class="logo-stripe w-28 mx-auto mt-3"></div>
+        <p class="mt-4 text-zinc-400">
+          Acquista o prenota il buono oggi: ricevi subito il voucher digitale personalizzato da stampare o inviare, con data libera utilizzabile per tutta la stagione 2027.
+        </p>
+      </div>
+
+      <div id="packages-grid" class="mt-16 grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch"></div>
+    </div>
+  </section>
+
+  <!-- CHI SIAMO -->
+  <section id="chi-siamo" class="py-24 bg-zinc-950 border-t border-zinc-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div class="relative">
+          <div class="absolute -inset-2 bg-gradient-to-tr from-brand-red/30 to-brand-green/30 rounded-xl blur-lg"></div>
+          <img src="assets/team.jpg" alt="Il team AON RACING schierato dietro la monoposto" class="relative rounded-xl border border-zinc-800 w-full object-cover shadow-2xl" loading="lazy" />
+        </div>
+
+        <div>
+          <span class="text-brand-green font-racing italic font-extrabold uppercase tracking-widest text-sm">Passione Motorsport</span>
+          <h2 class="mt-2 font-racing italic font-black text-3xl sm:text-4xl uppercase text-white leading-tight">
+            Non un semplice noleggio, ma una vera scuderia al tuo fianco
+          </h2>
+          <div class="logo-stripe w-24 mt-3"></div>
+
+          <p class="mt-6 text-zinc-300 leading-relaxed">
+            <strong>AON RACING</strong> nasce dalla passione per le competizioni su pista e dal desiderio di far provare anche agli appassionati e agli amatori le sensazioni autentiche di una vera monoposto da corsa.
+          </p>
+          <p class="mt-4 text-zinc-400 leading-relaxed">
+            Dal briefing iniziale fino all'uscita dai box, sarai seguito passo dopo passo dai nostri meccanici e istruttori: nessuna esperienza pregressa richiesta, solo la voglia di vivere un'esperienza indimenticabile in totale sicurezza.
+          </p>
+
+          <div class="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="bg-brand-card border border-zinc-800/90 p-4 rounded-lg">
+              <div class="font-racing italic font-bold text-white uppercase text-sm">Assistenza Completa ai Box</div>
+              <p class="text-xs text-zinc-400 mt-1">Setup vettura, regolazione sedile/pedaliera e supporto continuo in pit-lane.</p>
+            </div>
+            <div class="bg-brand-card border border-zinc-800/90 p-4 rounded-lg">
+              <div class="font-racing italic font-bold text-white uppercase text-sm">Regalo Senza Pensieri</div>
+              <p class="text-xs text-zinc-400 mt-1">Il destinatario sceglie la data migliore tra gli eventi in calendario.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERIA IN PISTA -->
+  <section id="galleria" class="py-24 bg-brand-dark border-t border-zinc-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto">
+        <span class="text-brand-red font-racing italic font-extrabold uppercase tracking-widest text-sm">Scatti dal Circuito</span>
+        <h2 class="mt-2 font-racing italic font-black text-3xl sm:text-4xl uppercase text-white">AON RACING in Azione</h2>
+        <div class="logo-stripe w-24 mx-auto mt-3"></div>
+      </div>
+
+      <div class="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="group overflow-hidden rounded-xl border border-zinc-800 bg-brand-card aspect-[4/3]">
+          <img src="assets/pista-1.jpg" alt="Monoposto AON Racing in curva" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
+        </div>
+        <div class="group overflow-hidden rounded-xl border border-zinc-800 bg-brand-card aspect-[4/3]">
+          <img src="assets/box.jpg" alt="Monoposto nei box AON Racing" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
+        </div>
+        <div class="group overflow-hidden rounded-xl border border-zinc-800 bg-brand-card aspect-[4/3]">
+          <img src="assets/pista-2.jpg" alt="Passaggio veloce in rettilineo" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
+        </div>
+        <div class="group overflow-hidden rounded-xl border border-zinc-800 bg-brand-card aspect-[4/3]">
+          <img src="assets/briefing.jpg" alt="Preparazione pilota prima del turno" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
+        </div>
+        <div class="group overflow-hidden rounded-xl border border-zinc-800 bg-brand-card aspect-[4/3]">
+          <img src="assets/paddock.jpg" alt="Monoposto AON Racing nel paddock" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
+        </div>
+        <div class="group overflow-hidden rounded-xl border border-zinc-800 bg-brand-card aspect-[4/3]">
+          <img src="assets/tramonto.jpg" alt="Sessione in pista al tramonto" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTATTI & FOOTER -->
+  <footer id="contatti" class="bg-zinc-950 border-t border-zinc-900 pt-20 pb-12">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
+      <div class="inline-block">
+        <div class="font-racing italic font-black text-3xl tracking-tight text-white leading-none">
+          AON <span class="text-zinc-200">RACING</span>
+        </div>
+        <div class="logo-stripe w-full mt-1"></div>
+      </div>
+
+      <h3 class="mt-8 font-racing italic font-black text-2xl sm:text-3xl uppercase text-white">
+        Hai domande sui pacchetti o sulle date?
+      </h3>
+      <p class="mt-3 text-zinc-400 max-w-xl mx-auto">
+        Scrivici direttamente su WhatsApp o via email: ti rispondiamo subito per aiutarti a scegliere il regalo perfetto.
+      </p>
+
+      <div class="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a id="footer-wa-btn" href="#" target="_blank" rel="noopener" class="w-full sm:w-auto bg-brand-green hover:bg-emerald-600 text-white font-racing italic font-extrabold uppercase px-8 py-4 rounded transition shadow-lg shadow-emerald-950/50">
+          Scrivici su WhatsApp
+        </a>
+        <a id="footer-mail-btn" href="mailto:info@aonracing.net" class="w-full sm:w-auto bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-white font-semibold px-8 py-4 rounded transition">
+          info@aonracing.net
+        </a>
+      </div>
+
+      <div class="mt-16 pt-8 border-t border-zinc-900 text-xs text-zinc-500 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <p>© 2026 AON RACING — Tutti i diritti riservati.</p>
+        <p>Esperienze in pista & Motorsport</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODALE PERSONALIZZAZIONE BUONO REGALO -->
+  <div id="voucher-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/80 backdrop-blur-sm p-4">
+    <div class="bg-brand-card border border-zinc-800 rounded-2xl max-w-lg w-full p-6 sm:p-8 relative shadow-2xl">
+      <button onclick="closeModal()" class="absolute top-4 right-4 text-zinc-400 hover:text-white text-2xl leading-none">&times;</button>
+
+      <span class="text-brand-green font-racing italic font-bold uppercase text-xs tracking-widest">Personalizza il tuo Buono</span>
+      <h3 id="modal-pkg-title" class="font-racing italic font-black text-2xl uppercase text-white mt-1">Pacchetto</h3>
+      <p id="modal-pkg-price" class="text-brand-red font-racing italic font-black text-xl mt-1">199€</p>
+
+      <div class="mt-5 space-y-4">
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-1">Nome di chi riceve il regalo</label>
+          <input id="recipient-name" type="text" placeholder="Es. Marco Rossi" oninput="updateVoucherPreview()" class="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-brand-red" />
+        </div>
+        <div>
+          <label class="block text-xs font-semibold uppercase tracking-wider text-zinc-400 mb-1">Dedica breve (opzionale)</label>
+          <input id="recipient-note" type="text" placeholder="Buon Natale! Preparati a scendere in pista!" oninput="updateVoucherPreview()" class="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-4 py-2.5 text-white focus:outline-none focus:border-brand-red" />
+        </div>
+      </div>
+
+      <!-- ANTEPRIMA VOUCHER STAMPABILE -->
+      <div id="printable-voucher" class="mt-6 bg-zinc-950 border border-zinc-800 rounded-xl p-5 relative overflow-hidden">
+        <div class="flex items-center justify-between border-b border-zinc-800 pb-3">
+          <div>
+            <div class="font-racing italic font-black text-lg text-white leading-none">AON RACING</div>
+            <div class="logo-stripe w-20 mt-1"></div>
+          </div>
+          <span class="text-[10px] font-bold uppercase tracking-widest bg-brand-red text-white px-2.5 py-1 rounded">BUONO REGALO NATALE</span>
+        </div>
+        <div class="mt-4">
+          <div class="text-xs text-zinc-400 uppercase">Valido per:</div>
+          <div id="preview-recipient" class="font-racing italic font-black text-xl text-white mt-0.5">IL FUTURO PILOTA</div>
+          <div id="preview-pkg" class="text-sm font-semibold text-brand-green mt-2">Pacchetto Bronze</div>
+          <p id="preview-note" class="text-xs text-zinc-400 italic mt-2">"Buon Natale! Preparati a scendere in pista!"</p>
+        </div>
+        <div class="mt-4 pt-3 border-t border-zinc-800/80 flex justify-between text-[11px] text-zinc-500">
+          <span>Validità: 12 mesi • Data libera</span>
+          <span>aonracing.net</span>
+        </div>
+      </div>
+
+      <div class="mt-6 flex flex-col sm:flex-row gap-3">
+        <button id="modal-confirm-btn" onclick="confirmOrder()" class="flex-1 bg-brand-green hover:bg-emerald-600 text-white font-racing italic font-extrabold uppercase py-3.5 px-5 rounded-lg text-sm transition">
+          Prenota su WhatsApp
+        </button>
+        <button onclick="window.print()" class="bg-zinc-800 hover:bg-zinc-700 text-white font-semibold py-3.5 px-4 rounded-lg text-xs uppercase tracking-wider transition">
+          Stampa / PDF
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let selectedPkg = null;
+
+    function renderPackages() {
+      const grid = document.getElementById('packages-grid');
+      grid.innerHTML = CONFIG.PACKAGES.map(pkg => `
+        <div class="relative flex flex-col justify-between rounded-2xl p-8 transition ${
+          pkg.featured
+            ? 'bg-zinc-900 border-2 border-brand-red shadow-2xl shadow-red-950/30 lg:-translate-y-2'
+            : 'bg-brand-card border border-zinc-800'
+        }">
+          <div>
+            <span class="inline-block text-[11px] font-racing italic font-extrabold uppercase tracking-widest px-3 py-1 rounded ${
+              pkg.featured ? 'bg-brand-red text-white' : 'bg-zinc-800 text-brand-green'
+            }">${pkg.badge}</span>
+
+            <h3 class="mt-4 font-racing italic font-black text-2xl text-white uppercase leading-snug">${pkg.name}</h3>
+            <div class="mt-2 text-sm font-semibold text-zinc-400">${pkg.laps}</div>
+
+            <div class="mt-6 flex items-baseline gap-2">
+              <span class="font-racing italic font-black text-5xl text-white">${pkg.price}</span>
+              <span class="text-xs text-zinc-500 uppercase">IVA incl.</span>
+            </div>
+
+            <ul class="mt-8 space-y-3.5 text-sm text-zinc-300 border-t border-zinc-800 pt-6">
+              ${pkg.features.map(f => `
+                <li class="flex items-start gap-2.5">
+                  <span class="text-brand-green font-bold mt-0.5">✓</span>
+                  <span>${f}</span>
+                </li>
+              `).join('')}
+            </ul>
+          </div>
+
+          <button onclick="openModal('${pkg.id}')" class="mt-8 w-full py-4 px-6 rounded-lg font-racing italic font-extrabold uppercase tracking-wide text-sm transition ${
+            pkg.featured
+              ? 'bg-brand-red hover:bg-red-700 text-white shadow-lg shadow-red-950/50'
+              : 'bg-zinc-800 hover:bg-zinc-700 text-white'
+          }">
+            Personalizza & Richiedi Buono
+          </button>
+        </div>
+      `).join('');
+
+      document.getElementById('footer-wa-btn').href = `https://wa.me/${CONFIG.WHATSAPP_NUMBER}?text=${encodeURIComponent("Ciao Aldo! Vorrei informazioni sui Buoni Regalo di Natale AON RACING.")}`;
+      document.getElementById('footer-mail-btn').href = `mailto:${CONFIG.TEAM_EMAIL}`;
+      document.getElementById('footer-mail-btn').textContent = CONFIG.TEAM_EMAIL;
+    }
+
+    function openModal(pkgId) {
+      selectedPkg = CONFIG.PACKAGES.find(p => p.id === pkgId);
+      if (!selectedPkg) return;
+      document.getElementById('modal-pkg-title').textContent = selectedPkg.name;
+      document.getElementById('modal-pkg-price').textContent = selectedPkg.price;
+      document.getElementById('preview-pkg').textContent = `${selectedPkg.name} (${selectedPkg.price})`;
+      document.getElementById('modal-confirm-btn').textContent = selectedPkg.stripeUrl ? "Paga Online con Carta" : "Richiedi su WhatsApp";
+      updateVoucherPreview();
+      const modal = document.getElementById('voucher-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('voucher-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+
+    function updateVoucherPreview() {
+      const name = document.getElementById('recipient-name').value.trim();
+      const note = document.getElementById('recipient-note').value.trim();
+      document.getElementById('preview-recipient').textContent = name ? name.toUpperCase() : "IL FUTURO PILOTA";
+      document.getElementById('preview-note').textContent = note ? `"${note}"` : '"Buon Natale! Preparati a scendere in pista!"';
+    }
+
+    function confirmOrder() {
+      if (!selectedPkg) return;
+      if (selectedPkg.stripeUrl) {
+        window.open(selectedPkg.stripeUrl, '_blank');
+        return;
+      }
+      const name = document.getElementById('recipient-name').value.trim() || "Da definire";
+      const note = document.getElementById('recipient-note').value.trim();
+      const msg = `Ciao Aldo! Vorrei prenotare un Buono Regalo di Natale AON RACING:\n• Pacchetto: ${selectedPkg.name} (${selectedPkg.price})\n• Intestato a: ${name}${note ? `\n• Dedica: ${note}` : ''}`;
+      window.open(`https://wa.me/${CONFIG.WHATSAPP_NUMBER}?text=${encodeURIComponent(msg)}`, '_blank');
+    }
+
+    renderPackages();
+  </script>
+</body>
+</html>
