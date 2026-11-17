@@ -35,8 +35,6 @@
       background: linear-gradient(90deg, #e10600 0%, #e10600 50%, #00a859 50%, #00a859 100%);
       transform: skewX(-18deg);
     }
-    .racing-skew { transform: skewX(-12deg); }
-    .racing-unskew { transform: skewX(12deg); }
     @media print {
       body * { visibility: hidden; }
       #printable-voucher, #printable-voucher * { visibility: visible; }
@@ -60,7 +58,6 @@
     const CONFIG = {
       WHATSAPP_NUMBER: "393330000000", // Inserisci il numero WhatsApp di Aldo con 39 davanti
       TEAM_EMAIL: "info@aonracing.net",
-      INSTAGRAM_URL: "https://www.instagram.com/",
       PACKAGES: [
         {
           id: "bronze",
@@ -69,7 +66,7 @@
           laps: "3 Giri in Monoposto Formula",
           price: "199€",
           featured: false,
-          stripeUrl: "", // Lascia vuoto per inviare richiesta su WhatsApp
+          stripeUrl: "", // Lascia vuoto per ricevere prenotazioni su WhatsApp
           features: [
             "Briefing tecnico e sicurezza in pista con il team",
             "Fornitura completa attrezzatura ignifuga (casco, tuta, guanti)",
@@ -136,7 +133,7 @@
 
   <!-- HERO CON VIDEO ON-BOARD -->
   <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-    <video autoplay loop muted playsinline poster="assets/IMG_20261105_002721.jpg" class="absolute inset-0 w-full h-full object-cover scale-105">
+    <video autoplay loop muted playsinline poster="assets/pista-1.jpg" class="absolute inset-0 w-full h-full object-cover scale-105">
       <source src="assets/hero-bg.mp4" type="video/mp4" />
     </video>
     <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/70 to-brand-dark/50"></div>
@@ -198,9 +195,7 @@
         </p>
       </div>
 
-      <div id="packages-grid" class="mt-16 grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch">
-        <!-- Popolato dinamicamente da CONFIG.PACKAGES -->
-      </div>
+      <div id="packages-grid" class="mt-16 grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch"></div>
     </div>
   </section>
 
@@ -210,7 +205,7 @@
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div class="relative">
           <div class="absolute -inset-2 bg-gradient-to-tr from-brand-red/30 to-brand-green/30 rounded-xl blur-lg"></div>
-          <img src="assets/IMG-20260620-WA0023.jpg" alt="Il team AON RACING schierato dietro la monoposto" class="relative rounded-xl border border-zinc-800 w-full object-cover shadow-2xl" loading="lazy" />
+          <img src="assets/team.jpg" alt="Il team AON RACING schierato dietro la monoposto" class="relative rounded-xl border border-zinc-800 w-full object-cover shadow-2xl" loading="lazy" />
         </div>
 
         <div>
@@ -253,22 +248,22 @@
 
       <div class="mt-14 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <div class="group overflow-hidden rounded-xl border border-zinc-800 bg-brand-card aspect-[4/3]">
-          <img src="assets/IMG_20261105_002721.jpg" alt="Monoposto AON Racing in curva" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
+          <img src="assets/pista-1.jpg" alt="Monoposto AON Racing in curva" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
         </div>
         <div class="group overflow-hidden rounded-xl border border-zinc-800 bg-brand-card aspect-[4/3]">
-          <img src="assets/1000303031.jpeg" alt="Monoposto nei box AON Racing" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
+          <img src="assets/box.jpg" alt="Monoposto nei box AON Racing" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
         </div>
         <div class="group overflow-hidden rounded-xl border border-zinc-800 bg-brand-card aspect-[4/3]">
-          <img src="assets/IMG-20261109-WA0010.jpg" alt="Passaggio veloce in rettilineo" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
+          <img src="assets/pista-2.jpg" alt="Passaggio veloce in rettilineo" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
         </div>
         <div class="group overflow-hidden rounded-xl border border-zinc-800 bg-brand-card aspect-[4/3]">
-          <img src="assets/IMG_20260528_093331_870.jpg" alt="Preparazione pilota prima del turno" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
+          <img src="assets/briefing.jpg" alt="Preparazione pilota prima del turno" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
         </div>
         <div class="group overflow-hidden rounded-xl border border-zinc-800 bg-brand-card aspect-[4/3]">
-          <img src="assets/DSC_0504_1.JPG" alt="Monoposto AON Racing nel paddock" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
+          <img src="assets/paddock.jpg" alt="Monoposto AON Racing nel paddock" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
         </div>
         <div class="group overflow-hidden rounded-xl border border-zinc-800 bg-brand-card aspect-[4/3]">
-          <img src="assets/IMG-20261102-WA0066.jpg" alt="Sessione in pista al tramonto" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
+          <img src="assets/tramonto.jpg" alt="Sessione in pista al tramonto" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" loading="lazy" />
         </div>
       </div>
     </div>
