@@ -1,6 +1,7 @@
 {
   "whatsapp": "393772548557",
   "email": "info@aonracing.net",
+  "companyInfo": "AON RACING • P.IVA / Dati societari da inserire nel pannello Admin",
   "heroBadge": "Speciale Natale 2026 • Buoni Regalo Pista",
   "heroTitleLine1": "Metti un vero volante",
   "heroTitleHighlight": "sotto l'albero",
@@ -29,15 +30,25 @@
       "desc": "Indossa tuta e casco ignifughi forniti dal team, segui il briefing ai box e lanciati tra i cordoli al volante."
     }
   ],
-  "aboutTitle": "Non un semplice noleggio, ma una vera scuderia al tuo fianco",
-  "aboutText1": "AON RACING nasce dalla passione per le competizioni su pista e dal desiderio di far provare anche agli appassionati e agli amatori le sensazioni autentiche di una vera monoposto da corsa.",
-  "aboutText2": "Dal briefing iniziale fino all'uscita dai box, sarai seguito passo dopo passo dai nostri meccanici e istruttori: nessuna esperienza pregressa richiesta, solo la voglia di vivere un'esperienza indimenticabile in totale sicurezza.",
-  "teamImage": "assets/team.jpg",
-  "carSpecs": [
-    { "label": "Telaio & Aerodinamica", "value": "Monoposto Formula tubolare con ali regolabili" },
-    { "label": "Peso a Vuoto", "value": "~390 kg — Rapporto peso/potenza estremo" },
-    { "label": "Trasmissione", "value": "Cambio sequenziale da competizione" },
-    { "label": "Pneumatici & Freni", "value": "Slick da gara Hoosier / Hankook • Freni a disco" }
+  "circuits": [
+    {
+      "name": "Autodromo dell'Umbria — Magione (PG)",
+      "length": "2.507 m • 11 Curve",
+      "nextDate": "Primavera 2027 — Date in definizione",
+      "status": "Disponibile"
+    },
+    {
+      "name": "Autodromo di Modena — Marzaglia (MO)",
+      "length": "2.007 m • 11 Curve",
+      "nextDate": "Primavera 2027 — Date in definizione",
+      "status": "Disponibile"
+    },
+    {
+      "name": "Autodromo Riccardo Paletti — Varano (PR)",
+      "length": "2.350 m • 14 Curve",
+      "nextDate": "Stagione 2027 — Su prenotazione",
+      "status": "Su richiesta"
+    }
   ],
   "packages": [
     {
@@ -86,6 +97,36 @@
       ]
     }
   ],
+  "aboutTitle": "Non un semplice noleggio, ma una vera scuderia al tuo fianco",
+  "aboutText1": "AON RACING nasce dalla passione per le competizioni su pista e dal desiderio di far provare anche agli appassionati e agli amatori le sensazioni autentiche di una vera monoposto da corsa.",
+  "aboutText2": "Dal briefing iniziale fino all'uscita dai box, sarai seguito passo dopo passo dai nostri meccanici e istruttori: nessuna esperienza pregressa richiesta, solo la voglia di vivere un'esperienza indimenticabile in totale sicurezza.",
+  "teamImage": "assets/team.jpg",
+  "carSpecs": [
+    { "label": "Telaio & Aerodinamica", "value": "Monoposto Formula tubolare con ali regolabili" },
+    { "label": "Peso a Vuoto", "value": "~390 kg — Rapporto peso/potenza estremo" },
+    { "label": "Trasmissione", "value": "Cambio sequenziale da competizione" },
+    { "label": "Pneumatici & Freni", "value": "Slick da gara Hoosier / Hankook • Freni a disco" }
+  ],
+  "reviews": [
+    {
+      "author": "Marco R.",
+      "package": "Pacchetto Silver — 5 Giri",
+      "text": "Regalo di compleanno pazzesco. Non avevo mai guidato una monoposto ma Aldo e i ragazzi ai box mi hanno messo subito a mio agio. Sensazioni imparagonabili a qualsiasi auto stradale!"
+    },
+    {
+      "author": "Lorenzo V.",
+      "package": "Pacchetto Gold — 10 Giri",
+      "text": "Organizzazione da vero team da corsa. L'analisi della telemetria tra il primo e il secondo turno mi ha fatto togliere secondi preziosi e godermi ogni staccata."
+    },
+    {
+      "author": "Chiara M.",
+      "package": "Buono Regalo Natale",
+      "text": "L'ho regalato al mio compagno per Natale: già solo aprire la busta con il voucher personalizzato è stato un successo, e in pista si è divertito come un bambino."
+    }
+  ],
+  "sponsorTitle": "Diventa Partner AON RACING o organizza un Evento Aziendale",
+  "sponsorText": "Offriamo spazi di visibilità su livrea monoposto, abbigliamento tecnico team e hospitality paddock durante le tappe in circuito, oltre a giornate incentive e team building su misura per aziende e clienti VIP.",
+  "mediaKitUrl": "",
   "gallery": [
     { "image": "assets/pista-1.jpg", "caption": "Monoposto AON Racing in curva" },
     { "image": "assets/box.jpg", "caption": "Monoposto nei box AON Racing" },

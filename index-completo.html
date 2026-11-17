@@ -3,8 +3,22 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AON RACING | Esperienze in Pista & Buoni Regalo Natale</title>
-  <meta name="description" content="Regala l'adrenalina della vera guida su monoposto Formula in pista. Scopri i pacchetti regalo di Natale AON RACING." />
+  <title>AON RACING | Esperienze in Pista su Monoposto & Buoni Regalo Natale</title>
+  <meta name="description" content="Regala l'adrenalina della vera guida su monoposto Formula in pista. Scopri i pacchetti regalo di Natale AON RACING con assistenza completa ai box." />
+  <meta name="theme-color" content="#09090b" />
+
+  <!-- FAVICON SVG PERSONALIZZATA AON RACING -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2309090b'/%3E%3Ctext x='50%25' y='44%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-family='Arial Black, sans-serif' font-style='italic' font-weight='900' font-size='22'%3EAON%3C/text%3E%3Cpolygon points='10,48 32,48 30,54 8,54' fill='%23e10600'/%3E%3Cpolygon points='32,48 56,48 54,54 30,54' fill='%2300a859'/%3E%3C/svg%3E" />
+
+  <!-- OPEN GRAPH / ANTEPRIMA WHATSAPP, INSTAGRAM & FACEBOOK -->
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="AON RACING" />
+  <meta property="og:title" content="AON RACING | Metti un vero volante sotto l'albero" />
+  <meta property="og:description" content="Regala o vivi l'emozione di guidare una vera monoposto Formula in circuito con il team AON RACING. Buoni Regalo validi 12 mesi." />
+  <meta property="og:url" content="https://aonracing.net/" />
+  <meta property="og:image" content="https://aonracing.net/assets/pista-1.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -61,11 +75,13 @@
         <div class="logo-stripe w-full mt-1"></div>
       </a>
 
-      <nav class="hidden md:flex items-center gap-7 text-xs lg:text-sm font-semibold uppercase tracking-wider text-zinc-300">
+      <nav class="hidden lg:flex items-center gap-6 text-xs font-semibold uppercase tracking-wider text-zinc-300">
         <a href="#come-funziona" class="hover:text-white transition">Come Funziona</a>
         <a href="#pacchetti" class="hover:text-white transition">Pacchetti Natale</a>
+        <a href="#circuiti" class="hover:text-white transition">Circuiti</a>
         <a href="#chi-siamo" class="hover:text-white transition">Il Team</a>
         <a href="#galleria" class="hover:text-white transition">In Pista</a>
+        <a href="#sponsor" class="hover:text-white transition">Sponsor</a>
         <a href="#faq" class="hover:text-white transition">FAQ</a>
       </nav>
 
@@ -103,8 +119,8 @@
         <a href="#pacchetti" class="w-full sm:w-auto bg-brand-red hover:bg-red-700 text-white font-racing italic font-extrabold uppercase tracking-wide px-8 py-4 rounded text-base transition shadow-xl shadow-red-950/60">
           Scegli il Pacchetto Natale
         </a>
-        <a href="#come-funziona" class="w-full sm:w-auto bg-zinc-900/90 hover:bg-zinc-800 border border-zinc-700 text-white font-semibold uppercase tracking-wide px-8 py-4 rounded text-sm transition">
-          Come Funziona
+        <a href="#circuiti" class="w-full sm:w-auto bg-zinc-900/90 hover:bg-zinc-800 border border-zinc-700 text-white font-semibold uppercase tracking-wide px-8 py-4 rounded text-sm transition">
+          Scopri i Circuiti
         </a>
       </div>
 
@@ -156,8 +172,24 @@
     </div>
   </section>
 
+  <!-- I CIRCUITI & CALENDARIO -->
+  <section id="circuiti" class="py-20 bg-zinc-950 border-t border-zinc-900">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto">
+        <span class="text-brand-green font-racing italic font-extrabold uppercase tracking-widest text-sm">Dove Scendiamo in Pista</span>
+        <h2 class="mt-2 font-racing italic font-black text-3xl sm:text-4xl uppercase text-white">Circuiti & Calendario 2027</h2>
+        <div class="logo-stripe w-24 mx-auto mt-3"></div>
+        <p class="mt-3 text-sm text-zinc-400">
+          I buoni regalo hanno data aperta: il destinatario potrà prenotare la giornata che preferisce tra le tappe ufficiali in calendario.
+        </p>
+      </div>
+
+      <div id="circuits-grid" class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6"></div>
+    </div>
+  </section>
+
   <!-- CHI SIAMO + SCHEDA TECNICA MONOPOSTO -->
-  <section id="chi-siamo" class="py-24 bg-zinc-950 border-t border-zinc-900">
+  <section id="chi-siamo" class="py-24 bg-brand-dark border-t border-zinc-900">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div class="relative">
@@ -187,6 +219,19 @@
     </div>
   </section>
 
+  <!-- RECENSIONI DEI PILOTI -->
+  <section id="recensioni" class="py-20 bg-zinc-950 border-t border-zinc-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-2xl mx-auto">
+        <span class="text-brand-red font-racing italic font-extrabold uppercase tracking-widest text-sm">Dicono di Noi</span>
+        <h2 class="mt-2 font-racing italic font-black text-3xl sm:text-4xl uppercase text-white">Chi è Già Scendendo in Pista</h2>
+        <div class="logo-stripe w-24 mx-auto mt-3"></div>
+      </div>
+
+      <div id="reviews-grid" class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6"></div>
+    </div>
+  </section>
+
   <!-- GALLERIA IN PISTA CON LIGHTBOX -->
   <section id="galleria" class="py-24 bg-brand-dark border-t border-zinc-900">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -201,8 +246,36 @@
     </div>
   </section>
 
+  <!-- AREA SPONSOR & EVENTI AZIENDALI -->
+  <section id="sponsor" class="py-20 bg-zinc-950 border-t border-zinc-900">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6">
+      <div class="bg-gradient-to-br from-brand-card via-zinc-900 to-brand-card border border-zinc-800 rounded-2xl p-8 sm:p-12 relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-64 h-64 bg-brand-red/10 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="relative z-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
+          <div class="max-w-2xl">
+            <span class="text-brand-green font-racing italic font-extrabold uppercase tracking-widest text-xs">Partnership B2B & Team Building</span>
+            <h2 id="sponsor-title" class="mt-2 font-racing italic font-black text-2xl sm:text-3xl uppercase text-white leading-tight">
+              Diventa Partner AON RACING o organizza un Evento Aziendale
+            </h2>
+            <div class="logo-stripe w-20 mt-3"></div>
+            <p id="sponsor-text" class="mt-4 text-sm sm:text-base text-zinc-300 leading-relaxed"></p>
+          </div>
+
+          <div class="flex flex-col sm:flex-row lg:flex-col gap-3 w-full lg:w-auto shrink-0">
+            <a id="sponsor-wa-btn" href="#" target="_blank" rel="noopener" class="bg-brand-red hover:bg-red-700 text-white font-racing italic font-extrabold uppercase text-xs sm:text-sm px-6 py-4 rounded-lg text-center transition shadow-lg shadow-red-950/50">
+              Richiedi Proposta Sponsor
+            </a>
+            <a id="mediakit-btn" href="#" target="_blank" rel="noopener" class="hidden bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 text-white font-semibold uppercase text-xs px-6 py-3.5 rounded-lg text-center transition">
+              Scarica Media Kit (PDF)
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- FAQ (DOMANDE FREQUENTI) -->
-  <section id="faq" class="py-24 bg-zinc-950 border-t border-zinc-900">
+  <section id="faq" class="py-24 bg-brand-dark border-t border-zinc-900">
     <div class="max-w-3xl mx-auto px-4 sm:px-6">
       <div class="text-center">
         <span class="text-brand-green font-racing italic font-extrabold uppercase tracking-widest text-sm">Tutto quello che c'è da sapere</span>
@@ -215,7 +288,7 @@
   </section>
 
   <!-- CONTATTI & FOOTER -->
-  <footer id="contatti" class="bg-brand-dark border-t border-zinc-900 pt-20 pb-12">
+  <footer id="contatti" class="bg-zinc-950 border-t border-zinc-900 pt-20 pb-12">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
       <div class="inline-block">
         <div class="font-racing italic font-black text-3xl tracking-tight text-white leading-none">
@@ -241,8 +314,11 @@
       </div>
 
       <div class="mt-16 pt-8 border-t border-zinc-900 text-xs text-zinc-500 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <p>© 2026 AON RACING — Tutti i diritti riservati.</p>
-        <a href="admin/" class="hover:text-zinc-300 transition">Area Riservata Team</a>
+        <p id="footer-company">© 2026 AON RACING — Tutti i diritti riservati.</p>
+        <div class="flex items-center gap-5">
+          <button type="button" onclick="openPrivacyModal()" class="hover:text-zinc-300 transition">Privacy & Cookie Policy</button>
+          <a href="admin/" class="hover:text-zinc-300 transition">Area Riservata Team</a>
+        </div>
       </div>
     </div>
   </footer>
@@ -252,6 +328,21 @@
     <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24"><path d="M12.031 6.172c-3.181 0-5.767 2.586-5.768 5.766-.001 1.298.38 2.27 1.019 3.287l-.582 2.128 2.182-.573c.978.58 1.911.928 3.145.929 3.178 0 5.767-2.587 5.768-5.766.001-3.187-2.575-5.77-5.764-5.771zm3.392 8.244c-.144.405-.837.774-1.17.824-.299.045-.677.063-1.092-.069-.252-.08-.575-.187-.988-.365-1.739-.751-2.874-2.502-2.961-2.617-.087-.116-.708-.94-.708-1.793s.448-1.273.607-1.446c.159-.173.346-.217.462-.217l.332.006c.106.005.249-.04.39.298.144.347.491 1.2.534 1.287.043.087.072.188.014.304-.058.116-.087.188-.173.289l-.26.304c-.087.086-.177.18-.076.354.101.174.449.741.964 1.201.662.591 1.221.774 1.394.86s.274.072.376-.043c.101-.116.433-.506.549-.68.116-.173.231-.145.39-.087s1.011.477 1.184.564.289.13.332.202c.045.072.045.419-.1.824z"/></svg>
     <span class="hidden sm:inline">Info WhatsApp</span>
   </a>
+
+  <!-- MODALE PRIVACY & COOKIE POLICY -->
+  <div id="privacy-modal" onclick="if(event.target.id==='privacy-modal') closePrivacyModal()" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/85 backdrop-blur-sm p-4">
+    <div class="bg-brand-card border border-zinc-800 rounded-2xl max-w-2xl w-full max-h-[85vh] overflow-y-auto p-6 sm:p-8 relative shadow-2xl">
+      <button onclick="closePrivacyModal()" class="absolute top-4 right-4 text-zinc-400 hover:text-white text-2xl leading-none">&times;</button>
+      <span class="text-brand-green font-racing italic font-bold uppercase text-xs tracking-widest">Informativa Legale</span>
+      <h3 class="font-racing italic font-black text-2xl uppercase text-white mt-1">Privacy & Cookie Policy</h3>
+      <div class="mt-4 space-y-3 text-xs sm:text-sm text-zinc-300 leading-relaxed">
+        <p><strong class="text-white">Titolare del Trattamento:</strong> <span id="privacy-company">AON RACING</span> — Contatto: <span id="privacy-email">info@aonracing.net</span>.</p>
+        <p><strong class="text-white">Tipologia di dati trattati:</strong> Questo sito non utilizza cookie di profilazione di terze parti né salva direttamente dati personali o carte di credito sui propri server. L'eventuale compilazione del modulo di personalizzazione del Buono Regalo avviene esclusivamente in locale nel browser dell'utente per generare l'anteprima stampabile o il messaggio di richiesta verso WhatsApp.</p>
+        <p><strong class="text-white">Pagamenti esterni (Stripe):</strong> Qualora l'utente scelga di procedere al pagamento online tramite link esterno, la transazione è gestita interamente dalla piattaforma certificata Stripe Payments Europe Ltd secondo i relativi standard di sicurezza PCI-DSS.</p>
+        <p><strong class="text-white">Diritti dell'interessato:</strong> Ai sensi del Regolamento (UE) 2016/679 (GDPR), l'utente può richiedere in qualsiasi momento l'accesso, la rettifica o la cancellazione dei propri dati inviando una comunicazione all'indirizzo email sopra indicato.</p>
+      </div>
+    </div>
+  </div>
 
   <!-- LIGHTBOX FOTO SCHERMO INTERO -->
   <div id="lightbox-modal" onclick="closeLightbox(event)" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/95 backdrop-blur-md p-4">
@@ -340,13 +431,31 @@
       document.getElementById('hero-video-src').src = SITE_DATA.heroVideo;
       video.load();
 
-      // Steps (Come Funziona)
+      // Steps
       if (SITE_DATA.steps) {
         document.getElementById('steps-grid').innerHTML = SITE_DATA.steps.map(s => `
           <div class="bg-brand-card border border-zinc-800/90 rounded-2xl p-6 relative overflow-hidden">
             <div class="font-racing italic font-black text-4xl text-zinc-800 select-none">${s.num}</div>
             <h3 class="mt-3 font-racing italic font-extrabold text-lg uppercase text-white">${s.title}</h3>
             <p class="mt-2 text-sm text-zinc-400 leading-relaxed">${s.desc}</p>
+          </div>
+        `).join('');
+      }
+
+      // Circuiti
+      if (SITE_DATA.circuits) {
+        document.getElementById('circuits-grid').innerHTML = SITE_DATA.circuits.map(c => `
+          <div class="bg-brand-card border border-zinc-800 rounded-2xl p-6 flex flex-col justify-between">
+            <div>
+              <span class="inline-block text-[10px] font-racing italic font-extrabold uppercase tracking-widest px-2.5 py-1 rounded bg-zinc-800 text-brand-green">
+                ${c.status}
+              </span>
+              <h3 class="mt-4 font-racing italic font-black text-lg uppercase text-white leading-snug">${c.name}</h3>
+              <p class="mt-2 text-xs text-zinc-400 font-medium">${c.length}</p>
+            </div>
+            <div class="mt-5 pt-4 border-t border-zinc-800/80 text-xs text-zinc-300 font-semibold">
+              📅 ${c.nextDate}
+            </div>
           </div>
         `).join('');
       }
@@ -407,6 +516,32 @@
         </div>
       `).join('');
 
+      // Recensioni
+      if (SITE_DATA.reviews) {
+        document.getElementById('reviews-grid').innerHTML = SITE_DATA.reviews.map(r => `
+          <div class="bg-brand-card border border-zinc-800 rounded-2xl p-6 flex flex-col justify-between">
+            <div>
+              <div class="text-amber-400 text-sm tracking-widest mb-3">★★★★★</div>
+              <p class="text-sm text-zinc-300 italic leading-relaxed">"${r.text}"</p>
+            </div>
+            <div class="mt-6 pt-4 border-t border-zinc-800/80">
+              <div class="font-racing italic font-bold text-sm text-white uppercase">${r.author}</div>
+              <div class="text-xs text-brand-green mt-0.5">${r.package}</div>
+            </div>
+          </div>
+        `).join('');
+      }
+
+      // Sponsor & Media Kit
+      if (SITE_DATA.sponsorTitle) document.getElementById('sponsor-title').textContent = SITE_DATA.sponsorTitle;
+      if (SITE_DATA.sponsorText) document.getElementById('sponsor-text').textContent = SITE_DATA.sponsorText;
+      document.getElementById('sponsor-wa-btn').href = `https://wa.me/${SITE_DATA.whatsapp}?text=${encodeURIComponent("Ciao Aldo! Vorrei informazioni sulle partnership Sponsor o su un Evento Aziendale con AON RACING.")}`;
+      if (SITE_DATA.mediaKitUrl) {
+        const mkBtn = document.getElementById('mediakit-btn');
+        mkBtn.href = SITE_DATA.mediaKitUrl;
+        mkBtn.classList.remove('hidden');
+      }
+
       // Galleria con Lightbox
       const galleryGrid = document.getElementById('gallery-grid');
       galleryGrid.innerHTML = SITE_DATA.gallery.map((item, idx) => `
@@ -431,11 +566,29 @@
         `).join('');
       }
 
+      // Contatti & Legal
       const waHref = `https://wa.me/${SITE_DATA.whatsapp}?text=${encodeURIComponent("Ciao Aldo! Vorrei informazioni sui Buoni Regalo di Natale AON RACING.")}`;
       document.getElementById('footer-wa-btn').href = waHref;
       document.getElementById('floating-wa-btn').href = waHref;
       document.getElementById('footer-mail-btn').href = `mailto:${SITE_DATA.email}`;
       document.getElementById('footer-mail-btn').textContent = SITE_DATA.email;
+      if (SITE_DATA.companyInfo) {
+        document.getElementById('footer-company').textContent = `© 2026 ${SITE_DATA.companyInfo}`;
+        document.getElementById('privacy-company').textContent = SITE_DATA.companyInfo;
+      }
+      document.getElementById('privacy-email').textContent = SITE_DATA.email;
+    }
+
+    // Privacy Modal
+    function openPrivacyModal() {
+      const m = document.getElementById('privacy-modal');
+      m.classList.remove('hidden');
+      m.classList.add('flex');
+    }
+    function closePrivacyModal() {
+      const m = document.getElementById('privacy-modal');
+      m.classList.add('hidden');
+      m.classList.remove('flex');
     }
 
     // Lightbox Gallery
