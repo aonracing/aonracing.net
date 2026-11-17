@@ -3,47 +3,130 @@ backend:
   repo: aonracing/aonracing.net
   branch: main
 
+# Permette di caricare nuovi file in assets/ e di sfogliare sia assets/ che archivio_extra/
 media_folder: "assets"
 public_folder: "assets"
 
 collections:
-  - name: "contenuti"
+  - name: "gestione_sito"
     label: "Gestione Sito AON Racing"
     files:
-      - name: "site"
-        label: "Testi, Pacchetti, Prezzi e Foto"
+      - name: "contatti_testi"
+        label: "1. Contatti, Titoli e Chi Siamo"
         file: "data/site.json"
         fields:
-          - { label: "Numero WhatsApp (con 39 davanti, senza +)", name: "whatsapp", widget: "string" }
+          - label: "Dati di Contatto"
+            name: "contatti_group"
+            widget: "object"
+            summary: "{{fields.whatsapp}}"
+            fields: []
+          - { label: "Numero WhatsApp (con 39 davanti, es. 393772548557)", name: "whatsapp", widget: "string" }
           - { label: "Email di contatto", name: "email", widget: "string" }
           - { label: "Etichetta in alto (Hero)", name: "heroBadge", widget: "string" }
           - { label: "Titolo Principale - Riga 1", name: "heroTitleLine1", widget: "string" }
           - { label: "Titolo Principale - Riga Colorata", name: "heroTitleHighlight", widget: "string" }
           - { label: "Sottotitolo Principale", name: "heroSubtitle", widget: "text" }
-          - { label: "Video Sfondo Hero (.mp4)", name: "heroVideo", widget: "file" }
-          - { label: "Immagine Anteprima Video", name: "heroPoster", widget: "image" }
           - { label: "Titolo Sezione Chi Siamo", name: "aboutTitle", widget: "string" }
-          - { label: "Testo Chi Siamo (Paragrafo 1)", name: "aboutText1", widget: "text" }
-          - { label: "Testo Chi Siamo (Paragrafo 2)", name: "aboutText2", widget: "text" }
-          - { label: "Foto del Team", name: "teamImage", widget: "image" }
-          - label: "Pacchetti Regalo & Prezzi"
+          - { label: "Descrizione Team (Paragrafo 1)", name: "aboutText1", widget: "text" }
+          - { label: "Descrizione Team (Paragrafo 2)", name: "aboutText2", widget: "text" }
+          - { label: "Pacchetti (non toccare qui, usa la scheda 2)", name: "packages", widget: "hidden" }
+          - { label: "Galleria (non toccare qui, usa la scheda 3)", name: "gallery", widget: "hidden" }
+          - { label: "Video Hero (non toccare qui, usa la scheda 4)", name: "heroVideo", widget: "hidden" }
+          - { label: "Poster Hero (non toccare qui, usa la scheda 4)", name: "heroPoster", widget: "hidden" }
+          - { label: "Foto Team (non toccare qui, usa la scheda 4)", name: "teamImage", widget: "hidden" }
+
+      - name: "pacchetti_prezzi"
+        label: "2. Pacchetti Regalo e Prezzi"
+        file: "data/site.json"
+        fields:
+          - label: "Elenco Pacchetti"
             name: "packages"
+            label_singular: "Pacchetto"
             widget: "list"
+            summary: "{{fields.name}} — {{fields.price}}"
             fields:
-              - { label: "ID interno (es. bronze, silver, gold)", name: "id", widget: "string" }
-              - { label: "Etichetta superiore (es. PIÙ REGALATO)", name: "badge", widget: "string" }
-              - { label: "Nome Pacchetto", name: "name", widget: "string" }
-              - { label: "Sottotitolo Giri/Durata", name: "laps", widget: "string" }
+              - { label: "Codice interno (es. bronze, silver, gold)", name: "id", widget: "string" }
+              - { label: "Etichetta in alto (es. PIÙ REGALATO)", name: "badge", widget: "string" }
+              - { label: "Titolo Pacchetto", name: "name", widget: "string" }
+              - { label: "Giri / Durata", name: "laps", widget: "string" }
               - { label: "Prezzo (es. 199€)", name: "price", widget: "string" }
-              - { label: "Evidenziato in Rosso?", name: "featured", widget: "boolean", default: false }
+              - { label: "Metti in evidenza con bordo rosso?", name: "featured", widget: "boolean", default: false }
               - { label: "Link Pagamento Stripe (lascia vuoto per WhatsApp)", name: "stripeUrl", widget: "string", required: false }
               - label: "Cosa include (punti elenco)"
                 name: "features"
+                label_singular: "Voce"
                 widget: "list"
-                field: { label: "Voce", name: "item", widget: "string" }
-          - label: "Galleria Foto in Pista"
+                field: { label: "Descrizione", name: "item", widget: "string" }
+          - { label: "whatsapp", name: "whatsapp", widget: "hidden" }
+          - { label: "email", name: "email", widget: "hidden" }
+          - { label: "heroBadge", name: "heroBadge", widget: "hidden" }
+          - { label: "heroTitleLine1", name: "heroTitleLine1", widget: "hidden" }
+          - { label: "heroTitleHighlight", name: "heroTitleHighlight", widget: "hidden" }
+          - { label: "heroSubtitle", name: "heroSubtitle", widget: "hidden" }
+          - { label: "aboutTitle", name: "aboutTitle", widget: "hidden" }
+          - { label: "aboutText1", name: "aboutText1", widget: "hidden" }
+          - { label: "aboutText2", name: "aboutText2", widget: "hidden" }
+          - { label: "gallery", name: "gallery", widget: "hidden" }
+          - { label: "heroVideo", name: "heroVideo", widget: "hidden" }
+          - { label: "heroPoster", name: "heroPoster", widget: "hidden" }
+          - { label: "teamImage", name: "teamImage", widget: "hidden" }
+
+      - name: "galleria_foto"
+        label: "3. Galleria Foto in Pista"
+        file: "data/site.json"
+        fields:
+          - label: "Foto nella Galleria (puoi aggiungerle, toglierle o spostarle)"
             name: "gallery"
+            label_singular: "Foto"
             widget: "list"
+            summary: "{{fields.caption}} ({{fields.image}})"
             fields:
-              - { label: "Foto", name: "image", widget: "image" }
+              - label: "Seleziona o carica foto (puoi pescare anche da archivio_extra)"
+                name: "image"
+                widget: "image"
+                choose_url: true
+                media_library:
+                  config:
+                    multiple: false
               - { label: "Descrizione foto", name: "caption", widget: "string" }
+          - { label: "whatsapp", name: "whatsapp", widget: "hidden" }
+          - { label: "email", name: "email", widget: "hidden" }
+          - { label: "heroBadge", name: "heroBadge", widget: "hidden" }
+          - { label: "heroTitleLine1", name: "heroTitleLine1", widget: "hidden" }
+          - { label: "heroTitleHighlight", name: "heroTitleHighlight", widget: "hidden" }
+          - { label: "heroSubtitle", name: "heroSubtitle", widget: "hidden" }
+          - { label: "aboutTitle", name: "aboutTitle", widget: "hidden" }
+          - { label: "aboutText1", name: "aboutText1", widget: "hidden" }
+          - { label: "aboutText2", name: "aboutText2", widget: "hidden" }
+          - { label: "packages", name: "packages", widget: "hidden" }
+          - { label: "heroVideo", name: "heroVideo", widget: "hidden" }
+          - { label: "heroPoster", name: "heroPoster", widget: "hidden" }
+          - { label: "teamImage", name: "teamImage", widget: "hidden" }
+
+      - name: "video_sfondi"
+        label: "4. Video Sfondo e Foto Team"
+        file: "data/site.json"
+        fields:
+          - { label: "Video Sfondo Principale (.mp4)", name: "heroVideo", widget: "file", choose_url: true }
+          - { label: "Foto Anteprima Video (mentre carica)", name: "heroPoster", widget: "image", choose_url: true }
+          - { label: "Foto del Team (Sezione Chi Siamo)", name: "teamImage", widget: "image", choose_url: true }
+          - { label: "whatsapp", name: "whatsapp", widget: "hidden" }
+          - { label: "email", name: "email", widget: "hidden" }
+          - { label: "heroBadge", name: "heroBadge", widget: "hidden" }
+          - { label: "heroTitleLine1", name: "heroTitleLine1", widget: "hidden" }
+          - { label: "heroTitleHighlight", name: "heroTitleHighlight", widget: "hidden" }
+          - { label: "heroSubtitle", name: "heroSubtitle", widget: "hidden" }
+          - { label: "aboutTitle", name: "aboutTitle", widget: "hidden" }
+          - { label: "aboutText1", name: "aboutText1", widget: "hidden" }
+          - { label: "aboutText2", name: "aboutText2", widget: "hidden" }
+          - { label: "packages", name: "packages", widget: "hidden" }
+          - { label: "gallery", name: "gallery", widget: "hidden" }
+
+  # Scheda dedicata per gestire e caricare file direttamente in archivio_extra
+  - name: "archivio_media"
+    label: "Archivio Extra (Foto & Video)"
+    folder: "archivio_extra"
+    media_folder: "archivio_extra"
+    public_folder: "archivio_extra"
+    create: false
+    files: []
