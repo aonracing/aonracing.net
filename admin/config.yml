@@ -6,6 +6,11 @@ backend:
 media_folder: "assets"
 public_folder: "assets"
 
+media_libraries:
+  default:
+    config:
+      multiple: true
+
 collections:
   - name: "gestione_sito"
     label: "Cosa vuoi modificare?"
@@ -67,8 +72,8 @@ collections:
           - { label: "aboutTitle", name: "aboutTitle", widget: "hidden" }
           - { label: "aboutText1", name: "aboutText1", widget: "hidden" }
           - { label: "aboutText2", name: "aboutText2", widget: "hidden" }
-          - { label: "carSpecs", name: "carSpecs", widget: "hidden" }
-          - { label: "steps", name: "steps", widget: "hidden" }
+          - { label: "Scheda Tecnica PC015H", name: "carSpecs", widget: "list", fields: [{label: "Parametro", name: "label", widget: "string"}, {label: "Valore", name: "value", widget: "string"}] }
+          - { label: "I 4 Passaggi (Come Funziona)", name: "steps", widget: "list", fields: [{label: "Numero", name: "num", widget: "string"}, {label: "Titolo", name: "title", widget: "string"}, {label: "Descrizione", name: "desc", widget: "text"}] }
           - { label: "circuits", name: "circuits", widget: "hidden" }
           - { label: "reviews", name: "reviews", widget: "hidden" }
           - { label: "championshipBadge", name: "championshipBadge", widget: "hidden" }
@@ -100,8 +105,8 @@ collections:
           - { label: "Titolo Chi Siamo", name: "aboutTitle", widget: "string" }
           - { label: "Testo Chi Siamo (Parte 1)", name: "aboutText1", widget: "text" }
           - { label: "Testo Chi Siamo (Parte 2)", name: "aboutText2", widget: "text" }
-          - { label: "carSpecs", name: "carSpecs", widget: "hidden" }
-          - { label: "steps", name: "steps", widget: "hidden" }
+          - { label: "Scheda Tecnica PC015H", name: "carSpecs", widget: "list", fields: [{label: "Parametro", name: "label", widget: "string"}, {label: "Valore", name: "value", widget: "string"}] }
+          - { label: "I 4 Passaggi (Come Funziona)", name: "steps", widget: "list", fields: [{label: "Numero", name: "num", widget: "string"}, {label: "Titolo", name: "title", widget: "string"}, {label: "Descrizione", name: "desc", widget: "text"}] }
           - { label: "circuits", name: "circuits", widget: "hidden" }
           - { label: "packages", name: "packages", widget: "hidden" }
           - { label: "turnPriceList", name: "turnPriceList", widget: "hidden" }
@@ -156,8 +161,8 @@ collections:
           - { label: "aboutTitle", name: "aboutTitle", widget: "hidden" }
           - { label: "aboutText1", name: "aboutText1", widget: "hidden" }
           - { label: "aboutText2", name: "aboutText2", widget: "hidden" }
-          - { label: "carSpecs", name: "carSpecs", widget: "hidden" }
-          - { label: "steps", name: "steps", widget: "hidden" }
+          - { label: "Scheda Tecnica PC015H", name: "carSpecs", widget: "list", fields: [{label: "Parametro", name: "label", widget: "string"}, {label: "Valore", name: "value", widget: "string"}] }
+          - { label: "I 4 Passaggi (Come Funziona)", name: "steps", widget: "list", fields: [{label: "Numero", name: "num", widget: "string"}, {label: "Titolo", name: "title", widget: "string"}, {label: "Descrizione", name: "desc", widget: "text"}] }
           - { label: "circuits", name: "circuits", widget: "hidden" }
           - { label: "packages", name: "packages", widget: "hidden" }
           - { label: "turnPriceList", name: "turnPriceList", widget: "hidden" }
@@ -190,9 +195,9 @@ collections:
             summary: "{{fields.name}} — {{fields.status}}"
             fields:
               - { label: "Nome Circuito", name: "name", widget: "string" }
-              - { label: "shortName", name: "shortName", widget: "hidden" }
+              - { label: "Nome Breve Pulsante", name: "shortName", widget: "string" }
               - { label: "Regione", name: "region", widget: "string" }
-              - { label: "mapPreset", name: "mapPreset", widget: "hidden" }
+              - { label: "Tracciato SVG", name: "mapPreset", widget: "string" }
               - { label: "Lunghezza e Curve", name: "length", widget: "string" }
               - { label: "Prossime Date", name: "nextDate", widget: "string" }
               - { label: "Stato (es. Disponibile / Promo)", name: "status", widget: "string" }
@@ -209,8 +214,8 @@ collections:
           - { label: "aboutTitle", name: "aboutTitle", widget: "hidden" }
           - { label: "aboutText1", name: "aboutText1", widget: "hidden" }
           - { label: "aboutText2", name: "aboutText2", widget: "hidden" }
-          - { label: "carSpecs", name: "carSpecs", widget: "hidden" }
-          - { label: "steps", name: "steps", widget: "hidden" }
+          - { label: "Scheda Tecnica PC015H", name: "carSpecs", widget: "list", fields: [{label: "Parametro", name: "label", widget: "string"}, {label: "Valore", name: "value", widget: "string"}] }
+          - { label: "I 4 Passaggi (Come Funziona)", name: "steps", widget: "list", fields: [{label: "Numero", name: "num", widget: "string"}, {label: "Titolo", name: "title", widget: "string"}, {label: "Descrizione", name: "desc", widget: "text"}] }
           - { label: "packages", name: "packages", widget: "hidden" }
           - { label: "turnPriceList", name: "turnPriceList", widget: "hidden" }
           - { label: "reviews", name: "reviews", widget: "hidden" }
