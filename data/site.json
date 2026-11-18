@@ -40,8 +40,8 @@
       "mapPreset": "castelletto",
       "mapImage": "",
       "length": "1.900 m • 16 Curve",
-      "nextDate": "Stagione 2027 — Date in definizione",
-      "status": "Disponibile"
+      "nextDate": "Promo Natale Attiva — Convocazione anticipata",
+      "status": "Promo Natale 90€ / 180€"
     },
     {
       "name": "Circuito Tazio Nuvolari — Cervesina (PV)",
@@ -85,8 +85,8 @@
       "mapPreset": "rieti",
       "mapImage": "",
       "length": "Tracciato Tecnico • Prova Libera",
-      "nextDate": "Promo Natale — Convocazione anticipata",
-      "status": "Promo Attiva"
+      "nextDate": "Promo Natale Attiva — Convocazione anticipata",
+      "status": "Promo Natale 90€ / 180€"
     },
     {
       "name": "Kartodromo Val Vibrata — Sant'Egidio (TE)",
@@ -103,8 +103,8 @@
       "mapPreset": "volturno",
       "mapImage": "",
       "length": "Tracciato Tecnico • Prova Libera",
-      "nextDate": "Stagione 2027 — Su prenotazione",
-      "status": "Su richiesta"
+      "nextDate": "Promo Natale Attiva — Convocazione anticipata",
+      "status": "Promo Natale 90€ / 180€"
     },
     {
       "name": "Circuito di Airola (BN)",
@@ -127,45 +127,31 @@
   ],
   "packages": [
     {
-      "id": "bronze",
-      "badge": "IDEA REGALO",
-      "name": "Pacchetto Bronze — Battesimo della Pista",
-      "laps": "3 Giri in Monoposto Formula",
-      "price": "199€",
+      "id": "promo-3-giri",
+      "badge": "PROMO NATALE • 3 GIRI",
+      "name": "3 Giri in Pista — Formula Predator PC015",
+      "laps": "Castelletto (LO) • Rieti (LAZ) • Volturno (CAM)",
+      "price": "90€",
       "featured": false,
       "features": [
-        "Briefing tecnico e sicurezza in pista con il team",
-        "Fornitura completa attrezzatura (casco, tuta, guanti)",
-        "3 giri completi al volante della monoposto",
-        "Attestato ufficiale di partecipazione AON RACING"
+        "3 giri completi al volante della monoposto Formula Predator PC015",
+        "Briefing tecnico sulla vettura e sulle basi di guida sicura in pista",
+        "Ingresso pista interamente incluso nel prezzo",
+        "Inserimento in lista prenotazioni con convocazione anticipata"
       ]
     },
     {
-      "id": "silver",
-      "badge": "PIÙ REGALATO A NATALE",
-      "name": "Pacchetto Silver — Adrenalina Pura",
-      "laps": "5 Giri + Telemetria & Video",
-      "price": "299€",
+      "id": "promo-6-giri",
+      "badge": "PIÙ SCELTO A NATALE • 6 GIRI",
+      "name": "6 Giri in Pista — Formula Predator PC015",
+      "laps": "Castelletto (LO) • Rieti (LAZ) • Volturno (CAM)",
+      "price": "180€",
       "featured": true,
       "features": [
-        "Tutto ciò che è incluso nel Pacchetto Bronze",
-        "5 giri completi con analisi delle traiettorie ai box",
-        "Video On-Board HD della sessione incluso",
-        "Buono Regalo digitale personalizzato con nome destinatario"
-      ]
-    },
-    {
-      "id": "gold",
-      "badge": "ESPERIENZA PRO",
-      "name": "Pacchetto Gold — Pilota per un Giorno",
-      "laps": "10 Giri (2 Turni) + Coaching",
-      "price": "499€",
-      "featured": false,
-      "features": [
-        "2 sessioni in pista da 5 giri ciascuna (10 giri totali)",
-        "Debriefing telemetrico 1-a-1 tra il primo e il secondo turno",
-        "Video On-Board HD + set foto professionali ai box",
-        "Pass ospite paddock per 1 accompagnatore"
+        "6 giri completi al volante della monoposto Formula Predator PC015",
+        "Briefing tecnico sulla vettura e sulle basi di guida sicura in pista",
+        "Ingresso pista interamente incluso nel prezzo",
+        "Buono Regalo digitale personalizzato pronto da stampare"
       ]
     }
   ],
@@ -175,20 +161,20 @@
   "teamImage": "assets/team.jpg",
   "carSpecs": [
     {
-      "label": "Telaio & Aerodinamica",
-      "value": "Monoposto Formula tubolare con ali regolabili"
+      "label": "Monoposto",
+      "value": "Formula Predator PC015 a ruote scoperte"
     },
     {
-      "label": "Peso a Vuoto",
-      "value": "~390 kg — Rapporto peso/potenza estremo"
+      "label": "Circuiti Promo Natale",
+      "value": "Castelletto (LO), Rieti (LAZ), Volturno (CAM)"
     },
     {
-      "label": "Trasmissione",
-      "value": "Cambio sequenziale da competizione"
+      "label": "Abbigliamento",
+      "value": "Sufficiente abbigliamento da karting (no omologhe)"
     },
     {
-      "label": "Pneumatici & Freni",
-      "value": "Slick da gara Hoosier / Hankook • Freni a disco"
+      "label": "Conferma Prenotazione",
+      "value": "Bonifico bancario previa verifica età, altezza e peso"
     }
   ],
   "reviews": [
