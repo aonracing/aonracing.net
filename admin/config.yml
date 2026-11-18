@@ -11,11 +11,14 @@ collections:
     label: "Gestione Sito AON Racing"
     files:
       - name: "contatti_testi"
-        label: "1. Contatti, Dati Legali e Titoli"
+        label: "1. Contatti, Social, Dati Legali e Titoli"
         file: "data/site.json"
         fields:
           - { label: "Numero WhatsApp (con 39 davanti, es. 393772548557)", name: "whatsapp", widget: "string" }
           - { label: "Email di contatto", name: "email", widget: "string" }
+          - { label: "Link Instagram", name: "instagram", widget: "string", required: false }
+          - { label: "Link Facebook", name: "facebook", widget: "string", required: false }
+          - { label: "Link TikTok", name: "tiktok", widget: "string", required: false }
           - { label: "Dati Aziendali / P.IVA (mostrati nel footer e nella Privacy)", name: "companyInfo", widget: "string" }
           - { label: "Etichetta in alto (Hero)", name: "heroBadge", widget: "string" }
           - { label: "Titolo Principale - Riga 1", name: "heroTitleLine1", widget: "string" }
@@ -61,7 +64,6 @@ collections:
               - { label: "Giri / Durata", name: "laps", widget: "string" }
               - { label: "Prezzo (es. 199€)", name: "price", widget: "string" }
               - { label: "Metti in evidenza con bordo rosso?", name: "featured", widget: "boolean", default: false }
-              - { label: "Link Pagamento Stripe (lascia vuoto per WhatsApp)", name: "stripeUrl", widget: "string", required: false }
               - label: "Cosa include (punti elenco)"
                 name: "features"
                 label_singular: "Voce"
@@ -69,6 +71,9 @@ collections:
                 field: { label: "Descrizione", name: "item", widget: "string" }
           - { label: "whatsapp", name: "whatsapp", widget: "hidden" }
           - { label: "email", name: "email", widget: "hidden" }
+          - { label: "instagram", name: "instagram", widget: "hidden" }
+          - { label: "facebook", name: "facebook", widget: "hidden" }
+          - { label: "tiktok", name: "tiktok", widget: "hidden" }
           - { label: "companyInfo", name: "companyInfo", widget: "hidden" }
           - { label: "heroBadge", name: "heroBadge", widget: "hidden" }
           - { label: "heroTitleLine1", name: "heroTitleLine1", widget: "hidden" }
@@ -116,6 +121,9 @@ collections:
               - { label: "Stato (es. Disponibile / Posti Limitati)", name: "status", widget: "string" }
           - { label: "whatsapp", name: "whatsapp", widget: "hidden" }
           - { label: "email", name: "email", widget: "hidden" }
+          - { label: "instagram", name: "instagram", widget: "hidden" }
+          - { label: "facebook", name: "facebook", widget: "hidden" }
+          - { label: "tiktok", name: "tiktok", widget: "hidden" }
           - { label: "companyInfo", name: "companyInfo", widget: "hidden" }
           - { label: "heroBadge", name: "heroBadge", widget: "hidden" }
           - { label: "heroTitleLine1", name: "heroTitleLine1", widget: "hidden" }
@@ -154,6 +162,9 @@ collections:
               - { label: "Descrizione foto", name: "caption", widget: "string" }
           - { label: "whatsapp", name: "whatsapp", widget: "hidden" }
           - { label: "email", name: "email", widget: "hidden" }
+          - { label: "instagram", name: "instagram", widget: "hidden" }
+          - { label: "facebook", name: "facebook", widget: "hidden" }
+          - { label: "tiktok", name: "tiktok", widget: "hidden" }
           - { label: "companyInfo", name: "companyInfo", widget: "hidden" }
           - { label: "heroBadge", name: "heroBadge", widget: "hidden" }
           - { label: "heroTitleLine1", name: "heroTitleLine1", widget: "hidden" }
@@ -193,6 +204,9 @@ collections:
           - { label: "File PDF Media Kit Sponsor (opzionale)", name: "mediaKitUrl", widget: "file", required: false }
           - { label: "whatsapp", name: "whatsapp", widget: "hidden" }
           - { label: "email", name: "email", widget: "hidden" }
+          - { label: "instagram", name: "instagram", widget: "hidden" }
+          - { label: "facebook", name: "facebook", widget: "hidden" }
+          - { label: "tiktok", name: "tiktok", widget: "hidden" }
           - { label: "companyInfo", name: "companyInfo", widget: "hidden" }
           - { label: "heroBadge", name: "heroBadge", widget: "hidden" }
           - { label: "heroTitleLine1", name: "heroTitleLine1", widget: "hidden" }
@@ -234,6 +248,9 @@ collections:
               - { label: "Risposta", name: "a", widget: "text" }
           - { label: "whatsapp", name: "whatsapp", widget: "hidden" }
           - { label: "email", name: "email", widget: "hidden" }
+          - { label: "instagram", name: "instagram", widget: "hidden" }
+          - { label: "facebook", name: "facebook", widget: "hidden" }
+          - { label: "tiktok", name: "tiktok", widget: "hidden" }
           - { label: "companyInfo", name: "companyInfo", widget: "hidden" }
           - { label: "heroBadge", name: "heroBadge", widget: "hidden" }
           - { label: "heroTitleLine1", name: "heroTitleLine1", widget: "hidden" }
@@ -263,6 +280,9 @@ collections:
           - { label: "Foto del Team (Sezione Chi Siamo)", name: "teamImage", widget: "image", choose_url: true }
           - { label: "whatsapp", name: "whatsapp", widget: "hidden" }
           - { label: "email", name: "email", widget: "hidden" }
+          - { label: "instagram", name: "instagram", widget: "hidden" }
+          - { label: "facebook", name: "facebook", widget: "hidden" }
+          - { label: "tiktok", name: "tiktok", widget: "hidden" }
           - { label: "companyInfo", name: "companyInfo", widget: "hidden" }
           - { label: "heroBadge", name: "heroBadge", widget: "hidden" }
           - { label: "heroTitleLine1", name: "heroTitleLine1", widget: "hidden" }

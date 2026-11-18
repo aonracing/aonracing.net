@@ -1,23 +1,26 @@
 {
   "whatsapp": "393772548557",
   "email": "info@aonracing.net",
+  "instagram": "https://www.instagram.com/aonracingteam?lqvp=MWp3cWEwd3BjaGg3cQ==",
+  "facebook": "https://www.facebook.com/share/1cKMpGvjxv/",
+  "tiktok": "https://www.tiktok.com/@aonracingteam?_r=1&_t=ZN-9BVKHepgUEQ",
   "companyInfo": "AON RACING • P.IVA / Dati societari da inserire nel pannello Admin",
   "heroBadge": "Speciale Natale 2026 • Buoni Regalo Pista",
-  "heroTitleLine1": "Metti un vero volante",
-  "heroTitleHighlight": "sotto l'albero",
-  "heroSubtitle": "Vivi o regala l'emozione pura di guidare una vera monoposto Formula in circuito, assistito dai meccanici e dagli istruttori del team AON RACING.",
+  "heroTitleLine1": "A NATALE REGALA",
+  "heroTitleHighlight": "UN SOGNO",
+  "heroSubtitle": "Vivi o regala l'emozione pura di guidare una vera monoposto Formula in pista, assistito dal team di AON Racing.",
   "heroVideo": "assets/hero-bg.mp4",
   "heroPoster": "assets/pista-1.jpg",
   "steps": [
     {
       "num": "01",
       "title": "Scegli il Pacchetto",
-      "desc": "Seleziona l'esperienza più adatta tra i pacchetti Natale e personalizza il buono con il nome del destinatario."
+      "desc": "Seleziona l'esperienza più adatta tra i pacchetti Natale e compila i dati del pilota (età, altezza e peso)."
     },
     {
       "num": "02",
-      "title": "Ricevi il Voucher",
-      "desc": "Ottieni subito il Buono Regalo digitale pronto da stampare e mettere in busta sotto l'albero o inviare via WhatsApp."
+      "title": "Invia su WhatsApp o Email",
+      "desc": "Trasmetti la richiesta in un clic ad AON Racing per ricevere conferma e gli estremi per ufficializzare la prenotazione."
     },
     {
       "num": "03",
@@ -27,7 +30,7 @@
     {
       "num": "04",
       "title": "Scendi in Pista",
-      "desc": "Indossa tuta e casco ignifughi forniti dal team, segui il briefing ai box e lanciati tra i cordoli al volante."
+      "desc": "Segui il briefing tecnico ai box con il team AON Racing e lanciati tra i cordoli al volante della monoposto."
     }
   ],
   "circuits": [
@@ -64,10 +67,9 @@
       "laps": "3 Giri in Monoposto Formula",
       "price": "199€",
       "featured": false,
-      "stripeUrl": "",
       "features": [
         "Briefing tecnico e sicurezza in pista con il team",
-        "Fornitura completa attrezzatura ignifuga (casco, tuta, guanti)",
+        "Fornitura completa attrezzatura (casco, tuta, guanti)",
         "3 giri completi al volante della monoposto",
         "Attestato ufficiale di partecipazione AON RACING"
       ]
@@ -79,7 +81,6 @@
       "laps": "5 Giri + Telemetria & Video",
       "price": "299€",
       "featured": true,
-      "stripeUrl": "",
       "features": [
         "Tutto ciò che è incluso nel Pacchetto Bronze",
         "5 giri completi con analisi delle traiettorie ai box",
@@ -94,7 +95,6 @@
       "laps": "10 Giri (2 Turni) + Coaching",
       "price": "499€",
       "featured": false,
-      "stripeUrl": "",
       "features": [
         "2 sessioni in pista da 5 giri ciascuna (10 giri totali)",
         "Debriefing telemetrico 1-a-1 tra il primo e il secondo turno",
@@ -148,11 +148,11 @@
     },
     {
       "q": "Devo portare casco o abbigliamento tecnico?",
-      "a": "No, tutta l'attrezzatura omologata (tuta ignifuga, casco, sottocasco, guanti e scarpe) viene fornita direttamente dal team AON RACING ai box. Ti consigliamo solo di indossare abiti comodi sotto la tuta."
+      "a": "No, tutta l'attrezzatura necessaria viene fornita direttamente dal team AON RACING ai box. Ti consigliamo solo di indossare abiti comodi sotto la tuta."
     },
     {
-      "q": "Ci sono limiti di altezza o peso per entrare nell'abitacolo?",
-      "a": "La monoposto è regolabile su pedaliera e sedile per accogliere piloti fino a circa 1,90 m di altezza e 100 kg di peso. Se hai dubbi specifici scrivici su WhatsApp prima dell'acquisto e verifichiamo insieme."
+      "q": "Perché chiedete età, altezza e peso prima della prenotazione?",
+      "a": "Essendo una vera monoposto Formula con abitacolo avvolgente, verifichiamo in anticipo età, altezza e peso del pilota per garantire comfort, corretta posizione di guida e massima sicurezza."
     },
     {
       "q": "Cosa succede in caso di pioggia o maltempo?",
