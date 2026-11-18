@@ -87,7 +87,6 @@
         <a href="#circuiti" class="hover:text-white transition">Circuiti</a>
         <a href="#chi-siamo" class="hover:text-white transition">Il Team</a>
         <a href="#galleria" class="hover:text-white transition">In Pista</a>
-        <a href="#sponsor" class="hover:text-white transition">Sponsor</a>
         <a href="#faq" class="hover:text-white transition">FAQ</a>
       </nav>
 
@@ -175,6 +174,40 @@
       </div>
 
       <div id="packages-grid" class="mt-16 grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch"></div>
+
+      <!-- LISTINO UFFICIALE TURNI COMPLETI (TUTTE LE PISTE) -->
+      <div id="listino-turni" class="mt-20 bg-brand-card border border-zinc-800 rounded-2xl p-6 sm:p-10 shadow-2xl">
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between gap-4 border-b border-zinc-800 pb-6">
+          <div>
+            <span class="text-brand-green font-racing italic font-extrabold uppercase tracking-widest text-xs">Sessioni Complete • Formula Predator PC015H</span>
+            <h3 class="mt-1 font-racing italic font-black text-2xl sm:text-3xl uppercase text-white">Listino Ufficiale Turni in Pista</h3>
+            <p class="mt-1.5 text-xs sm:text-sm text-zinc-400">
+              Seleziona la pista per visualizzare le tariffe a turno (Nord, Centro e Sud). Ingressi pista inclusi • Acconto alla prenotazione e saldo in pista.
+            </p>
+          </div>
+          <div class="text-xs text-zinc-400 bg-zinc-900 border border-zinc-800 px-3.5 py-2 rounded-lg shrink-0">
+            Requisiti: <strong class="text-white">Maggiorenni • Patente B</strong>
+          </div>
+        </div>
+
+        <!-- Selettore Piste raggruppato per Area -->
+        <div id="turn-circuit-tabs" class="mt-6 flex flex-wrap gap-2"></div>
+
+        <!-- Dettaglio Pista Attiva + Griglia Prezzi Turni -->
+        <div class="mt-8">
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-5">
+            <div>
+              <span id="turn-active-area" class="text-[11px] font-racing italic font-extrabold uppercase tracking-widest text-brand-red">CENTRO</span>
+              <h4 id="turn-active-title" class="font-racing italic font-black text-xl sm:text-2xl uppercase text-white">Val Vibrata (TE)</h4>
+            </div>
+            <span id="turn-active-duration" class="text-xs font-semibold bg-zinc-900 border border-zinc-700 text-brand-green px-3.5 py-1.5 rounded-full">
+              Turni da 20 minuti l'uno
+            </span>
+          </div>
+
+          <div id="turn-tiers-grid" class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3.5"></div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -361,34 +394,6 @@
     </div>
   </section>
 
-  <!-- AREA SPONSOR & EVENTI AZIENDALI -->
-  <section id="sponsor" class="py-20 bg-zinc-950 border-t border-zinc-900">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6">
-      <div class="bg-gradient-to-br from-brand-card via-zinc-900 to-brand-card border border-zinc-800 rounded-2xl p-8 sm:p-12 relative overflow-hidden">
-        <div class="absolute top-0 right-0 w-64 h-64 bg-brand-red/10 rounded-full blur-3xl pointer-events-none"></div>
-        <div class="relative z-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
-          <div class="max-w-2xl">
-            <span class="text-brand-green font-racing italic font-extrabold uppercase tracking-widest text-xs">Partnership B2B & Team Building</span>
-            <h2 id="sponsor-title" class="mt-2 font-racing italic font-black text-2xl sm:text-3xl uppercase text-white leading-tight">
-              Diventa Partner AON RACING o organizza un Evento Aziendale
-            </h2>
-            <div class="logo-stripe w-20 mt-3"></div>
-            <p id="sponsor-text" class="mt-4 text-sm sm:text-base text-zinc-300 leading-relaxed"></p>
-          </div>
-
-          <div class="flex flex-col sm:flex-row lg:flex-col gap-3 w-full lg:w-auto shrink-0">
-            <a id="sponsor-wa-btn" href="#" target="_blank" rel="noopener" class="bg-brand-red hover:bg-red-700 text-white font-racing italic font-extrabold uppercase text-xs sm:text-sm px-6 py-4 rounded-lg text-center transition shadow-lg shadow-red-950/50">
-              Richiedi Proposta Sponsor
-            </a>
-            <a id="mediakit-btn" href="#" target="_blank" rel="noopener" class="hidden bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 text-white font-semibold uppercase text-xs px-6 py-3.5 rounded-lg text-center transition">
-              Scarica Media Kit (PDF)
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <!-- FAQ (DOMANDE FREQUENTI) -->
   <section id="faq" class="py-24 bg-brand-dark border-t border-zinc-900">
     <div class="max-w-3xl mx-auto px-4 sm:px-6">
@@ -497,10 +502,16 @@
         <div>
           <label class="block text-[11px] font-semibold uppercase tracking-wider text-zinc-400 mb-1">Circuito Scelto *</label>
           <select id="pilot-circuit" onchange="updateVoucherPreview()" class="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-3.5 py-2 text-sm text-white focus:outline-none focus:border-brand-red">
-            <option value="Circuito di Castelletto di Branduzzo (Lombardia)">Circuito di Castelletto di Branduzzo (Lombardia)</option>
-            <option value="Circuito di Rieti (Lazio)">Circuito di Rieti (Lazio)</option>
-            <option value="Circuito del Volturno (Campania)">Circuito del Volturno (Campania)</option>
-            <option value="Altro circuito AON Racing">Altro circuito AON Racing (da definire)</option>
+            <option value="Castelletto di Branduzzo (PV)">[NORD] Castelletto di Branduzzo (PV)</option>
+            <option value="Pomposa (FE)">[NORD] Pomposa (FE)</option>
+            <option value="Varano de' Melegari (PR)">[NORD] Varano de' Melegari (PR)</option>
+            <option value="Tazio Nuvolari — Cervesina (PV)">[NORD] Tazio Nuvolari — Cervesina (PV)</option>
+            <option value="Val Vibrata (TE)">[CENTRO] Val Vibrata (TE)</option>
+            <option value="Magione (PG)">[CENTRO] Magione (PG)</option>
+            <option value="Rieti — La Mola (RI)">[CENTRO] Rieti — La Mola (RI)</option>
+            <option value="Limatola — Circuito del Volturno (CE)">[SUD] Limatola — Circuito del Volturno (CE)</option>
+            <option value="Airola (BN)">[SUD] Airola (BN)</option>
+            <option value="Binetto — Autodromo del Levante (BA)">[SUD] Binetto — Autodromo del Levante (BA)</option>
           </select>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
@@ -833,14 +844,78 @@
         `).join('');
       }
 
-      // Sponsor & Media Kit
-      if (SITE_DATA.sponsorTitle) document.getElementById('sponsor-title').textContent = SITE_DATA.sponsorTitle;
-      if (SITE_DATA.sponsorText) document.getElementById('sponsor-text').textContent = SITE_DATA.sponsorText;
-      document.getElementById('sponsor-wa-btn').href = `https://wa.me/${SITE_DATA.whatsapp}?text=${encodeURIComponent("Ciao Aldo! Vorrei informazioni sulle partnership Sponsor o su un Evento Aziendale con AON RACING.")}`;
-      if (SITE_DATA.mediaKitUrl) {
-        const mkBtn = document.getElementById('mediakit-btn');
-        mkBtn.href = SITE_DATA.mediaKitUrl;
-        mkBtn.classList.remove('hidden');
+      // Listino Ufficiale Turni Completi
+      let activeTurnIdx = 0;
+
+      window.selectTurnCircuit = function(idx) {
+        if (!SITE_DATA || !SITE_DATA.turnPriceList || !SITE_DATA.turnPriceList.length) return;
+        activeTurnIdx = idx;
+        const item = SITE_DATA.turnPriceList[idx];
+
+        document.getElementById('turn-active-area').textContent = `AREA ${item.area}`;
+        document.getElementById('turn-active-title').textContent = item.circuit;
+        document.getElementById('turn-active-duration').textContent = item.duration;
+
+        document.querySelectorAll('.turn-tab-btn').forEach((btn, i) => {
+          if (i === idx) {
+            btn.className = 'turn-tab-btn text-xs font-racing italic font-extrabold uppercase px-3.5 py-2 rounded-lg bg-brand-red text-white shadow-md transition';
+          } else {
+            btn.className = 'turn-tab-btn text-xs font-semibold px-3.5 py-2 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-800 transition';
+          }
+        });
+
+        document.getElementById('turn-tiers-grid').innerHTML = item.tiers.map((t, tIdx) => `
+          <div class="bg-zinc-900/95 border ${tIdx === item.tiers.length - 1 ? 'border-brand-green/60' : 'border-zinc-800'} rounded-xl p-4 flex flex-col justify-between text-center hover:border-zinc-600 transition">
+            <div>
+              <div class="text-xs font-racing italic font-extrabold uppercase tracking-wider text-zinc-300">${t.turns}</div>
+              <div class="font-racing italic font-black text-2xl sm:text-3xl text-white mt-2">${t.price}</div>
+              <div class="text-[10px] text-zinc-500 mt-1">Ingresso incluso</div>
+            </div>
+            <button type="button" onclick="openCustomTurnModal(${idx}, ${tIdx})" class="mt-4 w-full bg-zinc-800 hover:bg-brand-red text-white font-racing italic font-bold uppercase text-[11px] py-2 px-2.5 rounded-lg transition">
+              Prenota
+            </button>
+          </div>
+        `).join('');
+      };
+
+      window.openCustomTurnModal = function(circuitIdx, tierIdx) {
+        const item = SITE_DATA.turnPriceList[circuitIdx];
+        const tier = item.tiers[tierIdx];
+        selectedPkg = {
+          id: `turn-${item.id}-${tierIdx}`,
+          name: `${tier.turns} — ${item.circuit}`,
+          laps: `${item.duration} • Formula Predator PC015H`,
+          price: tier.price
+        };
+        document.getElementById('modal-pkg-title').textContent = selectedPkg.name;
+        document.getElementById('modal-pkg-price').textContent = selectedPkg.price;
+
+        const sel = document.getElementById('pilot-circuit');
+        if (sel) {
+          let found = false;
+          for (let opt of sel.options) {
+            if (opt.value === item.circuit) { found = true; break; }
+          }
+          if (!found) {
+            const opt = new Option(item.circuit, item.circuit);
+            sel.add(opt);
+          }
+          sel.value = item.circuit;
+        }
+
+        updateVoucherPreview();
+        const modal = document.getElementById('voucher-modal');
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      };
+
+      if (SITE_DATA.turnPriceList && SITE_DATA.turnPriceList.length) {
+        document.getElementById('turn-circuit-tabs').innerHTML = SITE_DATA.turnPriceList.map((item, idx) => `
+          <button type="button" onclick="selectTurnCircuit(${idx})" class="turn-tab-btn">
+            <span class="opacity-65 mr-1">[${item.area}]</span>${item.circuit.split('—')[0].split('(')[0].trim()}
+          </button>
+        `).join('');
+        selectTurnCircuit(0);
       }
 
       // Galleria con Lightbox

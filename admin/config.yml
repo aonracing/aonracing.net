@@ -39,9 +39,6 @@ collections:
           - { label: "circuits", name: "circuits", widget: "hidden" }
           - { label: "packages", name: "packages", widget: "hidden" }
           - { label: "reviews", name: "reviews", widget: "hidden" }
-          - { label: "sponsorTitle", name: "sponsorTitle", widget: "hidden" }
-          - { label: "sponsorText", name: "sponsorText", widget: "hidden" }
-          - { label: "mediaKitUrl", name: "mediaKitUrl", widget: "hidden" }
           - { label: "gallery", name: "gallery", widget: "hidden" }
           - { label: "faqs", name: "faqs", widget: "hidden" }
           - { label: "heroVideo", name: "heroVideo", widget: "hidden" }
@@ -86,9 +83,6 @@ collections:
           - { label: "steps", name: "steps", widget: "hidden" }
           - { label: "circuits", name: "circuits", widget: "hidden" }
           - { label: "reviews", name: "reviews", widget: "hidden" }
-          - { label: "sponsorTitle", name: "sponsorTitle", widget: "hidden" }
-          - { label: "sponsorText", name: "sponsorText", widget: "hidden" }
-          - { label: "mediaKitUrl", name: "mediaKitUrl", widget: "hidden" }
           - { label: "gallery", name: "gallery", widget: "hidden" }
           - { label: "faqs", name: "faqs", widget: "hidden" }
           - { label: "heroVideo", name: "heroVideo", widget: "hidden" }
@@ -143,9 +137,6 @@ collections:
           - { label: "steps", name: "steps", widget: "hidden" }
           - { label: "packages", name: "packages", widget: "hidden" }
           - { label: "reviews", name: "reviews", widget: "hidden" }
-          - { label: "sponsorTitle", name: "sponsorTitle", widget: "hidden" }
-          - { label: "sponsorText", name: "sponsorText", widget: "hidden" }
-          - { label: "mediaKitUrl", name: "mediaKitUrl", widget: "hidden" }
           - { label: "gallery", name: "gallery", widget: "hidden" }
           - { label: "faqs", name: "faqs", widget: "hidden" }
           - { label: "heroVideo", name: "heroVideo", widget: "hidden" }
@@ -185,16 +176,13 @@ collections:
           - { label: "circuits", name: "circuits", widget: "hidden" }
           - { label: "packages", name: "packages", widget: "hidden" }
           - { label: "reviews", name: "reviews", widget: "hidden" }
-          - { label: "sponsorTitle", name: "sponsorTitle", widget: "hidden" }
-          - { label: "sponsorText", name: "sponsorText", widget: "hidden" }
-          - { label: "mediaKitUrl", name: "mediaKitUrl", widget: "hidden" }
           - { label: "faqs", name: "faqs", widget: "hidden" }
           - { label: "heroVideo", name: "heroVideo", widget: "hidden" }
           - { label: "heroPoster", name: "heroPoster", widget: "hidden" }
           - { label: "teamImage", name: "teamImage", widget: "hidden" }
 
       - name: "recensioni_sponsor"
-        label: "5. Recensioni Piloti & Area Sponsor"
+        label: "5. Recensioni Piloti"
         file: "data/site.json"
         fields:
           - label: "Recensioni dei Piloti"
@@ -206,9 +194,6 @@ collections:
               - { label: "Nome Pilota (es. Marco R.)", name: "author", widget: "string" }
               - { label: "Pacchetto provato", name: "package", widget: "string" }
               - { label: "Testo recensione", name: "text", widget: "text" }
-          - { label: "Titolo Sezione Sponsor & Aziende", name: "sponsorTitle", widget: "string" }
-          - { label: "Descrizione Proposta Sponsor / Eventi", name: "sponsorText", widget: "text" }
-          - { label: "File PDF Media Kit Sponsor (opzionale)", name: "mediaKitUrl", widget: "file", required: false }
           - { label: "whatsapp", name: "whatsapp", widget: "hidden" }
           - { label: "email", name: "email", widget: "hidden" }
           - { label: "instagram", name: "instagram", widget: "hidden" }
@@ -270,9 +255,6 @@ collections:
           - { label: "circuits", name: "circuits", widget: "hidden" }
           - { label: "packages", name: "packages", widget: "hidden" }
           - { label: "reviews", name: "reviews", widget: "hidden" }
-          - { label: "sponsorTitle", name: "sponsorTitle", widget: "hidden" }
-          - { label: "sponsorText", name: "sponsorText", widget: "hidden" }
-          - { label: "mediaKitUrl", name: "mediaKitUrl", widget: "hidden" }
           - { label: "gallery", name: "gallery", widget: "hidden" }
           - { label: "heroVideo", name: "heroVideo", widget: "hidden" }
           - { label: "heroPoster", name: "heroPoster", widget: "hidden" }
@@ -303,9 +285,6 @@ collections:
           - { label: "circuits", name: "circuits", widget: "hidden" }
           - { label: "packages", name: "packages", widget: "hidden" }
           - { label: "reviews", name: "reviews", widget: "hidden" }
-          - { label: "sponsorTitle", name: "sponsorTitle", widget: "hidden" }
-          - { label: "sponsorText", name: "sponsorText", widget: "hidden" }
-          - { label: "mediaKitUrl", name: "mediaKitUrl", widget: "hidden" }
           - { label: "gallery", name: "gallery", widget: "hidden" }
           - { label: "faqs", name: "faqs", widget: "hidden" }
 

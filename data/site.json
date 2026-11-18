@@ -98,7 +98,7 @@
       "status": "Disponibile"
     },
     {
-      "name": "Circuito Internazionale del Volturno (CE)",
+      "name": "Limatola — Circuito del Volturno (CE)",
       "region": "Campania",
       "mapPreset": "volturno",
       "mapImage": "",
@@ -116,7 +116,7 @@
       "status": "Su richiesta"
     },
     {
-      "name": "Autodromo del Levante — Binetto (BA)",
+      "name": "Binetto — Autodromo del Levante (BA)",
       "region": "Puglia",
       "mapPreset": "levante",
       "mapImage": "",
@@ -129,12 +129,12 @@
     {
       "id": "promo-3-giri",
       "badge": "PROMO NATALE • 3 GIRI",
-      "name": "3 Giri in Pista — Formula Predator PC015",
+      "name": "3 Giri in Pista — Formula Predator PC015H",
       "laps": "Castelletto (LO) • Rieti (LAZ) • Volturno (CAM)",
       "price": "90€",
       "featured": false,
       "features": [
-        "3 giri completi al volante della monoposto Formula Predator PC015",
+        "3 giri completi al volante della monoposto Formula Predator PC015H",
         "Briefing tecnico sulla vettura e sulle basi di guida sicura in pista",
         "Ingresso pista interamente incluso nel prezzo",
         "Inserimento in lista prenotazioni con convocazione anticipata"
@@ -143,12 +143,12 @@
     {
       "id": "promo-6-giri",
       "badge": "PIÙ SCELTO A NATALE • 6 GIRI",
-      "name": "6 Giri in Pista — Formula Predator PC015",
+      "name": "6 Giri in Pista — Formula Predator PC015H",
       "laps": "Castelletto (LO) • Rieti (LAZ) • Volturno (CAM)",
       "price": "180€",
       "featured": true,
       "features": [
-        "6 giri completi al volante della monoposto Formula Predator PC015",
+        "6 giri completi al volante della monoposto Formula Predator PC015H",
         "Briefing tecnico sulla vettura e sulle basi di guida sicura in pista",
         "Ingresso pista interamente incluso nel prezzo",
         "Buono Regalo digitale personalizzato pronto da stampare"
@@ -162,19 +162,19 @@
   "carSpecs": [
     {
       "label": "Monoposto",
-      "value": "Formula Predator PC015 a ruote scoperte"
+      "value": "Formula Predator PC015H a ruote scoperte"
     },
     {
-      "label": "Circuiti Promo Natale",
-      "value": "Castelletto (LO), Rieti (LAZ), Volturno (CAM)"
+      "label": "Requisiti Pilota",
+      "value": "Maggiorenni con patente B in corso di validità"
     },
     {
-      "label": "Abbigliamento",
-      "value": "Sufficiente abbigliamento da karting (no omologhe)"
+      "label": "Ingressi Pista",
+      "value": "Interamente inclusi in ogni turno o pacchetto"
     },
     {
-      "label": "Conferma Prenotazione",
-      "value": "Bonifico bancario previa verifica età, altezza e peso"
+      "label": "Prenotazione",
+      "value": "Versamento acconto alla conferma e saldo in pista"
     }
   ],
   "reviews": [
@@ -194,9 +194,6 @@
       "text": "L'ho regalato al mio compagno per Natale: già solo aprire la busta con il voucher personalizzato è stato un successo, e in pista si è divertito come un bambino."
     }
   ],
-  "sponsorTitle": "Diventa Partner AON RACING o organizza un Evento Aziendale",
-  "sponsorText": "Offriamo spazi di visibilità su livrea monoposto, abbigliamento tecnico team e hospitality paddock durante le tappe in circuito, oltre a giornate incentive e team building su misura per aziende e clienti VIP.",
-  "mediaKitUrl": "",
   "gallery": [
     {
       "image": "assets/pista-1.jpg",
@@ -243,6 +240,296 @@
     {
       "q": "Posso portare amici o familiari a guardare dai box?",
       "a": "Certamente! Gli accompagnatori possono accedere all'area paddock del circuito per scattare foto, girare video e vivere l'atmosfera del box insieme a te."
+    }
+  ],
+  "turnPriceList": [
+    {
+      "id": "valvibrata",
+      "area": "CENTRO",
+      "circuit": "Val Vibrata (TE)",
+      "duration": "Turni da 20 minuti l'uno",
+      "tiers": [
+        {
+          "turns": "1 Turno",
+          "price": "350€"
+        },
+        {
+          "turns": "2 Turni",
+          "price": "580€"
+        },
+        {
+          "turns": "3 Turni",
+          "price": "790€"
+        },
+        {
+          "turns": "4 Turni",
+          "price": "980€"
+        },
+        {
+          "turns": "5 Turni",
+          "price": "1.150€"
+        },
+        {
+          "turns": "6 Turni",
+          "price": "1.290€"
+        }
+      ]
+    },
+    {
+      "id": "magione",
+      "area": "CENTRO",
+      "circuit": "Magione (PG)",
+      "duration": "Turni da 20 minuti l'uno",
+      "tiers": [
+        {
+          "turns": "1 Turno",
+          "price": "390€"
+        },
+        {
+          "turns": "2 Turni",
+          "price": "650€"
+        },
+        {
+          "turns": "3 Turni",
+          "price": "850€"
+        }
+      ]
+    },
+    {
+      "id": "rieti",
+      "area": "CENTRO",
+      "circuit": "Rieti — La Mola (RI)",
+      "duration": "Turni da 15 minuti l'uno",
+      "tiers": [
+        {
+          "turns": "1 Turno",
+          "price": "400€"
+        },
+        {
+          "turns": "2 Turni",
+          "price": "750€"
+        },
+        {
+          "turns": "3 Turni",
+          "price": "950€"
+        },
+        {
+          "turns": "4 Turni",
+          "price": "1.110€"
+        },
+        {
+          "turns": "5 Turni",
+          "price": "1.230€"
+        },
+        {
+          "turns": "6 Turni",
+          "price": "1.330€"
+        }
+      ]
+    },
+    {
+      "id": "pomposa",
+      "area": "NORD",
+      "circuit": "Pomposa (FE)",
+      "duration": "Turni da 15 minuti l'uno",
+      "tiers": [
+        {
+          "turns": "1 Turno",
+          "price": "450€"
+        },
+        {
+          "turns": "2 Turni",
+          "price": "720€"
+        },
+        {
+          "turns": "3 Turni",
+          "price": "910€"
+        },
+        {
+          "turns": "4 Turni",
+          "price": "1.080€"
+        },
+        {
+          "turns": "5 Turni",
+          "price": "1.240€"
+        }
+      ]
+    },
+    {
+      "id": "castelletto",
+      "area": "NORD",
+      "circuit": "Castelletto di Branduzzo (PV)",
+      "duration": "Turni da 20 minuti l'uno",
+      "tiers": [
+        {
+          "turns": "1 Turno",
+          "price": "490€"
+        },
+        {
+          "turns": "2 Turni",
+          "price": "790€"
+        },
+        {
+          "turns": "3 Turni",
+          "price": "1.040€"
+        },
+        {
+          "turns": "4 Turni",
+          "price": "1.250€"
+        },
+        {
+          "turns": "5 Turni",
+          "price": "1.390€"
+        },
+        {
+          "turns": "6 Turni",
+          "price": "1.490€"
+        }
+      ]
+    },
+    {
+      "id": "varano",
+      "area": "NORD",
+      "circuit": "Varano de' Melegari (PR)",
+      "duration": "Turni da 25 minuti l'uno",
+      "tiers": [
+        {
+          "turns": "1 Turno",
+          "price": "550€"
+        },
+        {
+          "turns": "2 Turni",
+          "price": "840€"
+        },
+        {
+          "turns": "3 Turni",
+          "price": "1.090€"
+        },
+        {
+          "turns": "4 Turni",
+          "price": "1.320€"
+        },
+        {
+          "turns": "5 Turni",
+          "price": "1.520€"
+        },
+        {
+          "turns": "6 Turni",
+          "price": "1.690€"
+        }
+      ]
+    },
+    {
+      "id": "nuvolari",
+      "area": "NORD",
+      "circuit": "Tazio Nuvolari — Cervesina (PV)",
+      "duration": "Turni da 25 minuti l'uno",
+      "tiers": [
+        {
+          "turns": "1 Turno",
+          "price": "550€"
+        },
+        {
+          "turns": "2 Turni",
+          "price": "840€"
+        },
+        {
+          "turns": "3 Turni",
+          "price": "1.090€"
+        },
+        {
+          "turns": "4 Turni",
+          "price": "1.320€"
+        },
+        {
+          "turns": "5 Turni",
+          "price": "1.520€"
+        },
+        {
+          "turns": "6 Turni",
+          "price": "1.690€"
+        }
+      ]
+    },
+    {
+      "id": "volturno",
+      "area": "SUD",
+      "circuit": "Limatola — Circuito del Volturno (CE)",
+      "duration": "Turni da 20 minuti l'uno",
+      "tiers": [
+        {
+          "turns": "1 Turno",
+          "price": "550€"
+        },
+        {
+          "turns": "2 Turni",
+          "price": "800€"
+        },
+        {
+          "turns": "3 Turni",
+          "price": "960€"
+        },
+        {
+          "turns": "4 Turni",
+          "price": "1.100€"
+        },
+        {
+          "turns": "5 Turni",
+          "price": "1.220€"
+        },
+        {
+          "turns": "6 Turni",
+          "price": "1.320€"
+        }
+      ]
+    },
+    {
+      "id": "airola",
+      "area": "SUD",
+      "circuit": "Airola (BN)",
+      "duration": "Turni da 20 minuti l'uno",
+      "tiers": [
+        {
+          "turns": "1 Turno",
+          "price": "590€"
+        },
+        {
+          "turns": "2 Turni",
+          "price": "840€"
+        },
+        {
+          "turns": "3 Turni",
+          "price": "1.060€"
+        },
+        {
+          "turns": "4 Turni",
+          "price": "1.180€"
+        }
+      ]
+    },
+    {
+      "id": "levante",
+      "area": "SUD",
+      "circuit": "Binetto — Autodromo del Levante (BA)",
+      "duration": "Turni da 15 minuti l'uno",
+      "tiers": [
+        {
+          "turns": "1 Turno",
+          "price": "570€"
+        },
+        {
+          "turns": "2 Turni",
+          "price": "850€"
+        },
+        {
+          "turns": "3 Turni",
+          "price": "1.080€"
+        },
+        {
+          "turns": "4 Turni",
+          "price": "1.290€"
+        }
+      ]
     }
   ]
 }
