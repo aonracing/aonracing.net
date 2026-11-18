@@ -111,9 +111,16 @@ collections:
                 widget: "select"
                 default: "custom"
                 options:
-                  - { label: "Magione (Tracciato Animato)", value: "magione" }
-                  - { label: "Modena (Tracciato Animato)", value: "modena" }
-                  - { label: "Varano (Tracciato Animato)", value: "varano" }
+                  - { label: "Castelletto di Branduzzo", value: "castelletto" }
+                  - { label: "Tazio Nuvolari (Cervesina)", value: "nuvolari" }
+                  - { label: "Varano de' Melegari", value: "varano" }
+                  - { label: "Circuito di Pomposa", value: "pomposa" }
+                  - { label: "Autodromo di Magione", value: "magione" }
+                  - { label: "Rieti - La Mola", value: "rieti" }
+                  - { label: "Val Vibrata", value: "valvibrata" }
+                  - { label: "Circuito del Volturno", value: "volturno" }
+                  - { label: "Circuito di Airola", value: "airola" }
+                  - { label: "Autodromo del Levante", value: "levante" }
                   - { label: "Tracciato Generico Animato", value: "custom" }
               - { label: "Oppure carica Foto Mappa personalizzata (opzionale)", name: "mapImage", widget: "image", required: false }
               - { label: "Lunghezza e Curve", name: "length", widget: "string" }

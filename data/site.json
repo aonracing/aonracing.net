@@ -35,26 +35,92 @@
   ],
   "circuits": [
     {
-      "name": "Autodromo dell'Umbria — Magione (PG)",
-      "mapPreset": "magione",
+      "name": "Castelletto di Branduzzo (PV)",
+      "region": "Lombardia",
+      "mapPreset": "castelletto",
       "mapImage": "",
-      "length": "2.507 m • 11 Curve",
-      "nextDate": "Primavera 2027 — Date in definizione",
+      "length": "1.900 m • 16 Curve",
+      "nextDate": "Stagione 2027 — Date in definizione",
       "status": "Disponibile"
     },
     {
-      "name": "Autodromo di Modena — Marzaglia (MO)",
-      "mapPreset": "modena",
+      "name": "Circuito Tazio Nuvolari — Cervesina (PV)",
+      "region": "Lombardia",
+      "mapPreset": "nuvolari",
       "mapImage": "",
-      "length": "2.007 m • 11 Curve",
-      "nextDate": "Primavera 2027 — Date in definizione",
+      "length": "2.805 m • 11 Curve",
+      "nextDate": "Stagione 2027 — Date in definizione",
       "status": "Disponibile"
     },
     {
       "name": "Autodromo Riccardo Paletti — Varano (PR)",
+      "region": "Emilia-Romagna",
       "mapPreset": "varano",
       "mapImage": "",
-      "length": "2.350 m • 14 Curve",
+      "length": "2.350 m • 13 Curve",
+      "nextDate": "Stagione 2027 — Date in definizione",
+      "status": "Disponibile"
+    },
+    {
+      "name": "Circuito di Pomposa — Comacchio (FE)",
+      "region": "Emilia-Romagna",
+      "mapPreset": "pomposa",
+      "mapImage": "",
+      "length": "1.200 m • 9 Curve",
+      "nextDate": "Stagione 2027 — Date in definizione",
+      "status": "Disponibile"
+    },
+    {
+      "name": "Autodromo dell'Umbria — Magione (PG)",
+      "region": "Umbria",
+      "mapPreset": "magione",
+      "mapImage": "",
+      "length": "2.507 m • 11 Curve",
+      "nextDate": "Stagione 2027 — Date in definizione",
+      "status": "Disponibile"
+    },
+    {
+      "name": "Circuito La Mola — Rieti (RI)",
+      "region": "Lazio",
+      "mapPreset": "rieti",
+      "mapImage": "",
+      "length": "Tracciato Tecnico • Prova Libera",
+      "nextDate": "Promo Natale — Convocazione anticipata",
+      "status": "Promo Attiva"
+    },
+    {
+      "name": "Kartodromo Val Vibrata — Sant'Egidio (TE)",
+      "region": "Abruzzo",
+      "mapPreset": "valvibrata",
+      "mapImage": "",
+      "length": "1.280 m • 3 Settori Tecnici",
+      "nextDate": "Stagione 2027 — Date in definizione",
+      "status": "Disponibile"
+    },
+    {
+      "name": "Circuito Internazionale del Volturno (CE)",
+      "region": "Campania",
+      "mapPreset": "volturno",
+      "mapImage": "",
+      "length": "Tracciato Tecnico • Prova Libera",
+      "nextDate": "Stagione 2027 — Su prenotazione",
+      "status": "Su richiesta"
+    },
+    {
+      "name": "Circuito di Airola (BN)",
+      "region": "Campania",
+      "mapPreset": "airola",
+      "mapImage": "",
+      "length": "Tracciato Tecnico • Prova Libera",
+      "nextDate": "Stagione 2027 — Su prenotazione",
+      "status": "Su richiesta"
+    },
+    {
+      "name": "Autodromo del Levante — Binetto (BA)",
+      "region": "Puglia",
+      "mapPreset": "levante",
+      "mapImage": "",
+      "length": "1.577 m • 9 Curve",
       "nextDate": "Stagione 2027 — Su prenotazione",
       "status": "Su richiesta"
     }
@@ -108,10 +174,22 @@
   "aboutText2": "Dal briefing iniziale fino all'uscita dai box, sarai seguito passo dopo passo dai nostri meccanici e istruttori: nessuna esperienza pregressa richiesta, solo la voglia di vivere un'esperienza indimenticabile in totale sicurezza.",
   "teamImage": "assets/team.jpg",
   "carSpecs": [
-    { "label": "Telaio & Aerodinamica", "value": "Monoposto Formula tubolare con ali regolabili" },
-    { "label": "Peso a Vuoto", "value": "~390 kg — Rapporto peso/potenza estremo" },
-    { "label": "Trasmissione", "value": "Cambio sequenziale da competizione" },
-    { "label": "Pneumatici & Freni", "value": "Slick da gara Hoosier / Hankook • Freni a disco" }
+    {
+      "label": "Telaio & Aerodinamica",
+      "value": "Monoposto Formula tubolare con ali regolabili"
+    },
+    {
+      "label": "Peso a Vuoto",
+      "value": "~390 kg — Rapporto peso/potenza estremo"
+    },
+    {
+      "label": "Trasmissione",
+      "value": "Cambio sequenziale da competizione"
+    },
+    {
+      "label": "Pneumatici & Freni",
+      "value": "Slick da gara Hoosier / Hankook • Freni a disco"
+    }
   ],
   "reviews": [
     {
@@ -134,12 +212,30 @@
   "sponsorText": "Offriamo spazi di visibilità su livrea monoposto, abbigliamento tecnico team e hospitality paddock durante le tappe in circuito, oltre a giornate incentive e team building su misura per aziende e clienti VIP.",
   "mediaKitUrl": "",
   "gallery": [
-    { "image": "assets/pista-1.jpg", "caption": "Monoposto AON Racing in curva" },
-    { "image": "assets/box.jpg", "caption": "Monoposto nei box AON Racing" },
-    { "image": "assets/pista-2.jpg", "caption": "Passaggio veloce in rettilineo" },
-    { "image": "assets/briefing.jpg", "caption": "Preparazione pilota prima del turno" },
-    { "image": "assets/paddock.jpg", "caption": "Monoposto AON Racing nel paddock" },
-    { "image": "assets/tramonto.jpg", "caption": "Sessione in pista al tramonto" }
+    {
+      "image": "assets/pista-1.jpg",
+      "caption": "Monoposto AON Racing in curva"
+    },
+    {
+      "image": "assets/box.jpg",
+      "caption": "Monoposto nei box AON Racing"
+    },
+    {
+      "image": "assets/pista-2.jpg",
+      "caption": "Passaggio veloce in rettilineo"
+    },
+    {
+      "image": "assets/briefing.jpg",
+      "caption": "Preparazione pilota prima del turno"
+    },
+    {
+      "image": "assets/paddock.jpg",
+      "caption": "Monoposto AON Racing nel paddock"
+    },
+    {
+      "image": "assets/tramonto.jpg",
+      "caption": "Sessione in pista al tramonto"
+    }
   ],
   "faqs": [
     {

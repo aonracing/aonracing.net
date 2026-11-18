@@ -184,19 +184,51 @@
     </div>
   </section>
 
-  <!-- I CIRCUITI & CALENDARIO CON MAPPE SVG ANIMATE -->
-  <section id="circuiti" class="py-20 bg-zinc-950 border-t border-zinc-900">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="text-center max-w-2xl mx-auto">
-        <span class="text-brand-green font-racing italic font-extrabold uppercase tracking-widest text-sm">Dove Scendiamo in Pista</span>
-        <h2 class="mt-2 font-racing italic font-black text-3xl sm:text-4xl uppercase text-white">Circuiti & Calendario 2027</h2>
-        <div class="logo-stripe w-24 mx-auto mt-3"></div>
-        <p class="mt-3 text-sm text-zinc-400">
-          I buoni regalo hanno data aperta: il destinatario verrà avvisato con anticipo all'uscita delle date ufficiali in calendario.
+  <!-- I CIRCUITI & CALENDARIO CON MAPPA ITALIA INTERATTIVA + TRACCIATI SVG -->
+  <section id="circuiti" class="py-24 bg-zinc-950 border-t border-zinc-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto">
+        <span class="text-brand-green font-racing italic font-extrabold uppercase tracking-widest text-sm">10 Circuiti • 1 Passione</span>
+        <h2 class="mt-2 font-racing italic font-black text-3xl sm:text-5xl uppercase text-white">Le Nostre Piste in Italia</h2>
+        <div class="logo-stripe w-28 mx-auto mt-3"></div>
+        <p class="mt-4 text-sm sm:text-base text-zinc-400">
+          Clicca su un punto della mappa d'Italia per evidenziare il tracciato corrispondente e visualizzare la telemetria del circuito.
         </p>
       </div>
 
-      <div id="circuits-grid" class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6"></div>
+      <!-- CARTINA ITALIA INTERATTIVA CON I 10 PIN AON RACING -->
+      <div class="mt-12 bg-brand-card border border-zinc-800 rounded-2xl p-6 sm:p-8 shadow-2xl">
+        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 pb-5 border-b border-zinc-800/80">
+          <div>
+            <div class="font-racing italic font-black text-lg text-white uppercase tracking-wide">Mappa Nazionale AON RACING</div>
+            <div class="text-xs text-zinc-400">Seleziona un autodromo sulla cartina o scorri le schede tecniche qui sotto</div>
+          </div>
+          <button type="button" onclick="resetCircuitHighlight()" class="text-xs font-semibold uppercase tracking-wider text-brand-green hover:text-white transition">
+            Mostra tutti i 10 circuiti
+          </button>
+        </div>
+
+        <div class="mt-6 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          <div class="lg:col-span-6 flex justify-center">
+            <svg viewBox="0 0 360 410" class="w-full max-w-sm h-auto drop-shadow-2xl">
+              <!-- Sagoma stilizzata Penisola Italiana, Sicilia e Sardegna -->
+              <path d="M 55,48 L 115,32 L 178,24 L 210,38 L 195,68 L 168,82 L 185,115 L 222,155 L 258,195 L 308,218 L 332,242 L 302,256 L 282,285 L 268,318 L 252,312 L 256,272 L 228,245 L 188,212 L 152,175 L 118,125 L 78,96 L 45,78 Z" fill="#18181b" stroke="#3f3f46" stroke-width="2" stroke-linejoin="round" />
+              <!-- Sicilia -->
+              <path d="M 192,326 L 246,322 L 236,356 L 196,346 Z" fill="#18181b" stroke="#3f3f46" stroke-width="2" stroke-linejoin="round" />
+              <!-- Sardegna -->
+              <path d="M 48,195 L 76,192 L 78,255 L 46,258 Z" fill="#18181b" stroke="#3f3f46" stroke-width="2" stroke-linejoin="round" />
+
+              <!-- Pin Interattivi dei 10 Circuiti -->
+              <g id="italy-map-pins"></g>
+            </svg>
+          </div>
+
+          <div class="lg:col-span-6 space-y-3" id="italy-quick-list"></div>
+        </div>
+      </div>
+
+      <!-- GRIGLIA SCHEDE TRACCIATI -->
+      <div id="circuits-grid" class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
     </div>
   </section>
 
@@ -496,38 +528,124 @@
         `).join('');
       }
 
-      // Circuiti con mappa vettoriale animata
+      // Circuiti con mappa vettoriale animata fedele ai tracciati reali
       const TRACK_PATHS = {
-        magione: "M 35,95 L 185,95 C 210,95 215,72 195,62 L 155,48 C 142,42 150,25 168,28 L 210,35 C 228,38 228,18 205,18 L 75,18 C 45,18 35,38 48,52 L 68,68 C 75,75 55,82 35,78 C 20,75 18,95 35,95 Z",
-        modena: "M 30,88 L 175,88 C 205,88 215,65 190,52 L 145,35 C 132,30 138,16 158,18 L 195,22 C 215,24 210,12 185,12 L 65,12 C 35,12 22,32 38,48 L 62,62 C 72,68 48,74 30,72 C 16,70 14,88 30,88 Z",
-        varano: "M 28,92 L 195,92 C 218,92 222,74 202,66 L 165,54 C 152,50 158,36 175,38 L 208,42 C 224,44 222,22 198,20 L 95,16 C 78,15 72,30 85,36 L 105,44 C 115,48 98,60 82,56 L 52,44 C 32,36 18,52 26,70 L 32,82 C 34,88 20,92 28,92 Z",
+        castelletto: "M 55,28 L 138,44 C 154,48 152,62 135,58 L 95,46 C 82,42 80,58 94,64 L 132,76 L 132,92 C 132,102 115,102 108,92 L 94,74 C 78,62 46,72 44,96 L 44,122 C 44,142 74,146 84,128 L 96,108 C 102,98 116,102 112,116 L 98,148 C 92,162 114,166 124,150 L 188,36 C 196,20 176,8 154,10 C 134,12 132,26 152,28 L 176,30 L 176,56 C 176,64 166,64 156,60 L 62,36 C 36,30 24,44 34,50 C 42,54 46,26 55,28 Z",
+        nuvolari: "M 134,16 L 214,116 C 226,132 212,148 196,136 L 134,84 C 122,74 108,86 118,98 L 188,154 C 202,166 218,152 204,136 L 154,78 C 144,68 124,72 106,74 C 88,76 76,66 68,52 L 46,16 C 38,4 54,-2 62,10 L 94,58 C 102,68 118,62 112,48 L 68,-12 C 62,-20 44,-22 36,-10 C 28,2 38,16 54,14 C 66,12 76,20 84,32 L 134,16 Z",
+        varano: "M 22,92 L 135,92 L 162,84 L 164,66 C 164,56 178,56 184,62 L 226,56 C 238,54 238,34 222,36 L 146,44 C 136,46 136,56 124,56 L 96,54 C 86,54 84,42 72,42 L 32,42 C 18,42 16,56 16,74 L 16,96 C 16,108 36,108 36,94 L 28,68 C 26,60 42,60 44,68 L 46,84 C 46,92 34,92 22,92 Z",
+        pomposa: "M 154,118 L 136,54 C 132,38 158,32 166,48 L 174,64 C 180,76 164,84 152,72 L 128,48 C 114,34 94,48 98,68 L 106,96 C 110,112 92,116 86,98 L 76,64 C 68,38 92,18 122,12 L 164,4 C 182,0 188,18 172,26 L 116,52 C 92,64 82,92 92,124 L 106,162 C 112,178 132,174 128,156 L 114,112 C 108,96 126,92 132,108 L 154,164 C 162,180 184,172 176,154 L 154,118 Z",
+        magione: "M 42,96 L 178,96 C 204,96 212,72 192,62 L 152,46 C 138,40 146,24 166,26 L 208,32 C 226,34 226,16 202,16 L 76,16 C 46,16 32,36 46,52 L 68,68 C 76,75 56,82 36,78 C 20,75 20,96 42,96 Z",
+        rieti: "M 32,90 L 188,90 C 214,90 218,66 196,56 L 152,42 C 138,37 146,20 166,23 L 206,29 C 224,32 222,14 198,14 L 72,14 C 42,14 30,36 45,50 L 68,66 C 78,73 54,80 32,76 C 18,73 16,90 32,90 Z",
+        valvibrata: "M 110,48 L 222,62 C 234,64 232,82 214,84 L 112,74 C 98,72 98,64 114,64 L 192,70 C 204,70 204,60 190,58 L 112,50 C 96,48 94,30 82,30 C 70,30 68,54 58,64 L 22,74 C 10,78 10,90 24,88 L 68,78 C 82,74 82,42 94,36 C 106,30 118,46 132,48 L 110,48 Z",
+        volturno: "M 36,88 L 182,88 C 208,88 214,62 190,52 L 142,36 C 128,32 134,16 154,18 L 198,22 C 218,24 214,12 188,12 L 64,12 C 34,12 22,34 38,50 L 64,64 C 74,70 50,76 32,74 C 18,72 18,88 36,88 Z",
+        airola: "M 34,86 L 176,86 C 204,86 210,60 186,48 L 146,32 C 132,26 142,14 162,16 L 196,20 C 214,22 210,12 184,12 L 68,12 C 38,12 26,34 42,48 L 66,62 C 76,68 52,74 34,72 C 20,70 18,86 34,86 Z",
+        levante: "M 30,90 L 192,90 C 216,90 220,68 196,58 L 148,44 C 134,40 140,22 162,24 L 204,28 C 222,30 220,14 194,14 L 68,14 C 38,14 26,36 42,52 L 66,66 C 76,72 52,78 30,76 C 16,74 14,90 30,90 Z",
         custom: "M 35,88 L 185,88 C 215,88 215,58 185,55 L 135,50 C 115,48 115,25 140,22 L 190,18 C 215,16 210,12 180,12 L 55,12 C 25,12 20,42 42,55 L 65,68 C 75,74 50,88 35,88 Z"
       };
 
+      const TRACK_VIEWBOX = {
+        castelletto: "20 0 200 175",
+        nuvolari: "20 -25 220 200",
+        varano: "10 25 235 90",
+        pomposa: "65 -5 130 190",
+        valvibrata: "5 20 235 80"
+      };
+
+      const ITALY_COORDS = {
+        castelletto: { x: 84, y: 66 },
+        nuvolari: { x: 88, y: 76 },
+        varano: { x: 112, y: 92 },
+        pomposa: { x: 158, y: 88 },
+        magione: { x: 162, y: 146 },
+        rieti: { x: 174, y: 174 },
+        valvibrata: { x: 192, y: 162 },
+        volturno: { x: 204, y: 222 },
+        airola: { x: 218, y: 226 },
+        levante: { x: 282, y: 234 }
+      };
+
+      window.highlightCircuit = function(idx) {
+        document.querySelectorAll('.circuit-card').forEach((el, i) => {
+          if (i === idx) {
+            el.classList.add('ring-2', 'ring-brand-red', 'bg-zinc-900');
+            el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+          } else {
+            el.classList.remove('ring-2', 'ring-brand-red', 'bg-zinc-900');
+          }
+        });
+        document.querySelectorAll('.quick-pill').forEach((el, i) => {
+          if (i === idx) {
+            el.classList.add('border-brand-red', 'bg-zinc-800', 'text-white');
+          } else {
+            el.classList.remove('border-brand-red', 'bg-zinc-800', 'text-white');
+          }
+        });
+      };
+
+      window.resetCircuitHighlight = function() {
+        document.querySelectorAll('.circuit-card').forEach(el => {
+          el.classList.remove('ring-2', 'ring-brand-red', 'bg-zinc-900');
+        });
+        document.querySelectorAll('.quick-pill').forEach(el => {
+          el.classList.remove('border-brand-red', 'bg-zinc-800', 'text-white');
+        });
+      };
+
       if (SITE_DATA.circuits) {
+        // Popola pin sulla Mappa d'Italia + elenco rapido
+        const pinsContainer = document.getElementById('italy-map-pins');
+        const quickList = document.getElementById('italy-quick-list');
+        if (pinsContainer && quickList) {
+          pinsContainer.innerHTML = SITE_DATA.circuits.map((c, idx) => {
+            const pt = ITALY_COORDS[c.mapPreset];
+            if (!pt) return '';
+            return `
+              <g class="cursor-pointer group" onclick="highlightCircuit(${idx})">
+                <circle cx="${pt.x}" cy="${pt.y}" r="10" fill="#e10600" opacity="0.25">
+                  <animate attributeName="r" values="6;13;6" dur="2.2s" repeatCount="indefinite" />
+                </circle>
+                <circle cx="${pt.x}" cy="${pt.y}" r="4.5" fill="#e10600" stroke="#ffffff" stroke-width="1.5" />
+                <text x="${pt.x + 8}" y="${pt.y + 3}" fill="#e4e4e7" font-size="9" font-family="Inter, sans-serif" font-weight="600">${c.name.split('—')[0].replace('Circuito ', '').replace('Autodromo ', '').replace('Kartodromo ', '').trim()}</text>
+              </g>
+            `;
+          }).join('');
+
+          quickList.innerHTML = `<div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">` + SITE_DATA.circuits.map((c, idx) => `
+            <button type="button" onclick="highlightCircuit(${idx})" class="quick-pill text-left bg-zinc-900/90 hover:bg-zinc-800 border border-zinc-800 rounded-xl px-3.5 py-2.5 transition flex items-center justify-between gap-2">
+              <div>
+                <div class="text-xs font-bold text-white leading-tight">${c.name}</div>
+                <div class="text-[10px] text-zinc-400 mt-0.5">${c.region || ''} • ${c.length.split('•')[0].trim()}</div>
+              </div>
+              <span class="w-2 h-2 rounded-full shrink-0 ${c.status.toLowerCase().includes('promo') || c.status.toLowerCase().includes('disp') ? 'bg-brand-green' : 'bg-amber-400'}"></span>
+            </button>
+          `).join('') + `</div>`;
+        }
+
+        // Popola le 10 card con i tracciati SVG animati
         document.getElementById('circuits-grid').innerHTML = SITE_DATA.circuits.map((c, idx) => {
           const pathData = TRACK_PATHS[c.mapPreset] || TRACK_PATHS.custom;
+          const vb = TRACK_VIEWBOX[c.mapPreset] || "0 0 245 110";
           const pathId = `circuit-path-${idx}`;
           const visualHtml = c.mapImage
-            ? `<img src="${c.mapImage}" alt="${c.name}" class="w-full h-36 object-cover rounded-xl border border-zinc-800/80 mb-5" loading="lazy" />`
-            : `<div class="relative w-full h-36 bg-zinc-950/90 rounded-xl border border-zinc-800/80 mb-5 flex items-center justify-center overflow-hidden p-3">
+            ? `<img src="${c.mapImage}" alt="${c.name}" class="w-full h-40 object-cover rounded-xl border border-zinc-800/80 mb-5" loading="lazy" />`
+            : `<div class="relative w-full h-40 bg-zinc-950/95 rounded-xl border border-zinc-800/80 mb-5 flex items-center justify-center overflow-hidden p-4">
                 <div class="absolute inset-0 opacity-15" style="background-image: radial-gradient(#52525b 1px, transparent 1px); background-size: 12px 12px;"></div>
-                <svg viewBox="0 0 245 110" class="w-full h-full overflow-visible">
+                <svg viewBox="${vb}" class="w-full h-full overflow-visible">
                   <defs>
                     <linearGradient id="grad-${idx}" x1="0%" y1="0%" x2="100%" y2="0%">
                       <stop offset="0%" stop-color="#e10600" />
                       <stop offset="100%" stop-color="#00a859" />
                     </linearGradient>
                   </defs>
-                  <path d="${pathData}" fill="none" stroke="#27272a" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" />
-                  <path id="${pathId}" d="${pathData}" fill="none" stroke="url(#grad-${idx})" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round" class="track-animated" />
-                  <line x1="95" y1="86" x2="95" y2="98" stroke="#ffffff" stroke-width="2.5" />
-                  <circle r="4.5" fill="#ffffff" filter="drop-shadow(0 0 6px #e10600)">
-                    <animateMotion dur="${5 + idx * 0.8}s" repeatCount="indefinite">
+                  <path d="${pathData}" fill="none" stroke="#27272a" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" />
+                  <path id="${pathId}" d="${pathData}" fill="none" stroke="url(#grad-${idx})" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" class="track-animated" />
+                  <circle r="4.2" fill="#ffffff" filter="drop-shadow(0 0 6px #e10600)">
+                    <animateMotion dur="${5 + (idx % 4) * 0.6}s" repeatCount="indefinite">
                       <mpath href="#${pathId}" />
                     </animateMotion>
                   </circle>
                 </svg>
+                <span class="absolute top-2.5 left-3 text-[10px] font-semibold uppercase tracking-wider text-zinc-500">${c.region || 'Italia'}</span>
                 <span class="absolute bottom-2 right-2.5 text-[9px] font-racing italic uppercase tracking-widest text-zinc-500">Live Telemetry</span>
               </div>`;
 
