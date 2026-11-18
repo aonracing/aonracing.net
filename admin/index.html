@@ -3,10 +3,11 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>AON RACING | Pannello Gestione Sito</title>
+  <title>AON RACING | Modifica Sito</title>
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2309090b'/%3E%3Ctext x='50%25' y='44%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-family='Arial Black, sans-serif' font-style='italic' font-weight='900' font-size='22'%3EAON%3C/text%3E%3Cpolygon points='10,48 32,48 30,54 8,54' fill='%23e10600'/%3E%3Cpolygon points='32,48 56,48 54,54 30,54' fill='%2300a859'/%3E%3C/svg%3E" />
   <style>
     :root { --sveltia-accent-color: #e10600; }
+    * { box-sizing: border-box; }
     body {
       margin: 0;
       background-color: #09090b;
@@ -16,49 +17,89 @@
     .aon-topbar {
       background: #121216;
       border-bottom: 2px solid #e10600;
-      padding: 10px 20px;
+      padding: 12px 24px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 12px;
+      gap: 16px;
       position: sticky;
       top: 0;
       z-index: 9999;
     }
-    .aon-brand { display: flex; align-items: center; gap: 12px; }
-    .aon-brand img { height: 36px; width: auto; object-fit: contain; }
+    .aon-brand { display: flex; align-items: center; gap: 14px; }
+    .aon-brand img { height: 48px; width: auto; object-fit: contain; }
     .aon-badge {
       background: rgba(0, 168, 89, 0.15);
       border: 1px solid #00a859;
       color: #00a859;
-      font-size: 11px;
-      font-weight: 700;
-      padding: 3px 10px;
+      font-size: 12px;
+      font-weight: 800;
+      padding: 4px 12px;
       border-radius: 999px;
       text-transform: uppercase;
       letter-spacing: 0.05em;
     }
+    .aon-guide {
+      background: #18181b;
+      border-bottom: 1px solid #27272a;
+      padding: 10px 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      font-size: 13px;
+      color: #d4d4d8;
+    }
+    .aon-step { display: inline-flex; align-items: center; gap: 7px; }
+    .aon-step b {
+      background: #e10600;
+      color: #fff;
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+    }
     .aon-back-btn {
-      background: #27272a;
+      background: #e10600;
       color: #ffffff;
       text-decoration: none;
-      font-size: 12px;
-      font-weight: 700;
-      padding: 8px 14px;
+      font-size: 13px;
+      font-weight: 800;
+      padding: 10px 18px;
       border-radius: 8px;
-      border: 1px solid #3f3f46;
-      transition: background 0.2s;
+      transition: opacity 0.2s;
+      white-space: nowrap;
     }
-    .aon-back-btn:hover { background: #e10600; border-color: #e10600; }
+    .aon-back-btn:hover { opacity: 0.88; }
+    /* Centra e rende compatta l'interfaccia Sveltia CMS */
+    #nc-root, sui-app {
+      display: block !important;
+      max-width: 1120px !important;
+      margin: 18px auto !important;
+      border: 1px solid #27272a !important;
+      border-radius: 14px !important;
+      overflow: hidden !important;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.65) !important;
+      min-height: calc(100vh - 150px) !important;
+    }
   </style>
 </head>
 <body>
   <div class="aon-topbar">
     <div class="aon-brand">
       <img src="../archivio_extra/logo-o-grafica.png" alt="AON Racing" />
-      <span class="aon-badge">Pannello Admin</span>
+      <span class="aon-badge">Modifica Sito Facile</span>
     </div>
-    <a href="../" target="_blank" class="aon-back-btn">Apri Sito Live ↗</a>
+    <a href="../" target="_blank" class="aon-back-btn">Guarda il Sito Online ↗</a>
+  </div>
+  <div class="aon-guide">
+    <span class="aon-step"><b>1</b> Clicca qui sotto cosa vuoi cambiare</span>
+    <span class="aon-step"><b>2</b> Scrivi i nuovi prezzi, testi o carica le foto</span>
+    <span class="aon-step"><b>3</b> Clicca <strong>Salva</strong> in alto a destra (online in 30 sec)</span>
   </div>
   <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
 </body>

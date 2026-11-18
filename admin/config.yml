@@ -8,121 +8,49 @@ public_folder: "assets"
 
 collections:
   - name: "gestione_sito"
-    label: "Gestione Sito AON Racing"
+    label: "Cosa vuoi modificare?"
     files:
-      - name: "contatti_testi"
-        label: "1. Contatti, Social, Testi Principali & Vettura"
+      - name: "prezzi_promo"
+        label: "1. Prezzi Promo (90€ / 180€) e Listino Turni"
         file: "data/site.json"
         fields:
-          - { label: "Numero WhatsApp (con 39 davanti, es. 393772548557)", name: "whatsapp", widget: "string" }
-          - { label: "Email di contatto", name: "email", widget: "string" }
-          - { label: "Link Instagram", name: "instagram", widget: "string", required: false }
-          - { label: "Link Facebook", name: "facebook", widget: "string", required: false }
-          - { label: "Link TikTok", name: "tiktok", widget: "string", required: false }
-          - { label: "Dati Aziendali / P.IVA (nel footer e Privacy)", name: "companyInfo", widget: "string" }
-          - { label: "Etichetta in alto (Hero)", name: "heroBadge", widget: "string" }
-          - { label: "Titolo Principale - Riga 1", name: "heroTitleLine1", widget: "string" }
-          - { label: "Titolo Principale - Riga Colorata", name: "heroTitleHighlight", widget: "string" }
-          - { label: "Sottotitolo Principale", name: "heroSubtitle", widget: "text" }
-          - { label: "Titolo Sezione Chi Siamo", name: "aboutTitle", widget: "string" }
-          - { label: "Descrizione Team (Paragrafo 1)", name: "aboutText1", widget: "text" }
-          - { label: "Descrizione Team (Paragrafo 2)", name: "aboutText2", widget: "text" }
-          - label: "Scheda Tecnica Monoposto (PC015H)"
-            name: "carSpecs"
-            label_singular: "Voce Tecnica"
-            widget: "list"
-            summary: "{{fields.label}}: {{fields.value}}"
-            fields:
-              - { label: "Parametro", name: "label", widget: "string" }
-              - { label: "Valore", name: "value", widget: "string" }
-          - { label: "steps", name: "steps", widget: "hidden" }
-          - { label: "circuits", name: "circuits", widget: "hidden" }
-          - { label: "packages", name: "packages", widget: "hidden" }
-          - { label: "turnPriceList", name: "turnPriceList", widget: "hidden" }
-          - { label: "reviews", name: "reviews", widget: "hidden" }
-          - { label: "championshipBadge", name: "championshipBadge", widget: "hidden" }
-          - { label: "championshipTitle", name: "championshipTitle", widget: "hidden" }
-          - { label: "championshipText", name: "championshipText", widget: "hidden" }
-          - { label: "championshipImage", name: "championshipImage", widget: "hidden" }
-          - { label: "gallery", name: "gallery", widget: "hidden" }
-          - { label: "faqs", name: "faqs", widget: "hidden" }
-          - { label: "heroVideo", name: "heroVideo", widget: "hidden" }
-          - { label: "heroPoster", name: "heroPoster", widget: "hidden" }
-          - { label: "teamImage", name: "teamImage", widget: "hidden" }
-
-      - name: "pacchetti_promo"
-        label: "2. Pacchetti Promo (90€ / 180€)"
-        file: "data/site.json"
-        fields:
-          - label: "Card Pacchetti in Evidenza"
+          - label: "Offerte Promo in Alto (es. 3 Giri 90€ / 6 Giri 180€)"
             name: "packages"
-            label_singular: "Pacchetto"
+            label_singular: "Offerta Promo"
             widget: "list"
             summary: "{{fields.name}} — {{fields.price}}"
             fields:
-              - { label: "Codice interno (es. promo-3-giri)", name: "id", widget: "string" }
-              - { label: "Etichetta in alto", name: "badge", widget: "string" }
-              - { label: "Titolo Pacchetto", name: "name", widget: "string" }
-              - { label: "Piste valide / Sottotitolo", name: "laps", widget: "string" }
+              - { label: "id", name: "id", widget: "hidden", default: "promo-custom" }
+              - { label: "Scritta piccola sopra (es. PROMO • 3 GIRI)", name: "badge", widget: "string" }
+              - { label: "Titolo Offerta", name: "name", widget: "string" }
+              - { label: "Piste valide", name: "laps", widget: "string" }
               - { label: "Prezzo (es. 90€)", name: "price", widget: "string" }
-              - { label: "Metti in evidenza con bordo rosso?", name: "featured", widget: "boolean", default: false }
-              - label: "Cosa include (punti elenco)"
+              - { label: "Evidenzia con bordo rosso?", name: "featured", widget: "boolean", default: false }
+              - label: "Cosa è incluso (elenco)"
                 name: "features"
-                label_singular: "Voce"
+                label_singular: "Riga"
                 widget: "list"
-                field: { label: "Descrizione", name: "item", widget: "string" }
-          - { label: "whatsapp", name: "whatsapp", widget: "hidden" }
-          - { label: "email", name: "email", widget: "hidden" }
-          - { label: "instagram", name: "instagram", widget: "hidden" }
-          - { label: "facebook", name: "facebook", widget: "hidden" }
-          - { label: "tiktok", name: "tiktok", widget: "hidden" }
-          - { label: "companyInfo", name: "companyInfo", widget: "hidden" }
-          - { label: "heroBadge", name: "heroBadge", widget: "hidden" }
-          - { label: "heroTitleLine1", name: "heroTitleLine1", widget: "hidden" }
-          - { label: "heroTitleHighlight", name: "heroTitleHighlight", widget: "hidden" }
-          - { label: "heroSubtitle", name: "heroSubtitle", widget: "hidden" }
-          - { label: "aboutTitle", name: "aboutTitle", widget: "hidden" }
-          - { label: "aboutText1", name: "aboutText1", widget: "hidden" }
-          - { label: "aboutText2", name: "aboutText2", widget: "hidden" }
-          - { label: "carSpecs", name: "carSpecs", widget: "hidden" }
-          - { label: "steps", name: "steps", widget: "hidden" }
-          - { label: "circuits", name: "circuits", widget: "hidden" }
-          - { label: "turnPriceList", name: "turnPriceList", widget: "hidden" }
-          - { label: "reviews", name: "reviews", widget: "hidden" }
-          - { label: "championshipBadge", name: "championshipBadge", widget: "hidden" }
-          - { label: "championshipTitle", name: "championshipTitle", widget: "hidden" }
-          - { label: "championshipText", name: "championshipText", widget: "hidden" }
-          - { label: "championshipImage", name: "championshipImage", widget: "hidden" }
-          - { label: "gallery", name: "gallery", widget: "hidden" }
-          - { label: "faqs", name: "faqs", widget: "hidden" }
-          - { label: "heroVideo", name: "heroVideo", widget: "hidden" }
-          - { label: "heroPoster", name: "heroPoster", widget: "hidden" }
-          - { label: "teamImage", name: "teamImage", widget: "hidden" }
-
-      - name: "listino_turni"
-        label: "3. Listino Prezzi Turni (Tutte le Piste)"
-        file: "data/site.json"
-        fields:
-          - label: "Tariffe per Circuito"
+                field: { label: "Testo", name: "item", widget: "string" }
+          - label: "Listino Turni Completi per ogni Pista"
             name: "turnPriceList"
-            label_singular: "Circuito"
+            label_singular: "Pista"
             widget: "list"
-            summary: "[{{fields.area}}] {{fields.circuit}} — {{fields.duration}}"
+            summary: "{{fields.circuit}} ({{fields.duration}})"
             fields:
-              - { label: "ID interno (es. valvibrata)", name: "id", widget: "string" }
-              - label: "Area Geografica"
+              - { label: "id", name: "id", widget: "hidden", default: "pista" }
+              - label: "Zona"
                 name: "area"
                 widget: "select"
                 options: ["NORD", "CENTRO", "SUD"]
               - { label: "Nome Pista", name: "circuit", widget: "string" }
-              - { label: "Durata Turno (es. Turni da 20 minuti l'uno)", name: "duration", widget: "string" }
-              - label: "Prezzi per Numero Turni"
+              - { label: "Durata Turno", name: "duration", widget: "string" }
+              - label: "Prezzi per numero di turni"
                 name: "tiers"
-                label_singular: "Fascia Turni"
+                label_singular: "Prezzo Turno"
                 widget: "list"
-                summary: "{{fields.turns}}: {{fields.price}}"
+                summary: "{{fields.turns}} -> {{fields.price}}"
                 fields:
-                  - { label: "Numero Turni (es. 1 Turno)", name: "turns", widget: "string" }
+                  - { label: "Quanti turni (es. 1 Turno)", name: "turns", widget: "string" }
                   - { label: "Prezzo (es. 350€)", name: "price", widget: "string" }
           - { label: "whatsapp", name: "whatsapp", widget: "hidden" }
           - { label: "email", name: "email", widget: "hidden" }
@@ -140,7 +68,6 @@ collections:
           - { label: "carSpecs", name: "carSpecs", widget: "hidden" }
           - { label: "steps", name: "steps", widget: "hidden" }
           - { label: "circuits", name: "circuits", widget: "hidden" }
-          - { label: "packages", name: "packages", widget: "hidden" }
           - { label: "reviews", name: "reviews", widget: "hidden" }
           - { label: "championshipBadge", name: "championshipBadge", widget: "hidden" }
           - { label: "championshipTitle", name: "championshipTitle", widget: "hidden" }
@@ -152,54 +79,26 @@ collections:
           - { label: "heroPoster", name: "heroPoster", widget: "hidden" }
           - { label: "teamImage", name: "teamImage", widget: "hidden" }
 
-      - name: "circuiti_mappa"
-        label: "4. Circuiti sulla Mappa d'Italia"
+      - name: "contatti_testi"
+        label: "2. WhatsApp, Email, Social e Titoli Principali"
         file: "data/site.json"
         fields:
-          - label: "Elenco 10 Circuiti"
-            name: "circuits"
-            label_singular: "Circuito"
-            widget: "list"
-            summary: "{{fields.name}} — {{fields.status}}"
-            fields:
-              - { label: "Nome Completo Circuito", name: "name", widget: "string" }
-              - { label: "Nome Breve Pulsante", name: "shortName", widget: "string" }
-              - { label: "Regione", name: "region", widget: "string" }
-              - label: "Tracciato Telemetria"
-                name: "mapPreset"
-                widget: "select"
-                default: "custom"
-                options:
-                  - { label: "Castelletto di Branduzzo", value: "castelletto" }
-                  - { label: "Tazio Nuvolari", value: "nuvolari" }
-                  - { label: "Varano de' Melegari", value: "varano" }
-                  - { label: "Circuito di Pomposa", value: "pomposa" }
-                  - { label: "Autodromo di Magione", value: "magione" }
-                  - { label: "Rieti - La Mola", value: "rieti" }
-                  - { label: "Val Vibrata", value: "valvibrata" }
-                  - { label: "Limatola - Volturno", value: "volturno" }
-                  - { label: "Circuito di Airola", value: "airola" }
-                  - { label: "Binetto - Levante", value: "levante" }
-                  - { label: "Tracciato Generico", value: "custom" }
-              - { label: "Oppure carica Foto Mappa personalizzata (opzionale)", name: "mapImage", widget: "image", required: false }
-              - { label: "Lunghezza e Curve", name: "length", widget: "string" }
-              - { label: "Prossime Date / Convocazioni", name: "nextDate", widget: "string" }
-              - { label: "Stato (es. Disponibile / Promo Natale 90€ / 180€)", name: "status", widget: "string" }
-          - { label: "whatsapp", name: "whatsapp", widget: "hidden" }
-          - { label: "email", name: "email", widget: "hidden" }
-          - { label: "instagram", name: "instagram", widget: "hidden" }
-          - { label: "facebook", name: "facebook", widget: "hidden" }
-          - { label: "tiktok", name: "tiktok", widget: "hidden" }
-          - { label: "companyInfo", name: "companyInfo", widget: "hidden" }
-          - { label: "heroBadge", name: "heroBadge", widget: "hidden" }
-          - { label: "heroTitleLine1", name: "heroTitleLine1", widget: "hidden" }
-          - { label: "heroTitleHighlight", name: "heroTitleHighlight", widget: "hidden" }
-          - { label: "heroSubtitle", name: "heroSubtitle", widget: "hidden" }
-          - { label: "aboutTitle", name: "aboutTitle", widget: "hidden" }
-          - { label: "aboutText1", name: "aboutText1", widget: "hidden" }
-          - { label: "aboutText2", name: "aboutText2", widget: "hidden" }
+          - { label: "Numero WhatsApp (con 39 davanti, es. 393772548557)", name: "whatsapp", widget: "string" }
+          - { label: "Email", name: "email", widget: "string" }
+          - { label: "Link Instagram", name: "instagram", widget: "string", required: false }
+          - { label: "Link Facebook", name: "facebook", widget: "string", required: false }
+          - { label: "Link TikTok", name: "tiktok", widget: "string", required: false }
+          - { label: "Partita IVA e Dati Azienda (in fondo al sito)", name: "companyInfo", widget: "string" }
+          - { label: "Scritta piccola in cima", name: "heroBadge", widget: "string" }
+          - { label: "Titolo Grande (Riga Bianca)", name: "heroTitleLine1", widget: "string" }
+          - { label: "Titolo Grande (Riga Colorata)", name: "heroTitleHighlight", widget: "string" }
+          - { label: "Testo sotto il titolo principale", name: "heroSubtitle", widget: "text" }
+          - { label: "Titolo Chi Siamo", name: "aboutTitle", widget: "string" }
+          - { label: "Testo Chi Siamo (Parte 1)", name: "aboutText1", widget: "text" }
+          - { label: "Testo Chi Siamo (Parte 2)", name: "aboutText2", widget: "text" }
           - { label: "carSpecs", name: "carSpecs", widget: "hidden" }
           - { label: "steps", name: "steps", widget: "hidden" }
+          - { label: "circuits", name: "circuits", widget: "hidden" }
           - { label: "packages", name: "packages", widget: "hidden" }
           - { label: "turnPriceList", name: "turnPriceList", widget: "hidden" }
           - { label: "reviews", name: "reviews", widget: "hidden" }
@@ -213,103 +112,22 @@ collections:
           - { label: "heroPoster", name: "heroPoster", widget: "hidden" }
           - { label: "teamImage", name: "teamImage", widget: "hidden" }
 
-      - name: "campionato_recensioni"
-        label: "5. Campionato Predators & Recensioni"
+      - name: "campionato_recensioni_faq"
+        label: "3. Campionato Predators, Recensioni e Domande (FAQ)"
         file: "data/site.json"
         fields:
-          - { label: "Etichetta Campionato", name: "championshipBadge", widget: "string" }
-          - { label: "Titolo Campionato Predators", name: "championshipTitle", widget: "string" }
-          - { label: "Testo Invito Campionato", name: "championshipText", widget: "text" }
+          - { label: "Titolo Sezione Campionato", name: "championshipTitle", widget: "string" }
+          - { label: "Testo Campionato Predators", name: "championshipText", widget: "text" }
           - { label: "Foto Sezione Campionato", name: "championshipImage", widget: "image", choose_url: true }
-          - label: "Recensioni dei Piloti"
+          - label: "Recensioni Piloti"
             name: "reviews"
             label_singular: "Recensione"
             widget: "list"
-            summary: "{{fields.author}} — {{fields.package}}"
+            summary: "{{fields.author}}"
             fields:
-              - { label: "Nome Pilota (es. Marco R.)", name: "author", widget: "string" }
-              - { label: "Sottotitolo (es. Esperienza in Pista)", name: "package", widget: "string" }
-              - { label: "Testo recensione", name: "text", widget: "text" }
-          - { label: "whatsapp", name: "whatsapp", widget: "hidden" }
-          - { label: "email", name: "email", widget: "hidden" }
-          - { label: "instagram", name: "instagram", widget: "hidden" }
-          - { label: "facebook", name: "facebook", widget: "hidden" }
-          - { label: "tiktok", name: "tiktok", widget: "hidden" }
-          - { label: "companyInfo", name: "companyInfo", widget: "hidden" }
-          - { label: "heroBadge", name: "heroBadge", widget: "hidden" }
-          - { label: "heroTitleLine1", name: "heroTitleLine1", widget: "hidden" }
-          - { label: "heroTitleHighlight", name: "heroTitleHighlight", widget: "hidden" }
-          - { label: "heroSubtitle", name: "heroSubtitle", widget: "hidden" }
-          - { label: "aboutTitle", name: "aboutTitle", widget: "hidden" }
-          - { label: "aboutText1", name: "aboutText1", widget: "hidden" }
-          - { label: "aboutText2", name: "aboutText2", widget: "hidden" }
-          - { label: "carSpecs", name: "carSpecs", widget: "hidden" }
-          - { label: "steps", name: "steps", widget: "hidden" }
-          - { label: "circuits", name: "circuits", widget: "hidden" }
-          - { label: "packages", name: "packages", widget: "hidden" }
-          - { label: "turnPriceList", name: "turnPriceList", widget: "hidden" }
-          - { label: "gallery", name: "gallery", widget: "hidden" }
-          - { label: "faqs", name: "faqs", widget: "hidden" }
-          - { label: "heroVideo", name: "heroVideo", widget: "hidden" }
-          - { label: "heroPoster", name: "heroPoster", widget: "hidden" }
-          - { label: "teamImage", name: "teamImage", widget: "hidden" }
-
-      - name: "galleria_foto"
-        label: "6. Galleria Foto in Pista"
-        file: "data/site.json"
-        fields:
-          - label: "Foto nella Galleria"
-            name: "gallery"
-            label_singular: "Foto"
-            widget: "list"
-            summary: "{{fields.caption}} ({{fields.image}})"
-            fields:
-              - label: "Seleziona o carica foto"
-                name: "image"
-                widget: "image"
-                choose_url: true
-              - { label: "Descrizione foto", name: "caption", widget: "string" }
-          - { label: "whatsapp", name: "whatsapp", widget: "hidden" }
-          - { label: "email", name: "email", widget: "hidden" }
-          - { label: "instagram", name: "instagram", widget: "hidden" }
-          - { label: "facebook", name: "facebook", widget: "hidden" }
-          - { label: "tiktok", name: "tiktok", widget: "hidden" }
-          - { label: "companyInfo", name: "companyInfo", widget: "hidden" }
-          - { label: "heroBadge", name: "heroBadge", widget: "hidden" }
-          - { label: "heroTitleLine1", name: "heroTitleLine1", widget: "hidden" }
-          - { label: "heroTitleHighlight", name: "heroTitleHighlight", widget: "hidden" }
-          - { label: "heroSubtitle", name: "heroSubtitle", widget: "hidden" }
-          - { label: "aboutTitle", name: "aboutTitle", widget: "hidden" }
-          - { label: "aboutText1", name: "aboutText1", widget: "hidden" }
-          - { label: "aboutText2", name: "aboutText2", widget: "hidden" }
-          - { label: "carSpecs", name: "carSpecs", widget: "hidden" }
-          - { label: "steps", name: "steps", widget: "hidden" }
-          - { label: "circuits", name: "circuits", widget: "hidden" }
-          - { label: "packages", name: "packages", widget: "hidden" }
-          - { label: "turnPriceList", name: "turnPriceList", widget: "hidden" }
-          - { label: "reviews", name: "reviews", widget: "hidden" }
-          - { label: "championshipBadge", name: "championshipBadge", widget: "hidden" }
-          - { label: "championshipTitle", name: "championshipTitle", widget: "hidden" }
-          - { label: "championshipText", name: "championshipText", widget: "hidden" }
-          - { label: "championshipImage", name: "championshipImage", widget: "hidden" }
-          - { label: "faqs", name: "faqs", widget: "hidden" }
-          - { label: "heroVideo", name: "heroVideo", widget: "hidden" }
-          - { label: "heroPoster", name: "heroPoster", widget: "hidden" }
-          - { label: "teamImage", name: "teamImage", widget: "hidden" }
-
-      - name: "faq_step"
-        label: "7. Come Funziona & FAQ"
-        file: "data/site.json"
-        fields:
-          - label: "I 4 Passaggi (Come Funziona)"
-            name: "steps"
-            label_singular: "Passaggio"
-            widget: "list"
-            summary: "{{fields.num}} — {{fields.title}}"
-            fields:
-              - { label: "Numero (es. 01)", name: "num", widget: "string" }
-              - { label: "Titolo", name: "title", widget: "string" }
-              - { label: "Descrizione", name: "desc", widget: "text" }
+              - { label: "Nome Pilota", name: "author", widget: "string" }
+              - { label: "Etichetta (es. Esperienza in Pista)", name: "package", widget: "string" }
+              - { label: "Commento", name: "text", widget: "text" }
           - label: "Domande Frequenti (FAQ)"
             name: "faqs"
             label_singular: "Domanda"
@@ -318,40 +136,7 @@ collections:
             fields:
               - { label: "Domanda", name: "q", widget: "string" }
               - { label: "Risposta", name: "a", widget: "text" }
-          - { label: "whatsapp", name: "whatsapp", widget: "hidden" }
-          - { label: "email", name: "email", widget: "hidden" }
-          - { label: "instagram", name: "instagram", widget: "hidden" }
-          - { label: "facebook", name: "facebook", widget: "hidden" }
-          - { label: "tiktok", name: "tiktok", widget: "hidden" }
-          - { label: "companyInfo", name: "companyInfo", widget: "hidden" }
-          - { label: "heroBadge", name: "heroBadge", widget: "hidden" }
-          - { label: "heroTitleLine1", name: "heroTitleLine1", widget: "hidden" }
-          - { label: "heroTitleHighlight", name: "heroTitleHighlight", widget: "hidden" }
-          - { label: "heroSubtitle", name: "heroSubtitle", widget: "hidden" }
-          - { label: "aboutTitle", name: "aboutTitle", widget: "hidden" }
-          - { label: "aboutText1", name: "aboutText1", widget: "hidden" }
-          - { label: "aboutText2", name: "aboutText2", widget: "hidden" }
-          - { label: "carSpecs", name: "carSpecs", widget: "hidden" }
-          - { label: "circuits", name: "circuits", widget: "hidden" }
-          - { label: "packages", name: "packages", widget: "hidden" }
-          - { label: "turnPriceList", name: "turnPriceList", widget: "hidden" }
-          - { label: "reviews", name: "reviews", widget: "hidden" }
           - { label: "championshipBadge", name: "championshipBadge", widget: "hidden" }
-          - { label: "championshipTitle", name: "championshipTitle", widget: "hidden" }
-          - { label: "championshipText", name: "championshipText", widget: "hidden" }
-          - { label: "championshipImage", name: "championshipImage", widget: "hidden" }
-          - { label: "gallery", name: "gallery", widget: "hidden" }
-          - { label: "heroVideo", name: "heroVideo", widget: "hidden" }
-          - { label: "heroPoster", name: "heroPoster", widget: "hidden" }
-          - { label: "teamImage", name: "teamImage", widget: "hidden" }
-
-      - name: "video_sfondi"
-        label: "8. Video Sfondo e Foto Team"
-        file: "data/site.json"
-        fields:
-          - { label: "Video Sfondo Principale (.mp4)", name: "heroVideo", widget: "file", choose_url: true }
-          - { label: "Foto Anteprima Video", name: "heroPoster", widget: "image", choose_url: true }
-          - { label: "Foto del Team (Sezione Chi Siamo)", name: "teamImage", widget: "image", choose_url: true }
           - { label: "whatsapp", name: "whatsapp", widget: "hidden" }
           - { label: "email", name: "email", widget: "hidden" }
           - { label: "instagram", name: "instagram", widget: "hidden" }
@@ -370,10 +155,59 @@ collections:
           - { label: "circuits", name: "circuits", widget: "hidden" }
           - { label: "packages", name: "packages", widget: "hidden" }
           - { label: "turnPriceList", name: "turnPriceList", widget: "hidden" }
+          - { label: "gallery", name: "gallery", widget: "hidden" }
+          - { label: "heroVideo", name: "heroVideo", widget: "hidden" }
+          - { label: "heroPoster", name: "heroPoster", widget: "hidden" }
+          - { label: "teamImage", name: "teamImage", widget: "hidden" }
+
+      - name: "foto_video_piste"
+        label: "4. Foto, Video Sfondo e Date Circuiti"
+        file: "data/site.json"
+        fields:
+          - { label: "Video Sfondo Principale (.mp4)", name: "heroVideo", widget: "file", choose_url: true }
+          - { label: "Foto Copertina Video", name: "heroPoster", widget: "image", choose_url: true }
+          - { label: "Foto del Team", name: "teamImage", widget: "image", choose_url: true }
+          - label: "Galleria Foto in Pista"
+            name: "gallery"
+            label_singular: "Foto"
+            widget: "list"
+            summary: "{{fields.caption}}"
+            fields:
+              - { label: "Scegli o carica foto", name: "image", widget: "image", choose_url: true }
+              - { label: "Descrizione foto", name: "caption", widget: "string" }
+          - label: "Date e Stato dei 10 Circuiti"
+            name: "circuits"
+            label_singular: "Circuito"
+            widget: "list"
+            summary: "{{fields.name}} — {{fields.status}}"
+            fields:
+              - { label: "Nome Circuito", name: "name", widget: "string" }
+              - { label: "shortName", name: "shortName", widget: "hidden" }
+              - { label: "Regione", name: "region", widget: "string" }
+              - { label: "mapPreset", name: "mapPreset", widget: "hidden" }
+              - { label: "Lunghezza e Curve", name: "length", widget: "string" }
+              - { label: "Prossime Date", name: "nextDate", widget: "string" }
+              - { label: "Stato (es. Disponibile / Promo)", name: "status", widget: "string" }
+          - { label: "whatsapp", name: "whatsapp", widget: "hidden" }
+          - { label: "email", name: "email", widget: "hidden" }
+          - { label: "instagram", name: "instagram", widget: "hidden" }
+          - { label: "facebook", name: "facebook", widget: "hidden" }
+          - { label: "tiktok", name: "tiktok", widget: "hidden" }
+          - { label: "companyInfo", name: "companyInfo", widget: "hidden" }
+          - { label: "heroBadge", name: "heroBadge", widget: "hidden" }
+          - { label: "heroTitleLine1", name: "heroTitleLine1", widget: "hidden" }
+          - { label: "heroTitleHighlight", name: "heroTitleHighlight", widget: "hidden" }
+          - { label: "heroSubtitle", name: "heroSubtitle", widget: "hidden" }
+          - { label: "aboutTitle", name: "aboutTitle", widget: "hidden" }
+          - { label: "aboutText1", name: "aboutText1", widget: "hidden" }
+          - { label: "aboutText2", name: "aboutText2", widget: "hidden" }
+          - { label: "carSpecs", name: "carSpecs", widget: "hidden" }
+          - { label: "steps", name: "steps", widget: "hidden" }
+          - { label: "packages", name: "packages", widget: "hidden" }
+          - { label: "turnPriceList", name: "turnPriceList", widget: "hidden" }
           - { label: "reviews", name: "reviews", widget: "hidden" }
           - { label: "championshipBadge", name: "championshipBadge", widget: "hidden" }
           - { label: "championshipTitle", name: "championshipTitle", widget: "hidden" }
           - { label: "championshipText", name: "championshipText", widget: "hidden" }
           - { label: "championshipImage", name: "championshipImage", widget: "hidden" }
-          - { label: "gallery", name: "gallery", widget: "hidden" }
           - { label: "faqs", name: "faqs", widget: "hidden" }
