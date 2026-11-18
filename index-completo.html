@@ -503,6 +503,15 @@
       <p id="modal-pkg-price" class="text-brand-red font-racing italic font-black text-xl mt-0.5">199€</p>
 
       <div class="mt-4 space-y-3">
+        <div>
+          <label class="block text-[11px] font-semibold uppercase tracking-wider text-zinc-400 mb-1">Circuito Scelto *</label>
+          <select id="pilot-circuit" onchange="updateVoucherPreview()" class="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-3.5 py-2 text-sm text-white focus:outline-none focus:border-brand-red">
+            <option value="Circuito di Castelletto di Branduzzo (Lombardia)">Circuito di Castelletto di Branduzzo (Lombardia)</option>
+            <option value="Circuito di Rieti (Lazio)">Circuito di Rieti (Lazio)</option>
+            <option value="Circuito del Volturno (Campania)">Circuito del Volturno (Campania)</option>
+            <option value="Altro circuito AON Racing">Altro circuito AON Racing (da definire)</option>
+          </select>
+        </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
           <div>
             <label class="block text-[11px] font-semibold uppercase tracking-wider text-zinc-400 mb-1">Nome *</label>
@@ -775,6 +784,9 @@
 
       // Pacchetti
       const grid = document.getElementById('packages-grid');
+      grid.className = SITE_DATA.packages.length >= 3
+        ? 'mt-16 grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch'
+        : 'mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch max-w-4xl mx-auto';
       grid.innerHTML = SITE_DATA.packages.map(pkg => `
         <div class="relative flex flex-col justify-between rounded-2xl p-8 transition ${
           pkg.featured
@@ -946,7 +958,12 @@
       const last = document.getElementById('pilot-last-name').value.trim();
       const fullName = `${first} ${last}`.trim();
       const note = document.getElementById('recipient-note').value.trim();
+      const circuitEl = document.getElementById('pilot-circuit');
+      const circuitName = circuitEl ? circuitEl.value : '';
       document.getElementById('preview-recipient').textContent = fullName ? fullName.toUpperCase() : "IL FUTURO PILOTA";
+      if (selectedPkg && circuitName) {
+        document.getElementById('preview-pkg').textContent = `${selectedPkg.name} (${selectedPkg.price}) — ${circuitName}`;
+      }
       document.getElementById('preview-note').textContent = note ? `"${note}"` : '"Buon Natale! Preparati a scendere in pista!"';
     }
 
@@ -964,9 +981,11 @@
         return;
       }
 
+      const circuit = document.getElementById('pilot-circuit').value;
       const lines = [
         `Ciao Aldo! Vorrei prenotare un Buono Regalo AON RACING:`,
-        `• Pacchetto: ${selectedPkg.name} (${selectedPkg.price} - ${selectedPkg.laps})`,
+        `• Pacchetto: ${selectedPkg.name} (${selectedPkg.price})`,
+        `• Circuito: ${circuit}`,
         `• Nome e Cognome: ${first} ${last}`,
         `• Età: ${age} anni`,
         `• Altezza: ${height} cm`,
