@@ -397,13 +397,13 @@
 
   <!-- SEZIONE CAMPIONATO PREDATORS -->
   <section id="campionato" class="py-20 bg-zinc-950 border-t border-zinc-900">
-    <div class="max-w-5xl mx-auto px-4 sm:px-6">
-      <div class="bg-gradient-to-br from-brand-card via-zinc-900 to-brand-card border border-zinc-800 rounded-2xl p-8 sm:p-12 relative overflow-hidden shadow-2xl">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="bg-gradient-to-br from-brand-card via-zinc-900 to-brand-card border border-zinc-800 rounded-2xl p-6 sm:p-10 lg:p-12 relative overflow-hidden shadow-2xl">
         <div class="absolute top-0 right-0 w-72 h-72 bg-brand-red/10 rounded-full blur-3xl pointer-events-none"></div>
         <div class="absolute bottom-0 left-0 w-72 h-72 bg-brand-green/10 rounded-full blur-3xl pointer-events-none"></div>
 
-        <div class="relative z-10 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-8">
-          <div class="max-w-2xl">
+        <div class="relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
+          <div class="lg:col-span-7">
             <span id="champ-badge" class="text-brand-green font-racing italic font-extrabold uppercase tracking-widest text-xs">Competizioni Nazionali • Formula Predator</span>
             <h2 id="champ-title" class="mt-2 font-racing italic font-black text-2xl sm:text-4xl uppercase text-white leading-tight">
               Partecipa al Campionato Predators con AON Racing
@@ -412,15 +412,22 @@
             <p id="champ-text" class="mt-4 text-sm sm:text-base text-zinc-300 leading-relaxed">
               Hai bisogno di più di una semplice prova? Vuoi partecipare a competizioni nazionali? Partecipa al Campionato Predators con AON Racing! Per prenotare un test o per le info contattaci.
             </p>
+
+            <div class="mt-7 flex flex-col sm:flex-row gap-3">
+              <a id="champ-wa-btn" href="#" target="_blank" rel="noopener" class="bg-brand-green hover:bg-emerald-600 text-white font-racing italic font-extrabold uppercase text-xs sm:text-sm px-7 py-4 rounded-xl text-center transition shadow-lg shadow-emerald-950/50">
+                Contattaci su WhatsApp
+              </a>
+              <a id="champ-mail-btn" href="mailto:info@aonracing.net" class="bg-brand-red hover:bg-red-700 text-white font-racing italic font-extrabold uppercase text-xs sm:text-sm px-7 py-4 rounded-xl text-center transition shadow-lg shadow-red-950/50">
+                Scrivici via Email
+              </a>
+            </div>
           </div>
 
-          <div class="flex flex-col sm:flex-row lg:flex-col gap-3 w-full lg:w-auto shrink-0">
-            <a id="champ-wa-btn" href="#" target="_blank" rel="noopener" class="bg-brand-green hover:bg-emerald-600 text-white font-racing italic font-extrabold uppercase text-xs sm:text-sm px-7 py-4 rounded-xl text-center transition shadow-lg shadow-emerald-950/50">
-              Contattaci su WhatsApp
-            </a>
-            <a id="champ-mail-btn" href="mailto:info@aonracing.net" class="bg-brand-red hover:bg-red-700 text-white font-racing italic font-extrabold uppercase text-xs sm:text-sm px-7 py-4 rounded-xl text-center transition shadow-lg shadow-red-950/50">
-              Scrivici via Email
-            </a>
+          <div class="lg:col-span-5">
+            <div class="relative group">
+              <div class="absolute -inset-1.5 bg-gradient-to-tr from-brand-red/30 to-brand-green/30 rounded-xl blur-md opacity-75 group-hover:opacity-100 transition"></div>
+              <img id="champ-img" src="archivio_extra/extra-1.jpg" alt="AON Racing Campionato Predators" class="relative w-full h-64 sm:h-72 object-cover rounded-xl border border-zinc-700/80 shadow-2xl" loading="lazy" />
+            </div>
           </div>
         </div>
       </div>
@@ -956,6 +963,7 @@
       if (SITE_DATA.championshipBadge) document.getElementById('champ-badge').textContent = SITE_DATA.championshipBadge;
       if (SITE_DATA.championshipTitle) document.getElementById('champ-title').textContent = SITE_DATA.championshipTitle;
       if (SITE_DATA.championshipText) document.getElementById('champ-text').textContent = SITE_DATA.championshipText;
+      if (SITE_DATA.championshipImage) document.getElementById('champ-img').src = SITE_DATA.championshipImage;
       const champMsg = "Ciao Aldo! Vorrei informazioni per prenotare un test o partecipare al Campionato Predators con AON Racing.";
       document.getElementById('champ-wa-btn').href = `https://wa.me/${SITE_DATA.whatsapp}?text=${encodeURIComponent(champMsg)}`;
       document.getElementById('champ-mail-btn').href = `mailto:${SITE_DATA.email}?subject=${encodeURIComponent("Info Campionato Predators — AON Racing")}&body=${encodeURIComponent(champMsg)}`;
