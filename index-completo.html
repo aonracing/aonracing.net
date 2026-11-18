@@ -50,16 +50,13 @@
       transform: skewX(-18deg);
     }
     @keyframes drawTrack {
-      0% { stroke-dashoffset: 600; }
+      0% { stroke-dashoffset: 100; }
       100% { stroke-dashoffset: 0; }
     }
     .track-animated {
-      stroke-dasharray: 600;
+      stroke-dasharray: 100;
       stroke-dashoffset: 0;
-      animation: drawTrack 2.4s ease-out forwards;
-    }
-    .circuit-card:hover .track-animated {
-      animation: drawTrack 1.4s ease-in-out;
+      animation: drawTrack 1.8s cubic-bezier(0.22, 1, 0.36, 1) forwards;
     }
     @media print {
       body * { visibility: hidden; }
@@ -79,9 +76,9 @@
 
   <!-- NAVBAR -->
   <header class="fixed top-0 inset-x-0 z-50 bg-brand-dark/90 backdrop-blur-md border-b border-zinc-800/80">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-24 flex items-center justify-between">
       <a href="#" class="inline-flex items-center group py-1">
-        <img src="archivio_extra/logo-o-grafica.png" alt="AON RACING" class="h-12 sm:h-14 w-auto object-contain transition-transform duration-200 group-hover:scale-105" />
+        <img src="archivio_extra/logo-o-grafica.png" alt="AON RACING" class="h-16 sm:h-20 w-auto object-contain drop-shadow-[0_2px_10px_rgba(255,255,255,0.12)] transition-transform duration-200 group-hover:scale-105" />
       </a>
 
       <nav class="hidden lg:flex items-center gap-6 text-xs font-semibold uppercase tracking-wider text-zinc-300">
@@ -273,7 +270,7 @@
             </h3>
 
             <!-- Schermo SVG Tracciato Animato -->
-            <div id="active-track-screen" class="mt-6 relative w-full h-64 sm:h-72 bg-[#0b0e12] rounded-2xl border border-zinc-800/90 flex items-center justify-center p-6 overflow-hidden">
+            <div id="active-track-screen" onmouseenter="replayTrackAnimation()" class="mt-6 relative w-full h-64 sm:h-72 bg-[#0b0e12] rounded-2xl border border-zinc-800/90 flex items-center justify-center p-6 overflow-hidden cursor-pointer" title="Passa il mouse per rivedere il giro completo">
               <div class="absolute inset-0 opacity-20" style="background-image: linear-gradient(to right, #27272a 1px, transparent 1px), linear-gradient(to bottom, #27272a 1px, transparent 1px); background-size: 24px 24px;"></div>
               <div id="active-track-svg-wrap" class="relative z-10 w-full h-full flex items-center justify-center"></div>
               <span class="absolute top-3 left-3.5 text-[10px] font-mono uppercase tracking-widest text-zinc-500">SECTOR TELEMETRY // AON-PC015</span>
@@ -408,11 +405,8 @@
   <!-- CONTATTI, SOCIAL & FOOTER -->
   <footer id="contatti" class="bg-zinc-950 border-t border-zinc-900 pt-20 pb-12">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
-      <div class="inline-block">
-        <div class="font-racing italic font-black text-3xl tracking-tight text-white leading-none">
-          AON <span class="text-zinc-200">RACING</span>
-        </div>
-        <div class="logo-stripe w-full mt-1"></div>
+      <div class="inline-flex justify-center">
+        <img src="archivio_extra/logo-o-grafica.png" alt="AON RACING" class="h-20 sm:h-24 w-auto object-contain drop-shadow-[0_2px_12px_rgba(255,255,255,0.12)]" />
       </div>
 
       <h3 class="mt-8 font-racing italic font-black text-2xl sm:text-3xl uppercase text-white">
@@ -684,8 +678,8 @@
               </defs>
               <!-- Cordolo / Asfalto esterno -->
               <path d="${pathData}" fill="none" stroke="#27272a" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" />
-              <!-- Traiettoria attiva -->
-              <path id="active-motion-path" d="${pathData}" fill="none" stroke="url(#activeTrackGrad)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" class="track-animated" />
+              <!-- Traiettoria attiva (100% del tracciato) -->
+              <path id="active-motion-path" pathLength="100" d="${pathData}" fill="none" stroke="url(#activeTrackGrad)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" class="track-animated" />
               <!-- Monoposto Telemetria Luminosa -->
               <circle r="6" fill="#ffffff" filter="drop-shadow(0 0 8px #e10600)">
                 <animateMotion dur="5.5s" repeatCount="indefinite">
@@ -723,6 +717,14 @@
             btn.className = 'circuit-pill-btn text-[11px] font-semibold px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-zinc-400 border border-zinc-800 transition';
           }
         });
+      };
+
+      window.replayTrackAnimation = function() {
+        const p = document.getElementById('active-motion-path');
+        if (!p) return;
+        p.classList.remove('track-animated');
+        void p.getBoundingClientRect();
+        p.classList.add('track-animated');
       };
 
       window.stepCircuit = function(delta) {
