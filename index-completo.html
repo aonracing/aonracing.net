@@ -184,51 +184,116 @@
     </div>
   </section>
 
-  <!-- I CIRCUITI & CALENDARIO CON MAPPA ITALIA INTERATTIVA + TRACCIATI SVG -->
-  <section id="circuiti" class="py-24 bg-zinc-950 border-t border-zinc-900">
+  <!-- I CIRCUITI: PADDOCK TELEMETRY EXPLORER -->
+  <section id="circuiti" class="py-24 bg-zinc-950 border-t border-zinc-900 relative overflow-hidden">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="text-center max-w-3xl mx-auto">
         <span class="text-brand-green font-racing italic font-extrabold uppercase tracking-widest text-sm">10 Circuiti • 1 Passione</span>
         <h2 class="mt-2 font-racing italic font-black text-3xl sm:text-5xl uppercase text-white">Le Nostre Piste in Italia</h2>
         <div class="logo-stripe w-28 mx-auto mt-3"></div>
         <p class="mt-4 text-sm sm:text-base text-zinc-400">
-          Clicca su un punto della mappa d'Italia per evidenziare il tracciato corrispondente e visualizzare la telemetria del circuito.
+          Seleziona un circuito sulla mappa d'Italia per esplorare la telemetria del tracciato, le caratteristiche tecniche e la disponibilità.
         </p>
       </div>
 
-      <!-- CARTINA ITALIA INTERATTIVA CON I 10 PIN AON RACING -->
-      <div class="mt-12 bg-brand-card border border-zinc-800 rounded-2xl p-6 sm:p-8 shadow-2xl">
-        <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 pb-5 border-b border-zinc-800/80">
-          <div>
-            <div class="font-racing italic font-black text-lg text-white uppercase tracking-wide">Mappa Nazionale AON RACING</div>
-            <div class="text-xs text-zinc-400">Seleziona un autodromo sulla cartina o scorri le schede tecniche qui sotto</div>
+      <!-- CONSOLE TELEMETRIA DOPPIA COLONNA -->
+      <div class="mt-12 grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+
+        <!-- COLONNA SINISTRA: CARTINA D'ITALIA INTERATTIVA -->
+        <div class="lg:col-span-6 bg-brand-card border border-zinc-800 rounded-2xl p-6 sm:p-7 flex flex-col justify-between relative overflow-hidden shadow-2xl">
+          <div class="flex items-center justify-between border-b border-zinc-800/80 pb-4">
+            <div>
+              <span class="text-[10px] font-racing italic font-extrabold uppercase tracking-widest text-brand-red">AON Racing Network</span>
+              <h3 class="font-racing italic font-black text-lg uppercase text-white">Mappa Nazionale Circuiti</h3>
+            </div>
+            <span class="text-[11px] font-semibold text-zinc-400 bg-zinc-900 border border-zinc-800 px-3 py-1 rounded-full">10 Piste</span>
           </div>
-          <button type="button" onclick="resetCircuitHighlight()" class="text-xs font-semibold uppercase tracking-wider text-brand-green hover:text-white transition">
-            Mostra tutti i 10 circuiti
-          </button>
-        </div>
 
-        <div class="mt-6 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          <div class="lg:col-span-6 flex justify-center">
-            <svg viewBox="0 0 360 410" class="w-full max-w-sm h-auto drop-shadow-2xl">
-              <!-- Sagoma stilizzata Penisola Italiana, Sicilia e Sardegna -->
-              <path d="M 55,48 L 115,32 L 178,24 L 210,38 L 195,68 L 168,82 L 185,115 L 222,155 L 258,195 L 308,218 L 332,242 L 302,256 L 282,285 L 268,318 L 252,312 L 256,272 L 228,245 L 188,212 L 152,175 L 118,125 L 78,96 L 45,78 Z" fill="#18181b" stroke="#3f3f46" stroke-width="2" stroke-linejoin="round" />
+          <div class="my-4 flex items-center justify-center">
+            <svg viewBox="0 0 430 450" class="w-full max-w-md h-auto select-none">
+              <defs>
+                <radialGradient id="italyGlow" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#e10600" stop-opacity="0.12" />
+                  <stop offset="100%" stop-color="#09090b" stop-opacity="0" />
+                </radialGradient>
+              </defs>
+              <circle cx="215" cy="225" r="195" fill="url(#italyGlow)" />
+
+              <!-- Sagoma Geografica Italia, Sicilia e Sardegna -->
+              <path d="M 102,68 L 128,54 L 154,58 L 176,44 L 204,48 L 222,62 L 210,82 L 194,94 L 202,118 L 216,138 L 242,166 L 268,196 L 296,222 L 324,234 L 368,252 L 388,268 L 366,280 L 348,274 L 336,294 L 328,318 L 314,316 L 316,288 L 302,276 L 284,284 L 272,268 L 248,248 L 224,224 L 196,196 L 174,164 L 154,132 L 132,114 L 106,118 L 90,104 L 94,84 Z"
+                fill="#16181d" stroke="#3f3f46" stroke-width="2" stroke-linejoin="round" />
               <!-- Sicilia -->
-              <path d="M 192,326 L 246,322 L 236,356 L 196,346 Z" fill="#18181b" stroke="#3f3f46" stroke-width="2" stroke-linejoin="round" />
+              <path d="M 244,334 L 304,328 L 292,366 L 252,354 Z"
+                fill="#16181d" stroke="#3f3f46" stroke-width="2" stroke-linejoin="round" />
               <!-- Sardegna -->
-              <path d="M 48,195 L 76,192 L 78,255 L 46,258 Z" fill="#18181b" stroke="#3f3f46" stroke-width="2" stroke-linejoin="round" />
+              <path d="M 88,214 L 118,210 L 120,278 L 86,282 Z"
+                fill="#16181d" stroke="#3f3f46" stroke-width="2" stroke-linejoin="round" />
 
-              <!-- Pin Interattivi dei 10 Circuiti -->
+              <!-- Pin Interattivi & Etichette -->
               <g id="italy-map-pins"></g>
             </svg>
           </div>
 
-          <div class="lg:col-span-6 space-y-3" id="italy-quick-list"></div>
+          <div class="text-center text-xs text-zinc-500 border-t border-zinc-800/80 pt-3">
+            Clicca su un punto rosso sulla mappa per aprire la telemetria della pista
+          </div>
         </div>
-      </div>
 
-      <!-- GRIGLIA SCHEDE TRACCIATI -->
-      <div id="circuits-grid" class="mt-12 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"></div>
+        <!-- COLONNA DESTRA: MONITOR TELEMETRIA CIRCUITO ATTIVO -->
+        <div class="lg:col-span-6 bg-brand-card border border-zinc-800 rounded-2xl p-6 sm:p-8 flex flex-col justify-between shadow-2xl relative overflow-hidden">
+          <div>
+            <!-- Barra Navigazione Rapida -->
+            <div class="flex items-center justify-between gap-3 border-b border-zinc-800/80 pb-4">
+              <div class="flex items-center gap-2">
+                <span class="w-2.5 h-2.5 rounded-full bg-brand-green animate-pulse"></span>
+                <span id="active-track-counter" class="font-racing italic font-bold text-xs uppercase tracking-widest text-zinc-400">Circuito 01 / 10</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <button type="button" onclick="stepCircuit(-1)" aria-label="Circuito precedente" class="w-9 h-9 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-white flex items-center justify-center transition">&#10094;</button>
+                <button type="button" onclick="stepCircuit(1)" aria-label="Circuito successivo" class="w-9 h-9 rounded-lg bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 text-white flex items-center justify-center transition">&#10095;</button>
+              </div>
+            </div>
+
+            <!-- Intestazione Pista Selezionata -->
+            <div class="mt-5 flex flex-wrap items-center justify-between gap-2">
+              <span id="active-track-region" class="text-xs font-bold uppercase tracking-wider text-brand-red">Lombardia</span>
+              <span id="active-track-status" class="text-[11px] font-racing italic font-extrabold uppercase tracking-widest px-3 py-1 rounded bg-zinc-800 text-brand-green">Disponibile</span>
+            </div>
+            <h3 id="active-track-name" class="mt-2 font-racing italic font-black text-2xl sm:text-3xl uppercase text-white leading-tight">
+              Castelletto di Branduzzo (PV)
+            </h3>
+
+            <!-- Schermo SVG Tracciato Animato -->
+            <div id="active-track-screen" class="mt-6 relative w-full h-64 sm:h-72 bg-zinc-950 rounded-2xl border border-zinc-800/90 flex items-center justify-center p-6 overflow-hidden">
+              <div class="absolute inset-0 opacity-20" style="background-image: linear-gradient(to right, #27272a 1px, transparent 1px), linear-gradient(to bottom, #27272a 1px, transparent 1px); background-size: 24px 24px;"></div>
+              <div id="active-track-svg-wrap" class="relative z-10 w-full h-full flex items-center justify-center"></div>
+              <span class="absolute top-3 left-3.5 text-[10px] font-mono uppercase tracking-widest text-zinc-500">SECTOR TELEMETRY // AON-PC015</span>
+              <span class="absolute bottom-3 right-3.5 text-[10px] font-racing italic uppercase tracking-widest text-brand-green">● GPS TRACKING</span>
+            </div>
+
+            <!-- Dati Tecnici Pista -->
+            <div class="mt-6 grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="bg-zinc-900/90 border border-zinc-800 rounded-xl p-4">
+                <div class="text-[10px] uppercase tracking-wider text-zinc-400">Configurazione Tracciato</div>
+                <div id="active-track-length" class="font-racing italic font-bold text-sm sm:text-base text-white mt-1">1.900 m • 16 Curve</div>
+              </div>
+              <div class="bg-zinc-900/90 border border-zinc-800 rounded-xl p-4">
+                <div class="text-[10px] uppercase tracking-wider text-zinc-400">Calendario & Convocazioni</div>
+                <div id="active-track-date" class="font-semibold text-xs sm:text-sm text-zinc-200 mt-1">Stagione 2027 — Date in definizione</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Selettore Pillole Rapide + Bottone Info -->
+          <div class="mt-6 pt-5 border-t border-zinc-800/80">
+            <div id="circuit-pills" class="flex flex-wrap gap-1.5 mb-5"></div>
+            <a id="active-track-wa" href="#" target="_blank" rel="noopener" class="block w-full bg-zinc-800 hover:bg-brand-red text-white font-racing italic font-extrabold uppercase text-center text-xs sm:text-sm py-3.5 px-5 rounded-xl transition">
+              Chiedi Info per Questa Pista su WhatsApp
+            </a>
+          </div>
+        </div>
+
+      </div>
     </div>
   </section>
 
@@ -528,143 +593,146 @@
         `).join('');
       }
 
-      // Circuiti con mappa vettoriale animata fedele ai tracciati reali
+      // Paddock Telemetry Explorer: 10 Tracciati Fedeli + Mappa Italia Interattiva
       const TRACK_PATHS = {
-        castelletto: "M 55,28 L 138,44 C 154,48 152,62 135,58 L 95,46 C 82,42 80,58 94,64 L 132,76 L 132,92 C 132,102 115,102 108,92 L 94,74 C 78,62 46,72 44,96 L 44,122 C 44,142 74,146 84,128 L 96,108 C 102,98 116,102 112,116 L 98,148 C 92,162 114,166 124,150 L 188,36 C 196,20 176,8 154,10 C 134,12 132,26 152,28 L 176,30 L 176,56 C 176,64 166,64 156,60 L 62,36 C 36,30 24,44 34,50 C 42,54 46,26 55,28 Z",
-        nuvolari: "M 134,16 L 214,116 C 226,132 212,148 196,136 L 134,84 C 122,74 108,86 118,98 L 188,154 C 202,166 218,152 204,136 L 154,78 C 144,68 124,72 106,74 C 88,76 76,66 68,52 L 46,16 C 38,4 54,-2 62,10 L 94,58 C 102,68 118,62 112,48 L 68,-12 C 62,-20 44,-22 36,-10 C 28,2 38,16 54,14 C 66,12 76,20 84,32 L 134,16 Z",
-        varano: "M 22,92 L 135,92 L 162,84 L 164,66 C 164,56 178,56 184,62 L 226,56 C 238,54 238,34 222,36 L 146,44 C 136,46 136,56 124,56 L 96,54 C 86,54 84,42 72,42 L 32,42 C 18,42 16,56 16,74 L 16,96 C 16,108 36,108 36,94 L 28,68 C 26,60 42,60 44,68 L 46,84 C 46,92 34,92 22,92 Z",
-        pomposa: "M 154,118 L 136,54 C 132,38 158,32 166,48 L 174,64 C 180,76 164,84 152,72 L 128,48 C 114,34 94,48 98,68 L 106,96 C 110,112 92,116 86,98 L 76,64 C 68,38 92,18 122,12 L 164,4 C 182,0 188,18 172,26 L 116,52 C 92,64 82,92 92,124 L 106,162 C 112,178 132,174 128,156 L 114,112 C 108,96 126,92 132,108 L 154,164 C 162,180 184,172 176,154 L 154,118 Z",
-        magione: "M 42,96 L 178,96 C 204,96 212,72 192,62 L 152,46 C 138,40 146,24 166,26 L 208,32 C 226,34 226,16 202,16 L 76,16 C 46,16 32,36 46,52 L 68,68 C 76,75 56,82 36,78 C 20,75 20,96 42,96 Z",
-        rieti: "M 32,90 L 188,90 C 214,90 218,66 196,56 L 152,42 C 138,37 146,20 166,23 L 206,29 C 224,32 222,14 198,14 L 72,14 C 42,14 30,36 45,50 L 68,66 C 78,73 54,80 32,76 C 18,73 16,90 32,90 Z",
-        valvibrata: "M 110,48 L 222,62 C 234,64 232,82 214,84 L 112,74 C 98,72 98,64 114,64 L 192,70 C 204,70 204,60 190,58 L 112,50 C 96,48 94,30 82,30 C 70,30 68,54 58,64 L 22,74 C 10,78 10,90 24,88 L 68,78 C 82,74 82,42 94,36 C 106,30 118,46 132,48 L 110,48 Z",
-        volturno: "M 36,88 L 182,88 C 208,88 214,62 190,52 L 142,36 C 128,32 134,16 154,18 L 198,22 C 218,24 214,12 188,12 L 64,12 C 34,12 22,34 38,50 L 64,64 C 74,70 50,76 32,74 C 18,72 18,88 36,88 Z",
-        airola: "M 34,86 L 176,86 C 204,86 210,60 186,48 L 146,32 C 132,26 142,14 162,16 L 196,20 C 214,22 210,12 184,12 L 68,12 C 38,12 26,34 42,48 L 66,62 C 76,68 52,74 34,72 C 20,70 18,86 34,86 Z",
-        levante: "M 30,90 L 192,90 C 216,90 220,68 196,58 L 148,44 C 134,40 140,22 162,24 L 204,28 C 222,30 220,14 194,14 L 68,14 C 38,14 26,36 42,52 L 66,66 C 76,72 52,78 30,76 C 16,74 14,90 30,90 Z",
-        custom: "M 35,88 L 185,88 C 215,88 215,58 185,55 L 135,50 C 115,48 115,25 140,22 L 190,18 C 215,16 210,12 180,12 L 55,12 C 25,12 20,42 42,55 L 65,68 C 75,74 50,88 35,88 Z"
+        castelletto: "M 185,74 L 68,48 C 44,44 36,62 56,66 L 166,94 C 180,98 176,112 160,108 L 118,94 C 104,90 102,106 116,112 L 158,126 C 168,130 162,144 148,140 L 122,120 C 98,108 66,120 66,144 C 66,164 94,168 106,152 L 122,134 C 130,126 144,132 138,146 L 132,162 C 128,172 146,174 154,160 L 222,44 C 230,26 210,12 186,14 C 166,16 164,30 184,32 L 204,34 L 202,68 C 202,74 194,76 185,74 Z",
+        nuvolari: "M 136,52 L 246,144 C 258,156 244,170 228,158 L 166,108 C 154,98 142,110 152,122 L 216,166 C 228,174 238,162 224,148 L 176,108 C 164,100 144,106 126,106 C 110,106 98,96 90,82 L 74,54 C 68,44 82,38 90,48 L 124,90 C 132,98 148,92 142,78 L 86,18 C 76,8 56,12 52,24 C 48,36 62,42 74,36 C 84,32 94,38 104,48 L 136,52 Z",
+        varano: "M 78,136 L 194,136 L 216,128 L 274,44 C 284,30 268,20 254,28 L 178,44 C 166,46 168,64 154,66 L 116,66 C 104,66 102,52 88,52 L 38,50 C 24,50 22,64 22,82 L 22,144 C 22,158 46,158 46,142 L 38,104 C 36,92 54,92 58,102 L 64,124 C 68,134 72,136 78,136 Z",
+        pomposa: "M 176,122 L 164,62 C 160,44 184,42 186,58 L 186,70 C 186,82 170,84 160,74 L 146,62 C 136,54 134,74 146,78 L 156,78 C 164,78 164,66 154,58 L 138,42 C 126,30 144,16 172,14 L 192,14 C 204,14 202,28 188,34 L 136,56 C 116,66 112,92 118,124 L 126,158 C 130,170 146,166 144,152 L 138,116 C 136,104 152,104 156,116 L 182,158 C 190,170 204,162 196,148 L 176,122 Z",
+        magione: "M 72,34 L 234,34 C 254,34 256,52 236,58 L 174,82 C 164,86 172,98 186,98 L 214,98 C 228,98 228,118 208,120 L 94,134 C 58,138 38,122 44,100 C 48,86 68,84 82,78 C 92,74 86,62 72,60 L 54,56 C 44,54 48,34 72,34 Z",
+        rieti: "M 54,126 L 228,126 C 256,126 262,96 236,84 L 184,64 C 168,58 176,38 198,42 L 244,48 C 264,50 262,28 234,28 L 96,28 C 60,28 46,56 64,74 L 92,94 C 104,102 76,112 52,108 C 36,106 36,126 54,126 Z",
+        valvibrata: "M 134,66 L 266,84 C 280,86 278,106 258,106 L 144,96 C 130,94 130,86 146,86 L 234,92 C 246,92 246,82 232,80 L 146,74 C 132,72 128,50 114,50 C 100,50 96,74 84,82 L 26,96 C 14,100 14,114 28,112 L 88,96 C 102,92 104,62 116,58 C 128,54 130,66 134,66 Z",
+        volturno: "M 48,122 L 216,122 C 246,122 252,92 224,78 L 168,56 C 152,50 160,32 184,34 L 234,40 C 256,42 252,24 222,24 L 82,24 C 46,24 32,52 52,72 L 82,90 C 94,98 66,106 44,104 C 28,102 28,122 48,122 Z",
+        airola: "M 52,118 L 208,118 C 240,118 248,88 218,72 L 172,50 C 156,42 168,26 192,28 L 232,34 C 252,36 248,22 218,22 L 88,22 C 52,22 38,50 58,68 L 86,86 C 98,94 70,102 48,100 C 32,98 32,118 52,118 Z",
+        levante: "M 44,124 L 232,124 C 260,124 264,96 236,82 L 178,62 C 162,56 170,34 196,36 L 244,42 C 264,44 262,24 232,24 L 88,24 C 52,24 38,54 58,74 L 86,92 C 98,100 70,108 44,106 C 28,104 28,124 44,124 Z",
+        custom: "M 54,126 L 228,126 C 256,126 262,96 236,84 L 184,64 C 168,58 176,38 198,42 L 244,48 C 264,50 262,28 234,28 L 96,28 C 60,28 46,56 64,74 L 92,94 C 104,102 76,112 52,108 C 36,106 36,126 54,126 Z"
       };
 
-      const TRACK_VIEWBOX = {
-        castelletto: "20 0 200 175",
-        nuvolari: "20 -25 220 200",
-        varano: "10 25 235 90",
-        pomposa: "65 -5 130 190",
-        valvibrata: "5 20 235 80"
+      // Coordinate precise dei 10 pin sulla cartina d'Italia + posizione etichette senza sovrapposizioni
+      const ITALY_PINS = {
+        castelletto: { x: 132, y: 92,  lx: 16,  ly: 72,  anchor: "start", label: "Castelletto" },
+        nuvolari:    { x: 136, y: 104, lx: 16,  ly: 112, anchor: "start", label: "Tazio Nuvolari" },
+        varano:      { x: 158, y: 120, lx: 16,  ly: 146, anchor: "start", label: "Varano" },
+        pomposa:     { x: 204, y: 112, lx: 252, ly: 86,  anchor: "start", label: "Pomposa" },
+        magione:     { x: 214, y: 174, lx: 264, ly: 148, anchor: "start", label: "Magione" },
+        rieti:       { x: 226, y: 206, lx: 282, ly: 184, anchor: "start", label: "Rieti - La Mola" },
+        valvibrata:  { x: 244, y: 194, lx: 302, ly: 214, anchor: "start", label: "Val Vibrata" },
+        volturno:    { x: 256, y: 256, lx: 150, ly: 266, anchor: "start", label: "Volturno" },
+        airola:      { x: 270, y: 262, lx: 188, ly: 312, anchor: "start", label: "Airola" },
+        levante:     { x: 342, y: 270, lx: 318, ly: 326, anchor: "start", label: "Levante" }
       };
 
-      const ITALY_COORDS = {
-        castelletto: { x: 84, y: 66 },
-        nuvolari: { x: 88, y: 76 },
-        varano: { x: 112, y: 92 },
-        pomposa: { x: 158, y: 88 },
-        magione: { x: 162, y: 146 },
-        rieti: { x: 174, y: 174 },
-        valvibrata: { x: 192, y: 162 },
-        volturno: { x: 204, y: 222 },
-        airola: { x: 218, y: 226 },
-        levante: { x: 282, y: 234 }
-      };
+      let activeCircuitIdx = 0;
 
-      window.highlightCircuit = function(idx) {
-        document.querySelectorAll('.circuit-card').forEach((el, i) => {
-          if (i === idx) {
-            el.classList.add('ring-2', 'ring-brand-red', 'bg-zinc-900');
-            el.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-          } else {
-            el.classList.remove('ring-2', 'ring-brand-red', 'bg-zinc-900');
+      window.selectCircuit = function(idx) {
+        if (!SITE_DATA || !SITE_DATA.circuits || !SITE_DATA.circuits.length) return;
+        activeCircuitIdx = (idx + SITE_DATA.circuits.length) % SITE_DATA.circuits.length;
+        const c = SITE_DATA.circuits[activeCircuitIdx];
+
+        document.getElementById('active-track-counter').textContent =
+          `Circuito ${String(activeCircuitIdx + 1).padStart(2, '0')} / ${String(SITE_DATA.circuits.length).padStart(2, '0')}`;
+        document.getElementById('active-track-region').textContent = c.region || 'Italia';
+        document.getElementById('active-track-status').textContent = c.status;
+        document.getElementById('active-track-name').textContent = c.name;
+        document.getElementById('active-track-length').textContent = c.length;
+        document.getElementById('active-track-date').textContent = c.nextDate;
+
+        const waMsg = `Ciao Aldo! Vorrei informazioni per girare al circuito: ${c.name}.`;
+        document.getElementById('active-track-wa').href = `https://wa.me/${SITE_DATA.whatsapp}?text=${encodeURIComponent(waMsg)}`;
+
+        const wrap = document.getElementById('active-track-svg-wrap');
+        if (c.mapImage) {
+          wrap.innerHTML = `<img src="${c.mapImage}" alt="${c.name}" class="max-h-full max-w-full object-contain rounded-xl" />`;
+        } else {
+          const pathData = TRACK_PATHS[c.mapPreset] || TRACK_PATHS.custom;
+          wrap.innerHTML = `
+            <svg viewBox="0 0 300 185" class="w-full h-full max-h-60 overflow-visible">
+              <defs>
+                <linearGradient id="activeTrackGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" stop-color="#e10600" />
+                  <stop offset="50%" stop-color="#f97316" />
+                  <stop offset="100%" stop-color="#00a859" />
+                </linearGradient>
+              </defs>
+              <!-- Cordolo / Asfalto esterno -->
+              <path d="${pathData}" fill="none" stroke="#27272a" stroke-width="11" stroke-linecap="round" stroke-linejoin="round" />
+              <!-- Traiettoria attiva -->
+              <path id="active-motion-path" d="${pathData}" fill="none" stroke="url(#activeTrackGrad)" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" class="track-animated" />
+              <!-- Monoposto Telemetria Luminosa -->
+              <circle r="6" fill="#ffffff" filter="drop-shadow(0 0 8px #e10600)">
+                <animateMotion dur="5.5s" repeatCount="indefinite">
+                  <mpath href="#active-motion-path" />
+                </animateMotion>
+              </circle>
+            </svg>
+          `;
+        }
+
+        // Evidenzia pin attivo sulla mappa d'Italia
+        document.querySelectorAll('.italy-pin-group').forEach((g, i) => {
+          const isSelected = i === activeCircuitIdx;
+          const core = g.querySelector('.pin-core');
+          const badge = g.querySelector('.pin-badge');
+          const text = g.querySelector('.pin-text');
+          if (core) {
+            core.setAttribute('fill', isSelected ? '#00a859' : '#e10600');
+            core.setAttribute('r', isSelected ? '6.5' : '4.5');
+          }
+          if (badge) {
+            badge.setAttribute('stroke', isSelected ? '#00a859' : '#3f3f46');
+            badge.setAttribute('fill', isSelected ? '#18181b' : '#09090b');
+          }
+          if (text) {
+            text.setAttribute('fill', isSelected ? '#ffffff' : '#a1a1aa');
           }
         });
-        document.querySelectorAll('.quick-pill').forEach((el, i) => {
-          if (i === idx) {
-            el.classList.add('border-brand-red', 'bg-zinc-800', 'text-white');
+
+        // Evidenzia pillola attiva
+        document.querySelectorAll('.circuit-pill-btn').forEach((btn, i) => {
+          if (i === activeCircuitIdx) {
+            btn.className = 'circuit-pill-btn text-[11px] font-bold px-3 py-1.5 rounded-lg bg-brand-red text-white transition';
           } else {
-            el.classList.remove('border-brand-red', 'bg-zinc-800', 'text-white');
+            btn.className = 'circuit-pill-btn text-[11px] font-semibold px-3 py-1.5 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-zinc-400 border border-zinc-800 transition';
           }
         });
       };
 
-      window.resetCircuitHighlight = function() {
-        document.querySelectorAll('.circuit-card').forEach(el => {
-          el.classList.remove('ring-2', 'ring-brand-red', 'bg-zinc-900');
-        });
-        document.querySelectorAll('.quick-pill').forEach(el => {
-          el.classList.remove('border-brand-red', 'bg-zinc-800', 'text-white');
-        });
+      window.stepCircuit = function(delta) {
+        selectCircuit(activeCircuitIdx + delta);
       };
 
-      if (SITE_DATA.circuits) {
-        // Popola pin sulla Mappa d'Italia + elenco rapido
+      if (SITE_DATA.circuits && SITE_DATA.circuits.length) {
         const pinsContainer = document.getElementById('italy-map-pins');
-        const quickList = document.getElementById('italy-quick-list');
-        if (pinsContainer && quickList) {
+        const pillsContainer = document.getElementById('circuit-pills');
+
+        if (pinsContainer) {
           pinsContainer.innerHTML = SITE_DATA.circuits.map((c, idx) => {
-            const pt = ITALY_COORDS[c.mapPreset];
-            if (!pt) return '';
+            const p = ITALY_PINS[c.mapPreset];
+            if (!p) return '';
+            const shortLabel = p.label;
+            const boxWidth = shortLabel.length * 6.5 + 16;
             return `
-              <g class="cursor-pointer group" onclick="highlightCircuit(${idx})">
-                <circle cx="${pt.x}" cy="${pt.y}" r="10" fill="#e10600" opacity="0.25">
-                  <animate attributeName="r" values="6;13;6" dur="2.2s" repeatCount="indefinite" />
+              <g class="italy-pin-group cursor-pointer" onclick="selectCircuit(${idx})">
+                <line x1="${p.x}" y1="${p.y}" x2="${p.lx + (p.lx < p.x ? boxWidth : 0)}" y2="${p.ly}" stroke="#52525b" stroke-width="1" stroke-dasharray="2 2" />
+                <circle cx="${p.x}" cy="${p.y}" r="11" fill="#e10600" opacity="0.22">
+                  <animate attributeName="r" values="6;14;6" dur="2.4s" repeatCount="indefinite" />
                 </circle>
-                <circle cx="${pt.x}" cy="${pt.y}" r="4.5" fill="#e10600" stroke="#ffffff" stroke-width="1.5" />
-                <text x="${pt.x + 8}" y="${pt.y + 3}" fill="#e4e4e7" font-size="9" font-family="Inter, sans-serif" font-weight="600">${c.name.split('—')[0].replace('Circuito ', '').replace('Autodromo ', '').replace('Kartodromo ', '').trim()}</text>
+                <circle class="pin-core" cx="${p.x}" cy="${p.y}" r="4.5" fill="#e10600" stroke="#ffffff" stroke-width="1.5" />
+                <rect class="pin-badge" x="${p.lx}" y="${p.ly - 11}" width="${boxWidth}" height="20" rx="5" fill="#09090b" stroke="#3f3f46" stroke-width="1" />
+                <text class="pin-text" x="${p.lx + 8}" y="${p.ly + 2}" fill="#a1a1aa" font-size="10" font-family="Inter, sans-serif" font-weight="600">${shortLabel}</text>
               </g>
             `;
           }).join('');
-
-          quickList.innerHTML = `<div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">` + SITE_DATA.circuits.map((c, idx) => `
-            <button type="button" onclick="highlightCircuit(${idx})" class="quick-pill text-left bg-zinc-900/90 hover:bg-zinc-800 border border-zinc-800 rounded-xl px-3.5 py-2.5 transition flex items-center justify-between gap-2">
-              <div>
-                <div class="text-xs font-bold text-white leading-tight">${c.name}</div>
-                <div class="text-[10px] text-zinc-400 mt-0.5">${c.region || ''} • ${c.length.split('•')[0].trim()}</div>
-              </div>
-              <span class="w-2 h-2 rounded-full shrink-0 ${c.status.toLowerCase().includes('promo') || c.status.toLowerCase().includes('disp') ? 'bg-brand-green' : 'bg-amber-400'}"></span>
-            </button>
-          `).join('') + `</div>`;
         }
 
-        // Popola le 10 card con i tracciati SVG animati
-        document.getElementById('circuits-grid').innerHTML = SITE_DATA.circuits.map((c, idx) => {
-          const pathData = TRACK_PATHS[c.mapPreset] || TRACK_PATHS.custom;
-          const vb = TRACK_VIEWBOX[c.mapPreset] || "0 0 245 110";
-          const pathId = `circuit-path-${idx}`;
-          const visualHtml = c.mapImage
-            ? `<img src="${c.mapImage}" alt="${c.name}" class="w-full h-40 object-cover rounded-xl border border-zinc-800/80 mb-5" loading="lazy" />`
-            : `<div class="relative w-full h-40 bg-zinc-950/95 rounded-xl border border-zinc-800/80 mb-5 flex items-center justify-center overflow-hidden p-4">
-                <div class="absolute inset-0 opacity-15" style="background-image: radial-gradient(#52525b 1px, transparent 1px); background-size: 12px 12px;"></div>
-                <svg viewBox="${vb}" class="w-full h-full overflow-visible">
-                  <defs>
-                    <linearGradient id="grad-${idx}" x1="0%" y1="0%" x2="100%" y2="0%">
-                      <stop offset="0%" stop-color="#e10600" />
-                      <stop offset="100%" stop-color="#00a859" />
-                    </linearGradient>
-                  </defs>
-                  <path d="${pathData}" fill="none" stroke="#27272a" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round" />
-                  <path id="${pathId}" d="${pathData}" fill="none" stroke="url(#grad-${idx})" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" class="track-animated" />
-                  <circle r="4.2" fill="#ffffff" filter="drop-shadow(0 0 6px #e10600)">
-                    <animateMotion dur="${5 + (idx % 4) * 0.6}s" repeatCount="indefinite">
-                      <mpath href="#${pathId}" />
-                    </animateMotion>
-                  </circle>
-                </svg>
-                <span class="absolute top-2.5 left-3 text-[10px] font-semibold uppercase tracking-wider text-zinc-500">${c.region || 'Italia'}</span>
-                <span class="absolute bottom-2 right-2.5 text-[9px] font-racing italic uppercase tracking-widest text-zinc-500">Live Telemetry</span>
-              </div>`;
+        if (pillsContainer) {
+          pillsContainer.innerHTML = SITE_DATA.circuits.map((c, idx) => {
+            const shortName = c.name.split('—')[0].replace('Circuito ', '').replace('Autodromo ', '').replace('Kartodromo ', '').trim();
+            return `<button type="button" onclick="selectCircuit(${idx})" class="circuit-pill-btn">${shortName}</button>`;
+          }).join('');
+        }
 
-          return `
-            <div class="circuit-card bg-brand-card border border-zinc-800 hover:border-zinc-700 rounded-2xl p-6 flex flex-col justify-between transition">
-              <div>
-                ${visualHtml}
-                <span class="inline-block text-[10px] font-racing italic font-extrabold uppercase tracking-widest px-2.5 py-1 rounded bg-zinc-800 text-brand-green">
-                  ${c.status}
-                </span>
-                <h3 class="mt-3 font-racing italic font-black text-lg uppercase text-white leading-snug">${c.name}</h3>
-                <p class="mt-1.5 text-xs text-zinc-400 font-medium">${c.length}</p>
-              </div>
-              <div class="mt-5 pt-4 border-t border-zinc-800/80 text-xs text-zinc-300 font-semibold">
-                📅 ${c.nextDate}
-              </div>
-            </div>
-          `;
-        }).join('');
+        selectCircuit(0);
       }
 
       // Chi Siamo & Scheda Tecnica
