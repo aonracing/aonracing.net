@@ -1,106 +1,65 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="it">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Admin | AON RACING</title>
+  <title>AON RACING | Pannello Gestione Sito</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%2309090b'/%3E%3Ctext x='50%25' y='44%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-family='Arial Black, sans-serif' font-style='italic' font-weight='900' font-size='22'%3EAON%3C/text%3E%3Cpolygon points='10,48 32,48 30,54 8,54' fill='%23e10600'/%3E%3Cpolygon points='32,48 56,48 54,54 30,54' fill='%2300a859'/%3E%3C/svg%3E" />
   <style>
-    #repo-quota-bar {
-      position: fixed;
-      bottom: 14px;
-      right: 14px;
-      z-index: 99999;
-      background: #121216;
+    :root { --sveltia-accent-color: #e10600; }
+    body {
+      margin: 0;
+      background-color: #09090b;
       color: #f4f4f5;
-      border: 1px solid #27272a;
-      border-radius: 10px;
-      padding: 10px 14px;
-      font-family: system-ui, -apple-system, sans-serif;
-      font-size: 12px;
-      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.55);
-      min-width: 245px;
-      max-width: 300px;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     }
-    #repo-quota-bar .header {
+    .aon-topbar {
+      background: #121216;
+      border-bottom: 2px solid #e10600;
+      padding: 10px 20px;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      font-weight: 700;
-      margin-bottom: 6px;
+      justify-content: space-between;
+      gap: 12px;
+      position: sticky;
+      top: 0;
+      z-index: 9999;
     }
-    #repo-quota-bar .track {
-      width: 100%;
-      height: 7px;
-      background: #27272a;
-      border-radius: 999px;
-      overflow: hidden;
-      margin-bottom: 6px;
-    }
-    #repo-quota-bar .fill {
-      height: 100%;
-      width: 0%;
-      background: #00a859;
-      transition: width 0.4s ease, background 0.4s ease;
-    }
-    #repo-quota-bar .hint {
+    .aon-brand { display: flex; align-items: center; gap: 12px; }
+    .aon-brand img { height: 36px; width: auto; object-fit: contain; }
+    .aon-badge {
+      background: rgba(0, 168, 89, 0.15);
+      border: 1px solid #00a859;
+      color: #00a859;
       font-size: 11px;
-      color: #a1a1aa;
-      line-height: 1.35;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 999px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
+    .aon-back-btn {
+      background: #27272a;
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 8px 14px;
+      border-radius: 8px;
+      border: 1px solid #3f3f46;
+      transition: background 0.2s;
+    }
+    .aon-back-btn:hover { background: #e10600; border-color: #e10600; }
   </style>
 </head>
 <body>
-  <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
-
-  <!-- INDICATORE SPAZIO GITHUB PAGES (MAX 1 GB) -->
-  <div id="repo-quota-bar" title="Limite massimo consigliato da GitHub Pages: 1 GB">
-    <div class="header">
-      <span>Spazio Sito & Archivio</span>
-      <span id="quota-text">Calcolo...</span>
+  <div class="aon-topbar">
+    <div class="aon-brand">
+      <img src="../archivio_extra/logo-o-grafica.png" alt="AON Racing" />
+      <span class="aon-badge">Pannello Admin</span>
     </div>
-    <div class="track">
-      <div id="quota-fill" class="fill"></div>
-    </div>
-    <div id="quota-hint" class="hint">
-      Limite massimo: <strong>1 GB (1024 MB)</strong>. Comprimi i video prima di caricarli (max 25 MB a file).
-    </div>
+    <a href="../" target="_blank" class="aon-back-btn">Apri Sito Live ↗</a>
   </div>
-
-  <script>
-    async function checkRepoSize() {
-      try {
-        const res = await fetch('https://api.github.com/repos/aonracing/aonracing.net?t=' + Date.now());
-        if (!res.ok) return;
-        const data = await res.json();
-        // data.size è espresso in KB
-        const usedMB = (data.size / 1024).toFixed(1);
-        const maxMB = 1024;
-        const pct = Math.min(100, Math.round((data.size / 1024 / maxMB) * 100));
-
-        const textEl = document.getElementById('quota-text');
-        const fillEl = document.getElementById('quota-fill');
-        const hintEl = document.getElementById('quota-hint');
-
-        textEl.textContent = `${usedMB} MB / 1 GB (${pct}%)`;
-        fillEl.style.width = pct + '%';
-
-        if (pct >= 85) {
-          fillEl.style.background = '#e10600';
-          hintEl.innerHTML = '<strong>Attenzione:</strong> spazio quasi esaurito! Elimina vecchi video da <em>Archivio Extra</em> prima di caricarne altri.';
-        } else if (pct >= 70) {
-          fillEl.style.background = '#f59e0b';
-          hintEl.innerHTML = 'Spazio oltre il 70% (max <strong>1 GB</strong>). Evita video non compressi.';
-        } else {
-          fillEl.style.background = '#00a859';
-        }
-      } catch (e) {
-        document.getElementById('quota-text').textContent = 'Max 1 GB';
-      }
-    }
-
-    checkRepoSize();
-    // Aggiorna il contatore ogni 30 secondi (utile dopo un salvataggio)
-    setInterval(checkRepoSize, 30000);
-  </script>
+  <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
 </body>
 </html>
