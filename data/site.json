@@ -176,7 +176,7 @@
     },
     {
       "label": "Requisiti Pilota",
-      "value": "Maggiorenni con patente B in corso di validità"
+      "value": "Verifica idoneità fisica (età, altezza e peso) in prenotazione"
     },
     {
       "label": "Ingressi Pista",
@@ -233,7 +233,7 @@
   "faqs": [
     {
       "q": "Serve esperienza in pista o una licenza da pilota?",
-      "a": "Assolutamente no. È sufficiente essere maggiorenni con patente B valida. Prima di salire in abitacolo effettui un briefing completo con i nostri istruttori su traiettorie, punti di frenata, utilizzo del cambio e bandiere di segnalazione."
+      "a": "Assolutamente no. Prima di salire in abitacolo effettui un briefing completo con i nostri istruttori su traiettorie, punti di frenata, utilizzo del cambio e bandiere di segnalazione."
     },
     {
       "q": "Devo portare casco o abbigliamento tecnico?",
