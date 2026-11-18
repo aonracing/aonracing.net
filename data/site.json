@@ -41,70 +41,78 @@
       "mapImage": "",
       "length": "1.900 m • 16 Curve",
       "nextDate": "Promo Natale Attiva — Convocazione anticipata",
-      "status": "Promo Natale 90€ / 180€"
+      "status": "Promo Natale 90€ / 180€",
+      "shortName": "Castelletto"
     },
     {
-      "name": "Circuito Tazio Nuvolari — Cervesina (PV)",
+      "name": "Circuito Tazio Nuvolari (PV)",
       "region": "Lombardia",
       "mapPreset": "nuvolari",
       "mapImage": "",
       "length": "2.805 m • 11 Curve",
       "nextDate": "Stagione 2027 — Date in definizione",
-      "status": "Disponibile"
+      "status": "Disponibile",
+      "shortName": "Tazio Nuvolari"
     },
     {
-      "name": "Autodromo Riccardo Paletti — Varano (PR)",
+      "name": "Autodromo di Varano de' Melegari (PR)",
       "region": "Emilia-Romagna",
       "mapPreset": "varano",
       "mapImage": "",
       "length": "2.350 m • 13 Curve",
       "nextDate": "Stagione 2027 — Date in definizione",
-      "status": "Disponibile"
+      "status": "Disponibile",
+      "shortName": "Varano"
     },
     {
-      "name": "Circuito di Pomposa — Comacchio (FE)",
+      "name": "Circuito di Pomposa (FE)",
       "region": "Emilia-Romagna",
       "mapPreset": "pomposa",
       "mapImage": "",
       "length": "1.200 m • 9 Curve",
       "nextDate": "Stagione 2027 — Date in definizione",
-      "status": "Disponibile"
+      "status": "Disponibile",
+      "shortName": "Pomposa"
     },
     {
-      "name": "Autodromo dell'Umbria — Magione (PG)",
+      "name": "Autodromo di Magione (PG)",
       "region": "Umbria",
       "mapPreset": "magione",
       "mapImage": "",
       "length": "2.507 m • 11 Curve",
       "nextDate": "Stagione 2027 — Date in definizione",
-      "status": "Disponibile"
+      "status": "Disponibile",
+      "shortName": "Magione"
     },
     {
-      "name": "Circuito La Mola — Rieti (RI)",
+      "name": "Circuito di Rieti (RI)",
       "region": "Lazio",
       "mapPreset": "rieti",
       "mapImage": "",
       "length": "Tracciato Tecnico • Prova Libera",
       "nextDate": "Promo Natale Attiva — Convocazione anticipata",
-      "status": "Promo Natale 90€ / 180€"
+      "status": "Promo Natale 90€ / 180€",
+      "shortName": "Rieti"
     },
     {
-      "name": "Kartodromo Val Vibrata — Sant'Egidio (TE)",
+      "name": "Circuito Val Vibrata (TE)",
       "region": "Abruzzo",
       "mapPreset": "valvibrata",
       "mapImage": "",
       "length": "1.280 m • 3 Settori Tecnici",
       "nextDate": "Stagione 2027 — Date in definizione",
-      "status": "Disponibile"
+      "status": "Disponibile",
+      "shortName": "Val Vibrata"
     },
     {
-      "name": "Limatola — Circuito del Volturno (CE)",
+      "name": "Circuito di Limatola — Volturno (CE)",
       "region": "Campania",
       "mapPreset": "volturno",
       "mapImage": "",
       "length": "Tracciato Tecnico • Prova Libera",
       "nextDate": "Promo Natale Attiva — Convocazione anticipata",
-      "status": "Promo Natale 90€ / 180€"
+      "status": "Promo Natale 90€ / 180€",
+      "shortName": "Limatola"
     },
     {
       "name": "Circuito di Airola (BN)",
@@ -113,16 +121,18 @@
       "mapImage": "",
       "length": "Tracciato Tecnico • Prova Libera",
       "nextDate": "Stagione 2027 — Su prenotazione",
-      "status": "Su richiesta"
+      "status": "Su richiesta",
+      "shortName": "Airola"
     },
     {
-      "name": "Binetto — Autodromo del Levante (BA)",
+      "name": "Autodromo del Levante — Binetto (BA)",
       "region": "Puglia",
       "mapPreset": "levante",
       "mapImage": "",
       "length": "1.577 m • 9 Curve",
       "nextDate": "Stagione 2027 — Su prenotazione",
-      "status": "Su richiesta"
+      "status": "Su richiesta",
+      "shortName": "Binetto"
     }
   ],
   "packages": [

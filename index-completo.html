@@ -306,7 +306,7 @@
             <div id="active-track-screen" class="mt-6 relative w-full h-64 sm:h-72 bg-[#0b0e12] rounded-2xl border border-zinc-800/90 flex items-center justify-center p-6 overflow-hidden">
               <div class="absolute inset-0 opacity-20" style="background-image: linear-gradient(to right, #27272a 1px, transparent 1px), linear-gradient(to bottom, #27272a 1px, transparent 1px); background-size: 24px 24px;"></div>
               <div id="active-track-svg-wrap" class="relative z-10 w-full h-full flex items-center justify-center"></div>
-              <span class="absolute top-3 left-3.5 text-[10px] font-mono uppercase tracking-widest text-zinc-500">SECTOR TELEMETRY // AON-PC015</span>
+              <span class="absolute top-3 left-3.5 text-[10px] font-mono uppercase tracking-widest text-zinc-500">SECTOR TELEMETRY // AON-PC015H</span>
               <span class="absolute bottom-3 right-3.5 text-[10px] font-racing italic uppercase tracking-widest text-brand-green">● GPS TRACKING</span>
             </div>
 
@@ -761,7 +761,8 @@
 
         if (pillsContainer) {
           pillsContainer.innerHTML = SITE_DATA.circuits.map((c, idx) => {
-            const shortName = c.name.split('—')[0].replace('Circuito ', '').replace('Autodromo ', '').replace('Kartodromo ', '').trim();
+            const p = ITALY_PINS[c.mapPreset];
+            const shortName = c.shortName || (p ? p.label : c.name);
             return `<button type="button" onclick="selectCircuit(${idx})" class="circuit-pill-btn">${shortName}</button>`;
           }).join('');
         }
