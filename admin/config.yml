@@ -6,14 +6,9 @@ backend:
 media_folder: "assets"
 public_folder: "assets"
 
-media_libraries:
-  default:
-    config:
-      multiple: true
-
 collections:
   - name: "gestione_sito"
-    label: "Cosa vuoi modificare?"
+    label: "Gestione Sito AON Racing"
     files:
       - name: "prezzi_promo"
         label: "1. Prezzi Promo (90€ / 180€) e Listino Turni"
@@ -21,14 +16,14 @@ collections:
         editor:
           preview: false
         fields:
-          - label: "Offerte Promo in Alto (es. 3 Giri 90€ / 6 Giri 180€)"
+          - label: "Offerte Promo in Alto (3 Giri 90€ / 6 Giri 180€)"
             name: "packages"
             label_singular: "Offerta Promo"
             widget: "list"
             summary: "{{fields.name}} — {{fields.price}}"
             fields:
-              - { label: "id", name: "id", widget: "hidden", default: "promo-custom" }
-              - { label: "Scritta piccola sopra (es. PROMO • 3 GIRI)", name: "badge", widget: "string" }
+              - { label: "Codice ID", name: "id", widget: "string" }
+              - { label: "Scritta piccola sopra", name: "badge", widget: "string" }
               - { label: "Titolo Offerta", name: "name", widget: "string" }
               - { label: "Piste valide", name: "laps", widget: "string" }
               - { label: "Prezzo (es. 90€)", name: "price", widget: "string" }
@@ -42,9 +37,9 @@ collections:
             name: "turnPriceList"
             label_singular: "Pista"
             widget: "list"
-            summary: "{{fields.circuit}} ({{fields.duration}})"
+            summary: "[{{fields.area}}] {{fields.circuit}} ({{fields.duration}})"
             fields:
-              - { label: "id", name: "id", widget: "hidden", default: "pista" }
+              - { label: "Codice ID Pista", name: "id", widget: "string" }
               - label: "Zona"
                 name: "area"
                 widget: "select"
@@ -57,8 +52,8 @@ collections:
                 widget: "list"
                 summary: "{{fields.turns}} -> {{fields.price}}"
                 fields:
-                  - { label: "Quanti turni (es. 1 Turno)", name: "turns", widget: "string" }
-                  - { label: "Prezzo (es. 350€)", name: "price", widget: "string" }
+                  - { label: "Quanti turni", name: "turns", widget: "string" }
+                  - { label: "Prezzo", name: "price", widget: "string" }
           - { label: "whatsapp", name: "whatsapp", widget: "hidden" }
           - { label: "email", name: "email", widget: "hidden" }
           - { label: "instagram", name: "instagram", widget: "hidden" }
@@ -72,8 +67,8 @@ collections:
           - { label: "aboutTitle", name: "aboutTitle", widget: "hidden" }
           - { label: "aboutText1", name: "aboutText1", widget: "hidden" }
           - { label: "aboutText2", name: "aboutText2", widget: "hidden" }
-          - { label: "Scheda Tecnica PC015H", name: "carSpecs", widget: "list", fields: [{label: "Parametro", name: "label", widget: "string"}, {label: "Valore", name: "value", widget: "string"}] }
-          - { label: "I 4 Passaggi (Come Funziona)", name: "steps", widget: "list", fields: [{label: "Numero", name: "num", widget: "string"}, {label: "Titolo", name: "title", widget: "string"}, {label: "Descrizione", name: "desc", widget: "text"}] }
+          - { label: "carSpecs", name: "carSpecs", widget: "hidden" }
+          - { label: "steps", name: "steps", widget: "hidden" }
           - { label: "circuits", name: "circuits", widget: "hidden" }
           - { label: "reviews", name: "reviews", widget: "hidden" }
           - { label: "championshipBadge", name: "championshipBadge", widget: "hidden" }
@@ -87,17 +82,17 @@ collections:
           - { label: "teamImage", name: "teamImage", widget: "hidden" }
 
       - name: "contatti_testi"
-        label: "2. WhatsApp, Email, Social e Titoli Principali"
+        label: "2. WhatsApp, Email, Social, Testi e Scheda PC015H"
         file: "data/site.json"
         editor:
           preview: false
         fields:
-          - { label: "Numero WhatsApp (con 39 davanti, es. 393772548557)", name: "whatsapp", widget: "string" }
+          - { label: "Numero WhatsApp (con 39 davanti)", name: "whatsapp", widget: "string" }
           - { label: "Email", name: "email", widget: "string" }
           - { label: "Link Instagram", name: "instagram", widget: "string", required: false }
           - { label: "Link Facebook", name: "facebook", widget: "string", required: false }
           - { label: "Link TikTok", name: "tiktok", widget: "string", required: false }
-          - { label: "Partita IVA e Dati Azienda (in fondo al sito)", name: "companyInfo", widget: "string" }
+          - { label: "Partita IVA e Dati Azienda", name: "companyInfo", widget: "string" }
           - { label: "Scritta piccola in cima", name: "heroBadge", widget: "string" }
           - { label: "Titolo Grande (Riga Bianca)", name: "heroTitleLine1", widget: "string" }
           - { label: "Titolo Grande (Riga Colorata)", name: "heroTitleHighlight", widget: "string" }
@@ -105,8 +100,23 @@ collections:
           - { label: "Titolo Chi Siamo", name: "aboutTitle", widget: "string" }
           - { label: "Testo Chi Siamo (Parte 1)", name: "aboutText1", widget: "text" }
           - { label: "Testo Chi Siamo (Parte 2)", name: "aboutText2", widget: "text" }
-          - { label: "Scheda Tecnica PC015H", name: "carSpecs", widget: "list", fields: [{label: "Parametro", name: "label", widget: "string"}, {label: "Valore", name: "value", widget: "string"}] }
-          - { label: "I 4 Passaggi (Come Funziona)", name: "steps", widget: "list", fields: [{label: "Numero", name: "num", widget: "string"}, {label: "Titolo", name: "title", widget: "string"}, {label: "Descrizione", name: "desc", widget: "text"}] }
+          - label: "Scheda Tecnica Monoposto (PC015H)"
+            name: "carSpecs"
+            label_singular: "Voce Tecnica"
+            widget: "list"
+            summary: "{{fields.label}}: {{fields.value}}"
+            fields:
+              - { label: "Parametro", name: "label", widget: "string" }
+              - { label: "Valore", name: "value", widget: "string" }
+          - label: "I 4 Passaggi (Come Funziona)"
+            name: "steps"
+            label_singular: "Passaggio"
+            widget: "list"
+            summary: "{{fields.num}} — {{fields.title}}"
+            fields:
+              - { label: "Numero", name: "num", widget: "string" }
+              - { label: "Titolo", name: "title", widget: "string" }
+              - { label: "Descrizione", name: "desc", widget: "text" }
           - { label: "circuits", name: "circuits", widget: "hidden" }
           - { label: "packages", name: "packages", widget: "hidden" }
           - { label: "turnPriceList", name: "turnPriceList", widget: "hidden" }
@@ -122,11 +132,12 @@ collections:
           - { label: "teamImage", name: "teamImage", widget: "hidden" }
 
       - name: "campionato_recensioni_faq"
-        label: "3. Campionato Predators, Recensioni e Domande (FAQ)"
+        label: "3. Campionato Predators, Recensioni e FAQ"
         file: "data/site.json"
         editor:
           preview: false
         fields:
+          - { label: "Etichetta Campionato", name: "championshipBadge", widget: "string" }
           - { label: "Titolo Sezione Campionato", name: "championshipTitle", widget: "string" }
           - { label: "Testo Campionato Predators", name: "championshipText", widget: "text" }
           - { label: "Foto Sezione Campionato", name: "championshipImage", widget: "image", choose_url: true }
@@ -137,7 +148,7 @@ collections:
             summary: "{{fields.author}}"
             fields:
               - { label: "Nome Pilota", name: "author", widget: "string" }
-              - { label: "Etichetta (es. Esperienza in Pista)", name: "package", widget: "string" }
+              - { label: "Etichetta", name: "package", widget: "string" }
               - { label: "Commento", name: "text", widget: "text" }
           - label: "Domande Frequenti (FAQ)"
             name: "faqs"
@@ -147,7 +158,6 @@ collections:
             fields:
               - { label: "Domanda", name: "q", widget: "string" }
               - { label: "Risposta", name: "a", widget: "text" }
-          - { label: "championshipBadge", name: "championshipBadge", widget: "hidden" }
           - { label: "whatsapp", name: "whatsapp", widget: "hidden" }
           - { label: "email", name: "email", widget: "hidden" }
           - { label: "instagram", name: "instagram", widget: "hidden" }
@@ -161,8 +171,8 @@ collections:
           - { label: "aboutTitle", name: "aboutTitle", widget: "hidden" }
           - { label: "aboutText1", name: "aboutText1", widget: "hidden" }
           - { label: "aboutText2", name: "aboutText2", widget: "hidden" }
-          - { label: "Scheda Tecnica PC015H", name: "carSpecs", widget: "list", fields: [{label: "Parametro", name: "label", widget: "string"}, {label: "Valore", name: "value", widget: "string"}] }
-          - { label: "I 4 Passaggi (Come Funziona)", name: "steps", widget: "list", fields: [{label: "Numero", name: "num", widget: "string"}, {label: "Titolo", name: "title", widget: "string"}, {label: "Descrizione", name: "desc", widget: "text"}] }
+          - { label: "carSpecs", name: "carSpecs", widget: "hidden" }
+          - { label: "steps", name: "steps", widget: "hidden" }
           - { label: "circuits", name: "circuits", widget: "hidden" }
           - { label: "packages", name: "packages", widget: "hidden" }
           - { label: "turnPriceList", name: "turnPriceList", widget: "hidden" }
@@ -188,7 +198,7 @@ collections:
             fields:
               - { label: "Scegli o carica foto", name: "image", widget: "image", choose_url: true }
               - { label: "Descrizione foto", name: "caption", widget: "string" }
-          - label: "Date e Stato dei 10 Circuiti"
+          - label: "I 10 Circuiti sulla Mappa"
             name: "circuits"
             label_singular: "Circuito"
             widget: "list"
@@ -197,10 +207,10 @@ collections:
               - { label: "Nome Circuito", name: "name", widget: "string" }
               - { label: "Nome Breve Pulsante", name: "shortName", widget: "string" }
               - { label: "Regione", name: "region", widget: "string" }
-              - { label: "Tracciato SVG", name: "mapPreset", widget: "string" }
+              - { label: "Codice Tracciato", name: "mapPreset", widget: "string" }
               - { label: "Lunghezza e Curve", name: "length", widget: "string" }
               - { label: "Prossime Date", name: "nextDate", widget: "string" }
-              - { label: "Stato (es. Disponibile / Promo)", name: "status", widget: "string" }
+              - { label: "Stato", name: "status", widget: "string" }
           - { label: "whatsapp", name: "whatsapp", widget: "hidden" }
           - { label: "email", name: "email", widget: "hidden" }
           - { label: "instagram", name: "instagram", widget: "hidden" }
@@ -214,8 +224,8 @@ collections:
           - { label: "aboutTitle", name: "aboutTitle", widget: "hidden" }
           - { label: "aboutText1", name: "aboutText1", widget: "hidden" }
           - { label: "aboutText2", name: "aboutText2", widget: "hidden" }
-          - { label: "Scheda Tecnica PC015H", name: "carSpecs", widget: "list", fields: [{label: "Parametro", name: "label", widget: "string"}, {label: "Valore", name: "value", widget: "string"}] }
-          - { label: "I 4 Passaggi (Come Funziona)", name: "steps", widget: "list", fields: [{label: "Numero", name: "num", widget: "string"}, {label: "Titolo", name: "title", widget: "string"}, {label: "Descrizione", name: "desc", widget: "text"}] }
+          - { label: "carSpecs", name: "carSpecs", widget: "hidden" }
+          - { label: "steps", name: "steps", widget: "hidden" }
           - { label: "packages", name: "packages", widget: "hidden" }
           - { label: "turnPriceList", name: "turnPriceList", widget: "hidden" }
           - { label: "reviews", name: "reviews", widget: "hidden" }
@@ -224,12 +234,13 @@ collections:
           - { label: "championshipText", name: "championshipText", widget: "hidden" }
           - { label: "championshipImage", name: "championshipImage", widget: "hidden" }
           - { label: "faqs", name: "faqs", widget: "hidden" }
-- name: "archivio_extra"
-    label: "Archivio Extra (Foto & Video)"
+
+  - name: "archivio_extra"
+    label: "Archivio Extra (Foto & Logo)"
     folder: "archivio_extra"
     media_folder: "archivio_extra"
     public_folder: "archivio_extra"
     create: false
     delete: false
     fields:
-      - { label: "File", name: "title", widget: "string" }
+      - { label: "Nome File", name: "title", widget: "string" }
