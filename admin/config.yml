@@ -13,6 +13,8 @@ collections:
       - name: "prezzi_promo"
         label: "1. Prezzi Promo (90€ / 180€) e Listino Turni"
         file: "data/site.json"
+        editor:
+          preview: false
         fields:
           - label: "Offerte Promo in Alto (es. 3 Giri 90€ / 6 Giri 180€)"
             name: "packages"
@@ -82,6 +84,8 @@ collections:
       - name: "contatti_testi"
         label: "2. WhatsApp, Email, Social e Titoli Principali"
         file: "data/site.json"
+        editor:
+          preview: false
         fields:
           - { label: "Numero WhatsApp (con 39 davanti, es. 393772548557)", name: "whatsapp", widget: "string" }
           - { label: "Email", name: "email", widget: "string" }
@@ -115,6 +119,8 @@ collections:
       - name: "campionato_recensioni_faq"
         label: "3. Campionato Predators, Recensioni e Domande (FAQ)"
         file: "data/site.json"
+        editor:
+          preview: false
         fields:
           - { label: "Titolo Sezione Campionato", name: "championshipTitle", widget: "string" }
           - { label: "Testo Campionato Predators", name: "championshipText", widget: "text" }
@@ -163,6 +169,8 @@ collections:
       - name: "foto_video_piste"
         label: "4. Foto, Video Sfondo e Date Circuiti"
         file: "data/site.json"
+        editor:
+          preview: false
         fields:
           - { label: "Video Sfondo Principale (.mp4)", name: "heroVideo", widget: "file", choose_url: true }
           - { label: "Foto Copertina Video", name: "heroPoster", widget: "image", choose_url: true }
