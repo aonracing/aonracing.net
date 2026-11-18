@@ -224,3 +224,12 @@ collections:
           - { label: "championshipText", name: "championshipText", widget: "hidden" }
           - { label: "championshipImage", name: "championshipImage", widget: "hidden" }
           - { label: "faqs", name: "faqs", widget: "hidden" }
+- name: "archivio_extra"
+    label: "Archivio Extra (Foto & Video)"
+    folder: "archivio_extra"
+    media_folder: "archivio_extra"
+    public_folder: "archivio_extra"
+    create: false
+    delete: false
+    fields:
+      - { label: "File", name: "title", widget: "string" }
