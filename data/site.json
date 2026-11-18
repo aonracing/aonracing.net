@@ -190,17 +190,17 @@
   "reviews": [
     {
       "author": "Marco R.",
-      "package": "Pacchetto Silver — 5 Giri",
+      "package": "Esperienza in Pista",
       "text": "Regalo di compleanno pazzesco. Non avevo mai guidato una monoposto ma Aldo e i ragazzi ai box mi hanno messo subito a mio agio. Sensazioni imparagonabili a qualsiasi auto stradale!"
     },
     {
       "author": "Lorenzo V.",
-      "package": "Pacchetto Gold — 10 Giri",
+      "package": "Esperienza in Pista",
       "text": "Organizzazione da vero team da corsa. L'analisi della telemetria tra il primo e il secondo turno mi ha fatto togliere secondi preziosi e godermi ogni staccata."
     },
     {
       "author": "Chiara M.",
-      "package": "Buono Regalo Natale",
+      "package": "Esperienza in Pista",
       "text": "L'ho regalato al mio compagno per Natale: già solo aprire la busta con il voucher personalizzato è stato un successo, e in pista si è divertito come un bambino."
     }
   ],
@@ -541,5 +541,8 @@
         }
       ]
     }
-  ]
+  ],
+  "championshipBadge": "Competizioni Nazionali • Formula Predator",
+  "championshipTitle": "Partecipa al Campionato Predators con AON Racing",
+  "championshipText": "Hai bisogno di più di una semplice prova? Vuoi partecipare a competizioni nazionali? Partecipa al Campionato Predators con AON Racing! Per prenotare un test o per le info contattaci."
 }
