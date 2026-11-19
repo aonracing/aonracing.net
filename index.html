@@ -202,6 +202,20 @@
         </p>
       </div>
 
+      <!-- PROMO_TIMER_START -->
+      <div id="promo-countdown-banner" class="hidden mt-10 max-w-2xl mx-auto bg-zinc-900/90 border border-brand-red/50 rounded-2xl px-5 py-4 shadow-xl shadow-red-950/20">
+        <div class="flex flex-col sm:flex-row items-center justify-between gap-3">
+          <div class="flex items-center gap-2.5 text-center sm:text-left">
+            <span class="inline-block w-2.5 h-2.5 rounded-full bg-brand-red animate-pulse"></span>
+            <div>
+              <div id="promo-banner-label" class="font-racing italic font-extrabold uppercase text-xs tracking-widest text-brand-red">Scadenza Promo</div>
+              <div class="text-xs text-zinc-400">Offerta a tempo limitato — blocco prezzo garantito</div>
+            </div>
+          </div>
+          <div id="promo-banner-clock" class="flex items-center gap-2 font-racing italic font-black text-white"></div>
+        </div>
+      </div>
+      <!-- PROMO_TIMER_END -->
       <div id="packages-grid" class="mt-16 grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch"></div>
 
       <!-- LISTINO UFFICIALE TURNI COMPLETI (TUTTE LE PISTE) -->
@@ -853,49 +867,160 @@
         `).join('');
       }
 
-      // Pacchetti
-      const grid = document.getElementById('packages-grid');
-      grid.className = SITE_DATA.packages.length >= 3
-        ? 'mt-16 grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch'
-        : 'mt-16 grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch max-w-4xl mx-auto';
-      grid.innerHTML = SITE_DATA.packages.map(pkg => `
-        <div class="relative flex flex-col justify-between rounded-2xl p-8 transition ${
-          pkg.featured
-            ? 'bg-zinc-900 border-2 border-brand-red shadow-2xl shadow-red-950/30 lg:-translate-y-2'
-            : 'bg-brand-card border border-zinc-800'
-        }">
-          <div>
-            <span class="inline-block text-[11px] font-racing italic font-extrabold uppercase tracking-widest px-3 py-1 rounded ${
-              pkg.featured ? 'bg-brand-red text-white' : 'bg-zinc-800 text-brand-green'
-            }">${pkg.badge}</span>
+      // Pacchetti con Countdown & Auto-Hide alla scadenza (senza cancellare dal JSON)
+      function isPkgActive(pkg) {
+        if (!pkg || !pkg.expiresAt) return true;
+        const ts = Date.parse(pkg.expiresAt);
+        return isNaN(ts) ? true : ts > Date.now();
+      }
 
-            <h3 class="mt-4 font-racing italic font-black text-2xl text-white uppercase leading-snug">${pkg.name}</h3>
-            <div class="mt-2 text-sm font-semibold text-zinc-400">${pkg.laps}</div>
+      function formatCountdownParts(ms) {
+        const totalSec = Math.max(0, Math.floor(ms / 1000));
+        const d = Math.floor(totalSec / 86400);
+        const h = Math.floor((totalSec % 86400) / 3600);
+        const m = Math.floor((totalSec % 3600) / 60);
+        const s = totalSec % 60;
+        const pad = n => String(n).padStart(2, '0');
+        return { d: pad(d), h: pad(h), m: pad(m), s: pad(s) };
+      }
 
-            <div class="mt-6 flex items-baseline gap-2">
-              <span class="font-racing italic font-black text-5xl text-white">${pkg.price}</span>
-              <span class="text-xs text-zinc-500 uppercase">IVA incl.</span>
+      function renderPackagesWithTimer() {
+        const grid = document.getElementById('packages-grid');
+        const headerBlock = document.querySelector('#pacchetti .text-center.max-w-3xl');
+        const listinoEl = document.getElementById('listino-turni');
+        const bannerEl = document.getElementById('promo-countdown-banner');
+        const allPkgs = Array.isArray(SITE_DATA.packages) ? SITE_DATA.packages : [];
+        const activePkgs = allPkgs.filter(isPkgActive);
+
+        grid.className = activePkgs.length >= 3
+          ? 'mt-12 grid grid-cols-1 lg:grid-cols-3 gap-8 items-stretch'
+          : 'mt-12 grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch max-w-4xl mx-auto';
+
+        grid.innerHTML = allPkgs.map(pkg => {
+          const active = isPkgActive(pkg);
+          const hasTimer = Boolean(pkg.expiresAt && !isNaN(Date.parse(pkg.expiresAt)));
+          return `
+          <div data-pkg-id="${pkg.id}" data-expires-at="${pkg.expiresAt || ''}" class="${active ? '' : 'hidden '}relative flex flex-col justify-between rounded-2xl p-8 transition ${
+            pkg.featured
+              ? 'bg-zinc-900 border-2 border-brand-red shadow-2xl shadow-red-950/30 lg:-translate-y-2'
+              : 'bg-brand-card border border-zinc-800'
+          }">
+            <div>
+              <div class="flex flex-wrap items-center justify-between gap-2">
+                <span class="inline-block text-[11px] font-racing italic font-extrabold uppercase tracking-widest px-3 py-1 rounded ${
+                  pkg.featured ? 'bg-brand-red text-white' : 'bg-zinc-800 text-brand-green'
+                }">${pkg.badge}</span>
+                ${hasTimer ? `
+                  <span data-card-timer="${pkg.id}" class="inline-flex items-center gap-1.5 text-[11px] font-racing italic font-bold uppercase tracking-wider bg-zinc-950 border border-brand-red/40 text-brand-red px-2.5 py-1 rounded">
+                    ⏱ --g --h --m --s
+                  </span>
+                ` : ''}
+              </div>
+
+              <h3 class="mt-4 font-racing italic font-black text-2xl text-white uppercase leading-snug">${pkg.name}</h3>
+              <div class="mt-2 text-sm font-semibold text-zinc-400">${pkg.laps}</div>
+
+              <div class="mt-6 flex items-baseline gap-2">
+                <span class="font-racing italic font-black text-5xl text-white">${pkg.price}</span>
+                <span class="text-xs text-zinc-500 uppercase">IVA incl.</span>
+              </div>
+
+              <ul class="mt-8 space-y-3.5 text-sm text-zinc-300 border-t border-zinc-800 pt-6">
+                ${pkg.features.map(f => `
+                  <li class="flex items-start gap-2.5">
+                    <span class="text-brand-green font-bold mt-0.5">✓</span>
+                    <span>${f}</span>
+                  </li>
+                `).join('')}
+              </ul>
             </div>
 
-            <ul class="mt-8 space-y-3.5 text-sm text-zinc-300 border-t border-zinc-800 pt-6">
-              ${pkg.features.map(f => `
-                <li class="flex items-start gap-2.5">
-                  <span class="text-brand-green font-bold mt-0.5">✓</span>
-                  <span>${f}</span>
-                </li>
-              `).join('')}
-            </ul>
+            <button onclick="openModal('${pkg.id}')" class="mt-8 w-full py-4 px-6 rounded-lg font-racing italic font-extrabold uppercase tracking-wide text-sm transition ${
+              pkg.featured
+                ? 'bg-brand-red hover:bg-red-700 text-white shadow-lg shadow-red-950/50'
+                : 'bg-zinc-800 hover:bg-zinc-700 text-white'
+            }">
+              Compila Dati & Richiedi Buono
+            </button>
           </div>
+        `}).join('');
 
-          <button onclick="openModal('${pkg.id}')" class="mt-8 w-full py-4 px-6 rounded-lg font-racing italic font-extrabold uppercase tracking-wide text-sm transition ${
-            pkg.featured
-              ? 'bg-brand-red hover:bg-red-700 text-white shadow-lg shadow-red-950/50'
-              : 'bg-zinc-800 hover:bg-zinc-700 text-white'
-          }">
-            Compila Dati & Richiedi Buono
-          </button>
-        </div>
-      `).join('');
+        // Se tutte le promo sono scadute, nasconde graficamente solo la sezione promo senza toccare il JSON
+        const hasAnyActive = activePkgs.length > 0;
+        if (headerBlock) headerBlock.classList.toggle('hidden', !hasAnyActive);
+        grid.classList.toggle('hidden', !hasAnyActive);
+        if (listinoEl) listinoEl.classList.toggle('mt-20', hasAnyActive);
+
+        document.querySelectorAll('a[href="#pacchetti"]').forEach(a => {
+          if (!hasAnyActive) {
+            a.setAttribute('href', '#listino-turni');
+            if (/pacchett/i.test(a.textContent)) a.textContent = 'Listino Turni';
+          }
+        });
+
+        // Gestione banner countdown principale
+        const timedActive = activePkgs
+          .filter(p => p.expiresAt && !isNaN(Date.parse(p.expiresAt)))
+          .sort((a, b) => Date.parse(a.expiresAt) - Date.parse(b.expiresAt));
+
+        if (bannerEl) {
+          if (timedActive.length > 0) {
+            bannerEl.classList.remove('hidden');
+            const labelEl = document.getElementById('promo-banner-label');
+            if (labelEl) labelEl.textContent = timedActive[0].promoLabel || 'Scadenza Promo';
+          } else {
+            bannerEl.classList.add('hidden');
+          }
+        }
+      }
+
+      function tickPromoTimers() {
+        const allPkgs = Array.isArray(SITE_DATA.packages) ? SITE_DATA.packages : [];
+        let expiredJustNow = false;
+
+        allPkgs.forEach(pkg => {
+          if (!pkg.expiresAt) return;
+          const endTs = Date.parse(pkg.expiresAt);
+          if (isNaN(endTs)) return;
+          const cardEl = document.querySelector(`[data-pkg-id="${pkg.id}"]`);
+          const diff = endTs - Date.now();
+
+          if (diff <= 0) {
+            if (cardEl && !cardEl.classList.contains('hidden')) {
+              expiredJustNow = true;
+            }
+          } else {
+            const p = formatCountdownParts(diff);
+            const badge = document.querySelector(`[data-card-timer="${pkg.id}"]`);
+            if (badge) badge.textContent = `⏱ ${p.d}g ${p.h}h ${p.m}m ${p.s}s`;
+          }
+        });
+
+        if (expiredJustNow) {
+          renderPackagesWithTimer();
+          return;
+        }
+
+        const timedActive = allPkgs
+          .filter(p => p.expiresAt && !isNaN(Date.parse(p.expiresAt)) && Date.parse(p.expiresAt) > Date.now())
+          .sort((a, b) => Date.parse(a.expiresAt) - Date.parse(b.expiresAt));
+
+        const clockEl = document.getElementById('promo-banner-clock');
+        if (clockEl && timedActive.length > 0) {
+          const p = formatCountdownParts(Date.parse(timedActive[0].expiresAt) - Date.now());
+          const box = (val, lbl) => `
+            <div class="bg-zinc-950 border border-zinc-800 rounded-lg px-2.5 py-1.5 text-center min-w-[46px]">
+              <div class="text-base sm:text-lg text-white leading-none">${val}</div>
+              <div class="text-[9px] text-zinc-400 uppercase tracking-wider mt-0.5">${lbl}</div>
+            </div>`;
+          clockEl.innerHTML = box(p.d, 'Giorni') + box(p.h, 'Ore') + box(p.m, 'Min') + box(p.s, 'Sec');
+        }
+      }
+
+      renderPackagesWithTimer();
+      tickPromoTimers();
+      if (window._promoTimerInterval) clearInterval(window._promoTimerInterval);
+      window._promoTimerInterval = setInterval(tickPromoTimers, 1000);
 
       // Recensioni
       if (SITE_DATA.reviews) {

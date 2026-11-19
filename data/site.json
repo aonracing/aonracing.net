@@ -148,7 +148,9 @@
         "Briefing tecnico sulla vettura e sulle basi di guida sicura in pista",
         "Ingresso pista interamente incluso nel prezzo",
         "Inserimento in lista prenotazioni con convocazione anticipata"
-      ]
+      ],
+      "expiresAt": "2026-12-25T23:59:59",
+      "promoLabel": "Scadenza Promo Natale"
     },
     {
       "id": "promo-6-giri",
@@ -162,7 +164,9 @@
         "Briefing tecnico sulla vettura e sulle basi di guida sicura in pista",
         "Ingresso pista interamente incluso nel prezzo",
         "Buono Regalo digitale personalizzato pronto da stampare"
-      ]
+      ],
+      "expiresAt": "2026-12-25T23:59:59",
+      "promoLabel": "Scadenza Promo Natale"
     }
   ],
   "aboutTitle": "Non un semplice noleggio, ma una vera scuderia al tuo fianco",
