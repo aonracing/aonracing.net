@@ -121,41 +121,117 @@
       opacity: 1;
     }
 
-    /* Custom Racing Precision Cursor Follower (Desktop only) */
-    #cursor-dot {
+    /* Motorsport Aerodynamic Pointer & Cockpit HUD Cursor (Solo Desktop) */
+    @media (hover: hover) and (pointer: fine) {
+      body, a, button, input, select, textarea, [role="button"], label, summary {
+        cursor: none !important;
+      }
+    }
+    @media (hover: none) or (pointer: coarse), (max-width: 767px) {
+      #racing-pointer, #racing-hud, .racing-spark {
+        display: none !important;
+      }
+    }
+    #racing-pointer {
       pointer-events: none;
       position: fixed;
-      width: 7px;
-      height: 7px;
-      background: #e10600;
-      border-radius: 9999px;
-      box-shadow: 0 0 10px #e10600, 0 0 4px #ffffff;
-      z-index: 9999;
-      transform: translate(-50%, -50%);
+      width: 28px;
+      height: 28px;
+      z-index: 99999;
       opacity: 0;
-      transition: opacity 0.3s ease;
+      transition: opacity 0.2s ease, transform 0.12s ease;
+      will-change: left, top, transform;
     }
-    #cursor-ring {
+    #racing-pointer.pointer-hover {
+      transform: scale(1.18);
+    }
+    #racing-pointer.pointer-click {
+      transform: scale(0.85);
+    }
+    #racing-hud {
       pointer-events: none;
       position: fixed;
-      width: 36px;
-      height: 36px;
-      border: 1.5px solid rgba(225, 6, 0, 0.55);
-      border-radius: 9999px;
-      z-index: 9998;
-      transform: translate(-50%, -50%);
+      width: 44px;
+      height: 44px;
+      z-index: 99998;
       opacity: 0;
-      transition: width 0.2s ease-out, height 0.2s ease-out, background-color 0.2s ease, border-color 0.2s ease, opacity 0.3s ease, box-shadow 0.2s ease;
+      transform: translate(-50%, -50%);
+      transition: opacity 0.25s ease, width 0.2s cubic-bezier(0.2, 0.8, 0.2, 1), height 0.2s cubic-bezier(0.2, 0.8, 0.2, 1);
+      will-change: left, top, transform;
     }
-    #cursor-ring.cursor-hover {
+    .hud-bracket {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      border-color: rgba(225, 6, 0, 0.7);
+      transition: border-color 0.2s ease, width 0.2s ease, height 0.2s ease, filter 0.2s ease;
+    }
+    .hud-tl { top: 0; left: 0; border-top: 2px solid; border-left: 2px solid; }
+    .hud-tr { top: 0; right: 0; border-top: 2px solid; border-right: 2px solid; }
+    .hud-bl { bottom: 0; left: 0; border-bottom: 2px solid; border-left: 2px solid; }
+    .hud-br { bottom: 0; right: 0; border-bottom: 2px solid; border-right: 2px solid; }
+    .hud-telemetry {
+      position: absolute;
+      bottom: -13px;
+      right: -8px;
+      font-size: 8px;
+      font-weight: 800;
+      letter-spacing: 0.12em;
+      color: rgba(225, 6, 0, 0.9);
+      background: rgba(12, 12, 14, 0.85);
+      border: 1px solid rgba(225, 6, 0, 0.4);
+      padding: 0px 4px;
+      border-radius: 2px;
+      box-shadow: 0 0 6px rgba(225, 6, 0, 0.3);
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+      transition: all 0.2s ease;
+      user-select: none;
+    }
+    #racing-hud.hud-hover {
       width: 52px;
       height: 52px;
-      background-color: rgba(225, 6, 0, 0.12);
-      border-color: #e10600;
-      box-shadow: 0 0 18px rgba(225, 6, 0, 0.5);
     }
-    #cursor-ring.cursor-active {
-      transform: translate(-50%, -50%) scale(0.85);
+    #racing-hud.hud-hover .hud-bracket {
+      border-color: #22c55e;
+      width: 11px;
+      height: 11px;
+      filter: drop-shadow(0 0 4px #22c55e);
+    }
+    #racing-hud.hud-hover .hud-telemetry {
+      color: #22c55e;
+      border-color: #22c55e;
+      box-shadow: 0 0 8px rgba(34, 197, 94, 0.5);
+      background: rgba(6, 22, 12, 0.9);
+    }
+    #racing-hud.hud-active {
+      width: 32px;
+      height: 32px;
+    }
+    #racing-hud.hud-active .hud-bracket {
+      border-color: #ffffff;
+      filter: drop-shadow(0 0 6px #ffffff);
+    }
+    .racing-spark {
+      position: fixed;
+      width: 3.5px;
+      height: 3.5px;
+      background: #ffdb4d;
+      border-radius: 9999px;
+      box-shadow: 0 0 8px #ff3b00, 0 0 3px #ffffff;
+      pointer-events: none;
+      z-index: 99997;
+      transform: translate(-50%, -50%);
+      animation: racingSparkAnim 0.38s ease-out forwards;
+    }
+    @keyframes racingSparkAnim {
+      0% {
+        transform: translate(-50%, -50%) scale(1.6);
+        opacity: 1;
+      }
+      100% {
+        transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(0.15);
+        opacity: 0;
+      }
     }
 
     @keyframes btnShimmer {
@@ -227,9 +303,36 @@
 </head>
 <body class="bg-brand-dark text-zinc-100 antialiased selection:bg-brand-red selection:text-white">
 
-  <!-- CURSORE RACING DI PRECISIONE & TELEMETRIA (Desktop) -->
-  <div id="cursor-dot"></div>
-  <div id="cursor-ring"></div>
+  <!-- CURSORE MOTORSPORT HUD & TELEMETRIA RACING (Desktop) -->
+  <div id="racing-pointer">
+    <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <filter id="f1AeroGlow" x="-30%" y="-30%" width="160%" height="160%">
+          <feDropShadow dx="0" dy="2" stdDeviation="2.5" flood-color="#e10600" flood-opacity="0.8"/>
+        </filter>
+      </defs>
+      <g filter="url(#f1AeroGlow)">
+        <!-- Ala Sinistra Carbonio -->
+        <path d="M2 2 L9 22 L13 13 Z" fill="#141416" stroke="#ffffff" stroke-width="1.3" stroke-linejoin="round"/>
+        <!-- Ala Destra Rosso Corsa -->
+        <path d="M2 2 L22 9 L13 13 Z" fill="#e10600" stroke="#ffffff" stroke-width="1.3" stroke-linejoin="round"/>
+        <!-- Nervatura Centrale Monoposto -->
+        <line x1="2" y1="2" x2="13" y2="13" stroke="#ffffff" stroke-width="1.4" stroke-linecap="round"/>
+        <!-- Pinnette Aerodinamiche Flap -->
+        <path d="M9 22 L5 25" stroke="#e10600" stroke-width="2.2" stroke-linecap="round"/>
+        <path d="M22 9 L25 5" stroke="#ffffff" stroke-width="2.2" stroke-linecap="round"/>
+        <!-- Laser Apex Hotspot -->
+        <circle cx="2" cy="2" r="2" fill="#ffffff" stroke="#e10600" stroke-width="1.2"/>
+      </g>
+    </svg>
+  </div>
+  <div id="racing-hud">
+    <div class="hud-bracket hud-tl"></div>
+    <div class="hud-bracket hud-tr"></div>
+    <div class="hud-bracket hud-bl"></div>
+    <div class="hud-bracket hud-br"></div>
+    <div class="hud-telemetry" id="hud-status">DRS</div>
+  </div>
 
   <!-- 1. BARRA CONTAGIRI / RPM SHIFT LIGHT IN CIMA -->
   <div id="rpm-scrollbar-container">
@@ -1672,55 +1775,101 @@
       });
     }
 
-    // 4. Cursore Racing di Precisione & Anello Telemetrico (Solo Desktop)
+    // 4. Cursore Motorsport Aerodinamico & Cockpit HUD con Scintille F1 (Solo Desktop)
     function initMotorsportCursor() {
       if (window.matchMedia('(pointer: coarse)').matches || window.innerWidth < 768) return;
-      const dot = document.getElementById('cursor-dot');
-      const ring = document.getElementById('cursor-ring');
-      if (!dot || !ring) return;
+      const pointer = document.getElementById('racing-pointer');
+      const hud = document.getElementById('racing-hud');
+      const hudStatus = document.getElementById('hud-status');
+      if (!pointer || !hud) return;
 
       let mouseX = -100, mouseY = -100;
-      let ringX = -100, ringY = -100;
+      let hudX = -100, hudY = -100;
+      let lastX = 0, lastY = 0, lastTime = performance.now();
+      let sparkThrottle = 0;
+
+      function spawnSpark(x, y, isClick = false) {
+        const spark = document.createElement('div');
+        spark.className = 'racing-spark';
+        const angle = Math.random() * Math.PI * 2;
+        const dist = isClick ? (18 + Math.random() * 26) : (10 + Math.random() * 20);
+        const dx = Math.cos(angle) * dist;
+        const dy = Math.sin(angle) * dist + (isClick ? 4 : 8);
+        spark.style.setProperty('--dx', `${dx.toFixed(1)}px`);
+        spark.style.setProperty('--dy', `${dy.toFixed(1)}px`);
+        spark.style.left = `${x}px`;
+        spark.style.top = `${y}px`;
+        document.body.appendChild(spark);
+        setTimeout(() => spark.remove(), 400);
+      }
 
       window.addEventListener('mousemove', (e) => {
         mouseX = e.clientX;
         mouseY = e.clientY;
-        dot.style.left = `${mouseX}px`;
-        dot.style.top = `${mouseY}px`;
-        dot.style.opacity = '1';
-        ring.style.opacity = '1';
+
+        // Posizionamento istantaneo dell'apice aerodinamico (zero ritardo input)
+        pointer.style.left = `${mouseX - 2}px`;
+        pointer.style.top = `${mouseY - 2}px`;
+        pointer.style.opacity = '1';
+        hud.style.opacity = '1';
+
+        // Scintille racing titanio ad alta velocità
+        const now = performance.now();
+        const dt = now - lastTime;
+        if (dt > 16) {
+          const dist = Math.hypot(mouseX - lastX, mouseY - lastY);
+          const speed = dist / dt;
+          if (speed > 2.0 && (now - sparkThrottle > 75)) {
+            spawnSpark(mouseX + 10, mouseY + 10, false);
+            sparkThrottle = now;
+          }
+          lastX = mouseX;
+          lastY = mouseY;
+          lastTime = now;
+        }
       }, { passive: true });
 
       document.addEventListener('mouseleave', () => {
-        dot.style.opacity = '0';
-        ring.style.opacity = '0';
+        pointer.style.opacity = '0';
+        hud.style.opacity = '0';
       });
 
-      function renderCursor() {
-        ringX += (mouseX - ringX) * 0.18;
-        ringY += (mouseY - ringY) * 0.18;
-        ring.style.left = `${ringX}px`;
-        ring.style.top = `${ringY}px`;
-        requestAnimationFrame(renderCursor);
+      // HUD fluido con interpolazione fisica da telemetria
+      function renderHud() {
+        hudX += ((mouseX + 10) - hudX) * 0.22;
+        hudY += ((mouseY + 10) - hudY) * 0.22;
+        hud.style.left = `${hudX}px`;
+        hud.style.top = `${hudY}px`;
+        requestAnimationFrame(renderHud);
       }
-      requestAnimationFrame(renderCursor);
+      requestAnimationFrame(renderHud);
 
-      const hoverTargets = 'a, button, input, select, .spotlight-card, .italy-pin-group, [role="button"], details summary';
+      const hoverTargets = 'a, button, input, select, textarea, .spotlight-card, .italy-pin-group, [role="button"], details summary';
       document.addEventListener('mouseover', (e) => {
         if (e.target.closest(hoverTargets)) {
-          ring.classList.add('cursor-hover');
+          hud.classList.add('hud-hover');
+          pointer.classList.add('pointer-hover');
+          if (hudStatus) hudStatus.textContent = 'LOCK';
         }
       });
       document.addEventListener('mouseout', (e) => {
         if (e.target.closest(hoverTargets)) {
-          ring.classList.remove('cursor-hover');
+          hud.classList.remove('hud-hover');
+          pointer.classList.remove('pointer-hover');
+          if (hudStatus) hudStatus.textContent = 'DRS';
         }
       });
-      document.addEventListener('mousedown', () => {
-        ring.classList.add('cursor-active');
+
+      window.addEventListener('mousedown', (e) => {
+        hud.classList.add('hud-active');
+        pointer.classList.add('pointer-click');
+        for (let i = 0; i < 3; i++) {
+          spawnSpark(e.clientX, e.clientY, true);
+        }
       });
-      document.addEventListener('mouseup', () => {
-        ring.classList.remove('cursor-active');
+      window.addEventListener('mouseup', () => {
+        hud.classList.remove('hud-active');
+        pointer.classList.remove('pointer-click');
       });
     }
 
