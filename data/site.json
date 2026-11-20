@@ -10,7 +10,7 @@
   "heroTitleHighlight": "UN SOGNO",
   "heroSubtitle": "Vivi o regala l'emozione pura di guidare una vera monoposto Formula in pista, assistito dal team di AON Racing.",
   "heroVideo": "assets/hero-bg.mp4",
-  "heroPoster": "assets/pista-1.jpg",
+  "heroPoster": "assets/pista-1.webp",
   "steps": [
     {
       "num": "01",
@@ -172,7 +172,7 @@
   "aboutTitle": "Non un semplice noleggio, ma una vera scuderia al tuo fianco",
   "aboutText1": "AON RACING nasce dalla passione per le competizioni su pista e dal desiderio di far provare anche agli appassionati e agli amatori le sensazioni autentiche di una vera monoposto da corsa.",
   "aboutText2": "Dal briefing iniziale fino all'uscita dai box, sarai seguito passo dopo passo dai nostri meccanici e istruttori: nessuna esperienza pregressa richiesta, solo la voglia di vivere un'esperienza indimenticabile in totale sicurezza.",
-  "teamImage": "assets/team.jpg",
+  "teamImage": "assets/team.webp",
   "carSpecs": [
     {
       "label": "Monoposto",
@@ -210,27 +210,27 @@
   ],
   "gallery": [
     {
-      "image": "assets/pista-1.jpg",
+      "image": "assets/pista-1.webp",
       "caption": "Monoposto AON Racing in curva"
     },
     {
-      "image": "assets/box.jpg",
+      "image": "assets/box.webp",
       "caption": "Monoposto nei box AON Racing"
     },
     {
-      "image": "assets/pista-2.jpg",
+      "image": "assets/pista-2.webp",
       "caption": "Passaggio veloce in rettilineo"
     },
     {
-      "image": "assets/briefing.jpg",
+      "image": "assets/briefing.webp",
       "caption": "Preparazione pilota prima del turno"
     },
     {
-      "image": "assets/paddock.jpg",
+      "image": "assets/paddock.webp",
       "caption": "Monoposto AON Racing nel paddock"
     },
     {
-      "image": "assets/tramonto.jpg",
+      "image": "assets/tramonto.webp",
       "caption": "Sessione in pista al tramonto"
     }
   ],
@@ -549,5 +549,5 @@
   "championshipBadge": "Competizioni Nazionali • Formula Predator",
   "championshipTitle": "Partecipa al Campionato Predators con AON Racing",
   "championshipText": "Hai bisogno di più di una semplice prova? Vuoi partecipare a competizioni nazionali? Partecipa al Campionato Predators con AON Racing! Per prenotare un test o per le info contattaci.",
-  "championshipImage": "archivio_extra/extra-1.jpg"
+  "championshipImage": "archivio_extra/extra-1.webp"
 }

@@ -6,6 +6,9 @@
   <title>AON RACING | Esperienze in Pista su Monoposto & Buoni Regalo Natale</title>
   <meta name="description" content="A Natale regala un sogno: vivi o regala l'emozione pura di guidare una vera monoposto Formula in pista, assistito dal team di AON Racing." />
   <meta name="theme-color" content="#09090b" />
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
   <meta name="google-site-verification" content="o-55coWhIbdRQrxHRlH0j5_tzDoa-kqkL8AhB24RjL0" />
   <link rel="canonical" href="https://aonracing.net/" />
 
@@ -106,7 +109,7 @@
   <header class="fixed top-0 inset-x-0 z-50 bg-brand-dark/90 backdrop-blur-md border-b border-zinc-800/80">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-28 flex items-center justify-between">
       <a href="#" class="inline-flex items-center group py-1">
-        <img src="archivio_extra/logo-o-grafica.png" alt="AON RACING" class="h-24 sm:h-28 w-auto object-contain drop-shadow-[0_2px_12px_rgba(255,255,255,0.15)] transition-transform duration-200 group-hover:scale-105" />
+        <img src="archivio_extra/logo-o-grafica.webp" alt="AON RACING" class="h-24 sm:h-28 w-auto object-contain drop-shadow-[0_2px_12px_rgba(255,255,255,0.15)] transition-transform duration-200 group-hover:scale-105" />
       </a>
 
       <nav class="hidden lg:flex items-center gap-6 text-xs font-semibold uppercase tracking-wider text-zinc-300">
@@ -127,7 +130,8 @@
 
   <!-- HERO CON VIDEO ON-BOARD -->
   <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-    <video id="hero-video" autoplay loop muted playsinline poster="assets/pista-1.jpg" class="absolute inset-0 w-full h-full object-cover scale-105">
+    <video id="hero-video" autoplay loop muted playsinline poster="assets/pista-1.webp" class="absolute inset-0 w-full h-full object-cover scale-105">
+      <source id="hero-video-webm" src="assets/hero-bg.webm" type="video/webm" />
       <source id="hero-video-src" src="assets/hero-bg.mp4" type="video/mp4" />
     </video>
     <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-brand-dark/70 to-brand-dark/50"></div>
@@ -385,7 +389,7 @@
       <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
         <div class="relative">
           <div class="absolute -inset-2 bg-gradient-to-tr from-brand-red/30 to-brand-green/30 rounded-xl blur-lg"></div>
-          <img id="team-img" src="assets/team.jpg" alt="Il team AON RACING schierato dietro la monoposto" class="relative rounded-xl border border-zinc-800 w-full object-cover shadow-2xl" loading="lazy" />
+          <img id="team-img" src="assets/team.webp" alt="Il team AON RACING schierato dietro la monoposto" class="relative rounded-xl border border-zinc-800 w-full object-cover shadow-2xl" loading="lazy" />
         </div>
 
         <div>
@@ -468,7 +472,7 @@
           <div class="lg:col-span-5">
             <div class="relative group">
               <div class="absolute -inset-1.5 bg-gradient-to-tr from-brand-red/30 to-brand-green/30 rounded-xl blur-md opacity-75 group-hover:opacity-100 transition"></div>
-              <img id="champ-img" src="archivio_extra/extra-1.jpg" alt="AON Racing Campionato Predators" class="relative w-full h-64 sm:h-72 object-cover rounded-xl border border-zinc-700/80 shadow-2xl" loading="lazy" />
+              <img id="champ-img" src="archivio_extra/extra-1.webp" alt="AON Racing Campionato Predators" class="relative w-full h-64 sm:h-72 object-cover rounded-xl border border-zinc-700/80 shadow-2xl" loading="lazy" />
             </div>
           </div>
         </div>
@@ -493,7 +497,7 @@
   <footer id="contatti" class="bg-zinc-950 border-t border-zinc-900 pt-20 pb-12">
     <div class="max-w-5xl mx-auto px-4 sm:px-6 text-center">
       <div class="inline-flex justify-center">
-        <img src="archivio_extra/logo-o-grafica.png" alt="AON RACING" class="h-36 sm:h-44 w-auto object-contain drop-shadow-[0_4px_16px_rgba(255,255,255,0.15)]" />
+        <img src="archivio_extra/logo-o-grafica.webp" alt="AON RACING" class="h-36 sm:h-44 w-auto object-contain drop-shadow-[0_4px_16px_rgba(255,255,255,0.15)]" />
       </div>
 
       <h3 class="mt-8 font-racing italic font-black text-2xl sm:text-3xl uppercase text-white">
@@ -580,10 +584,16 @@
       <h3 id="modal-pkg-title" class="font-racing italic font-black text-xl sm:text-2xl uppercase text-white mt-1">Pacchetto</h3>
       <p id="modal-pkg-price" class="text-brand-red font-racing italic font-black text-xl mt-0.5">199€</p>
 
+      <!-- AVVISO ERRORE VALIDAZIONE PERSONALIZZATO -->
+      <div id="booking-form-error" class="hidden mt-3 p-3.5 rounded-xl bg-red-950/90 border border-brand-red/80 text-red-200 text-xs flex items-start gap-2.5 shadow-lg shadow-red-950/40">
+        <span class="text-base leading-none text-brand-red">⚠️</span>
+        <span id="booking-form-error-msg" class="leading-relaxed">Per favore compila tutti i campi obbligatori contrassegnati con l'asterisco (*).</span>
+      </div>
+
       <div class="mt-4 space-y-3">
         <div>
           <label class="block text-[11px] font-semibold uppercase tracking-wider text-zinc-400 mb-1">Circuito Scelto *</label>
-          <select id="pilot-circuit" onchange="updateVoucherPreview()" class="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-3.5 py-2 text-sm text-white focus:outline-none focus:border-brand-red">
+          <select id="pilot-circuit" onchange="updateVoucherPreview()" class="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-3.5 py-2 text-sm text-white focus:outline-none focus:border-brand-red transition">
             <option value="Castelletto di Branduzzo (PV)">[NORD] Castelletto di Branduzzo (PV)</option>
             <option value="Pomposa (FE)">[NORD] Pomposa (FE)</option>
             <option value="Varano de' Melegari (PR)">[NORD] Varano de' Melegari (PR)</option>
@@ -599,32 +609,32 @@
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
           <div>
             <label class="block text-[11px] font-semibold uppercase tracking-wider text-zinc-400 mb-1">Nome *</label>
-            <input id="pilot-first-name" type="text" placeholder="Es. Marco" oninput="updateVoucherPreview()" class="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-3.5 py-2 text-sm text-white focus:outline-none focus:border-brand-red" />
+            <input id="pilot-first-name" type="text" placeholder="Es. Marco" oninput="clearFieldError(this); updateVoucherPreview()" class="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-3.5 py-2 text-sm text-white focus:outline-none focus:border-brand-red transition" />
           </div>
           <div>
             <label class="block text-[11px] font-semibold uppercase tracking-wider text-zinc-400 mb-1">Cognome *</label>
-            <input id="pilot-last-name" type="text" placeholder="Es. Rossi" oninput="updateVoucherPreview()" class="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-3.5 py-2 text-sm text-white focus:outline-none focus:border-brand-red" />
+            <input id="pilot-last-name" type="text" placeholder="Es. Rossi" oninput="clearFieldError(this); updateVoucherPreview()" class="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-3.5 py-2 text-sm text-white focus:outline-none focus:border-brand-red transition" />
           </div>
         </div>
 
         <div class="grid grid-cols-3 gap-2.5">
           <div>
             <label class="block text-[11px] font-semibold uppercase tracking-wider text-zinc-400 mb-1">Età *</label>
-            <input id="pilot-age" type="number" min="16" max="90" placeholder="Es. 28" class="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-brand-red" />
+            <input id="pilot-age" type="number" min="16" max="90" placeholder="Es. 28" oninput="clearFieldError(this)" class="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-brand-red transition" />
           </div>
           <div>
             <label class="block text-[11px] font-semibold uppercase tracking-wider text-zinc-400 mb-1">Altezza (cm) *</label>
-            <input id="pilot-height" type="number" min="140" max="215" placeholder="Es. 178" class="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-brand-red" />
+            <input id="pilot-height" type="number" min="140" max="215" placeholder="Es. 178" oninput="clearFieldError(this)" class="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-brand-red transition" />
           </div>
           <div>
             <label class="block text-[11px] font-semibold uppercase tracking-wider text-zinc-400 mb-1">Peso (kg) *</label>
-            <input id="pilot-weight" type="number" min="40" max="150" placeholder="Es. 75" class="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-brand-red" />
+            <input id="pilot-weight" type="number" min="40" max="150" placeholder="Es. 75" oninput="clearFieldError(this)" class="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-3 py-2 text-sm text-white focus:outline-none focus:border-brand-red transition" />
           </div>
         </div>
 
         <div>
           <label class="block text-[11px] font-semibold uppercase tracking-wider text-zinc-400 mb-1">Dedica sul Buono Regalo (opzionale)</label>
-          <input id="recipient-note" type="text" placeholder="Buon Natale! Preparati a scendere in pista!" oninput="updateVoucherPreview()" class="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-3.5 py-2 text-sm text-white focus:outline-none focus:border-brand-red" />
+          <input id="recipient-note" type="text" placeholder="Buon Natale! Preparati a scendere in pista!" oninput="updateVoucherPreview()" class="w-full bg-zinc-900 border border-zinc-700 rounded-lg px-3.5 py-2 text-sm text-white focus:outline-none focus:border-brand-red transition" />
         </div>
       </div>
 
@@ -684,6 +694,10 @@
 
       const video = document.getElementById('hero-video');
       video.poster = SITE_DATA.heroPoster;
+      const webmSrc = document.getElementById('hero-video-webm');
+      if (webmSrc && SITE_DATA.heroVideo) {
+        webmSrc.src = SITE_DATA.heroVideo.replace(/\.mp4$/i, '.webm');
+      }
       document.getElementById('hero-video-src').src = SITE_DATA.heroVideo;
       video.load();
 
@@ -1086,6 +1100,7 @@
 
         setCircuitOptions(ALL_CIRCUITS, item.circuit);
 
+        if (typeof clearFormErrors === 'function') clearFormErrors();
         updateVoucherPreview();
         const modal = document.getElementById('voucher-modal');
         modal.classList.remove('hidden');
@@ -1220,10 +1235,30 @@
       if (selectedValue) sel.value = selectedValue;
     }
 
+    function clearFormErrors() {
+      const errEl = document.getElementById('booking-form-error');
+      if (errEl) errEl.classList.add('hidden');
+      ['pilot-first-name', 'pilot-last-name', 'pilot-age', 'pilot-height', 'pilot-weight'].forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.classList.remove('border-brand-red', 'ring-1', 'ring-brand-red');
+      });
+    }
+
+    function clearFieldError(el) {
+      if (!el) return;
+      el.classList.remove('border-brand-red', 'ring-1', 'ring-brand-red');
+      const remainingErrors = document.querySelectorAll('#voucher-modal .border-brand-red');
+      if (remainingErrors.length === 0) {
+        const errEl = document.getElementById('booking-form-error');
+        if (errEl) errEl.classList.add('hidden');
+      }
+    }
+
     // Modale Prenotazione & Buono Regalo
     function openModal(pkgId) {
       selectedPkg = SITE_DATA.packages.find(p => p.id === pkgId);
       if (!selectedPkg) return;
+      clearFormErrors();
       setCircuitOptions(PROMO_CIRCUITS);
       document.getElementById('modal-pkg-title').textContent = selectedPkg.name;
       document.getElementById('modal-pkg-price').textContent = selectedPkg.price;
@@ -1234,6 +1269,7 @@
       modal.classList.add('flex');
     }
     function closeModal() {
+      clearFormErrors();
       const modal = document.getElementById('voucher-modal');
       modal.classList.add('hidden');
       modal.classList.remove('flex');
@@ -1254,17 +1290,45 @@
 
     function sendBooking(channel) {
       if (!selectedPkg) return;
+      clearFormErrors();
+
+      const requiredFields = [
+        { id: 'pilot-first-name', name: 'Nome' },
+        { id: 'pilot-last-name', name: 'Cognome' },
+        { id: 'pilot-age', name: 'Età' },
+        { id: 'pilot-height', name: 'Altezza' },
+        { id: 'pilot-weight', name: 'Peso' }
+      ];
+
+      const missing = [];
+      requiredFields.forEach(f => {
+        const el = document.getElementById(f.id);
+        if (!el || !el.value.trim()) {
+          missing.push(f);
+          if (el) el.classList.add('border-brand-red', 'ring-1', 'ring-brand-red');
+        }
+      });
+
+      if (missing.length > 0) {
+        const errEl = document.getElementById('booking-form-error');
+        const errMsg = document.getElementById('booking-form-error-msg');
+        if (errMsg) {
+          errMsg.textContent = `Compila i campi obbligatori mancanti: ${missing.map(m => m.name).join(', ')}.`;
+        }
+        if (errEl) {
+          errEl.classList.remove('hidden');
+        }
+        const firstMissing = document.getElementById(missing[0].id);
+        if (firstMissing) firstMissing.focus();
+        return;
+      }
+
       const first = document.getElementById('pilot-first-name').value.trim();
       const last = document.getElementById('pilot-last-name').value.trim();
       const age = document.getElementById('pilot-age').value.trim();
       const height = document.getElementById('pilot-height').value.trim();
       const weight = document.getElementById('pilot-weight').value.trim();
       const note = document.getElementById('recipient-note').value.trim();
-
-      if (!first || !last || !age || !height || !weight) {
-        alert("Per favore compila tutti i campi obbligatori: Nome, Cognome, Età, Altezza (cm) e Peso (kg).");
-        return;
-      }
 
       const circuit = document.getElementById('pilot-circuit').value;
       const lines = [
