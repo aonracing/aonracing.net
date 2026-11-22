@@ -85,12 +85,22 @@
 
 ---
 
-## 4. Modifiche e Bugfix Recenti
+## 4. Modifiche, Bugfix & Changelog
 
+### Cronologia Commit di questa Sessione:
+| Commit | File Coinvolti | Descrizione Sintetica |
+|---|---|---|
+| `357201f` | `index.html` | **GDPR & Consent Mode v2:** Implementazione Google Consent Mode v2 (`default: denied`), lettura storage `aon_cookie_consent`, banner conforme Garante Privacy con 3 pulsanti paritetici, modale preferenze con toggle indipendenti e pulsante "Preferenze Cookie" nel footer. |
+| `7055f38` | `index.html` | **Mobile Bugfix FOUC:** Risolto micro-lampo da smartphone con regole CSS native `display: none` / `is-active`, inizializzazione immediata (`DOMContentLoaded`), safe-area padding per iOS/Android e pulsante "Reimposta scelta iniziale". |
+| `8d4e5f6` | `.antigravity/rules.md`, `STATO_PROGETTO.md` | **Documentazione & Continuità:** Creazione regole permanenti per Antigravity e stato progetto dettagliato per sincronizzazione Windows / Linux. |
+
+### Dettaglio Interventi:
 1. **Implementazione GDPR e Consent Mode v2:**
+   - File: `index.html`
    - Inserita la logica di blocco preventivo dei cookie con aggiornamento dinamico al click dell'utente.
    - Creata la UI racing dark per banner, centro preferenze e policy.
 2. **Fix Lampo Mobile (FOUC — Flash of Unstyled Content):**
+   - File: `index.html`
    - *Sintomo:* Su mobile il banner compariva per un secondo e spariva da solo.
    - *Causa:* L'utente aveva già accettato i cookie durante i test precedenti. A ogni reload, nei millisecondi prima che la CDN di Tailwind venisse interpretata, il browser mobile disegnava l'HTML grezzo del banner; non appena Tailwind e lo script leggevano il consenso già salvato, il banner veniva nascosto, generando un micro-lampo ingannevole. Inoltre l'inizializzazione dipendeva dal completamento della chiamata asincrona `site.json`.
    - *Risoluzione:*
