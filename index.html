@@ -212,6 +212,20 @@
     .aon-cookie-switch input:checked + .aon-cookie-slider:before {
       transform: translateX(20px);
     }
+
+    /* Cookie Banner & Preferences Modal: Zero FOUC & Display handling */
+    #cookie-banner {
+      display: none;
+    }
+    #cookie-banner.is-active {
+      display: block !important;
+    }
+    #cookie-prefs-modal {
+      display: none;
+    }
+    #cookie-prefs-modal.is-active {
+      display: flex !important;
+    }
   </style>
   <script type="application/ld+json">
   {
@@ -803,11 +817,11 @@
   </div>
 
   <!-- BANNER COOKIE (CONFORME GARANTE PRIVACY / GDPR) -->
-  <div id="cookie-banner" class="fixed bottom-0 inset-x-0 z-[60] p-3 sm:p-5 hidden">
+  <div id="cookie-banner" style="display: none; padding-bottom: max(0.75rem, env(safe-area-inset-bottom, 0.75rem));" class="fixed bottom-0 inset-x-0 z-[60] p-3 sm:p-5">
     <div class="max-w-4xl mx-auto bg-brand-card/95 backdrop-blur-md border border-zinc-700/80 rounded-2xl p-4 sm:p-6 shadow-2xl relative text-zinc-200">
       
       <!-- X di chiusura in alto a destra: equivale a Rifiuto / Solo Necessari -->
-      <button type="button" onclick="handleCookieAction('reject')" aria-label="Chiudi e rifiuta cookie facoltativi" class="absolute top-3.5 right-3.5 w-8 h-8 rounded-lg flex items-center justify-center text-zinc-400 hover:text-white hover:bg-zinc-800 transition text-2xl leading-none">
+      <button type="button" onclick="handleCookieAction('reject')" aria-label="Chiudi e rifiuta cookie facoltativi" class="absolute top-2.5 right-2.5 w-10 h-10 rounded-lg flex items-center justify-center text-zinc-400 hover:text-white hover:bg-zinc-800 active:bg-zinc-700 transition text-2xl leading-none">
         &times;
       </button>
 
@@ -838,7 +852,7 @@
   </div>
 
   <!-- MODALE PERSONALIZZAZIONE COOKIE (GDPR) -->
-  <div id="cookie-prefs-modal" onclick="if(event.target.id==='cookie-prefs-modal') closeCookiePreferences()" class="fixed inset-0 z-[70] hidden items-center justify-center bg-black/85 backdrop-blur-sm p-4">
+  <div id="cookie-prefs-modal" style="display: none;" onclick="if(event.target.id==='cookie-prefs-modal') closeCookiePreferences()" class="fixed inset-0 z-[70] items-center justify-center bg-black/85 backdrop-blur-sm p-4">
     <div class="bg-brand-card border border-zinc-800 rounded-2xl max-w-xl w-full max-h-[90vh] overflow-y-auto p-5 sm:p-7 relative shadow-2xl text-zinc-200">
       
       <button type="button" onclick="closeCookiePreferences()" aria-label="Chiudi preferenze cookie" class="absolute top-4 right-4 text-zinc-400 hover:text-white text-2xl leading-none">&times;</button>
@@ -905,10 +919,21 @@
       </div>
 
       <!-- Azioni Salva Preferenze -->
-      <div class="mt-5 pt-4 border-t border-zinc-800 flex flex-col sm:flex-row items-center justify-end gap-2.5">
-        <button type="button" onclick="saveCustomCookiePreferences()" class="w-full sm:w-auto py-2.5 px-6 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-white border border-zinc-600 hover:border-zinc-400 font-racing italic font-bold text-xs uppercase tracking-wider transition text-center shadow">
-          Salva preferenze
+      <div class="mt-5 pt-4 border-t border-zinc-800 flex flex-col sm:flex-row items-center justify-between gap-3">
+        <button type="button" onclick="resetCookieConsent()" class="text-xs text-zinc-400 hover:text-white underline transition py-1">
+          Reimposta scelta iniziale
         </button>
+        <div class="flex flex-col sm:flex-row items-center gap-2.5 w-full sm:w-auto">
+          <button type="button" onclick="handleCookieAction('reject'); closeCookiePreferences();" class="w-full sm:w-auto py-2.5 px-4 rounded-xl bg-zinc-900 hover:bg-zinc-800 text-zinc-300 border border-zinc-700 hover:border-zinc-500 font-racing italic font-bold text-xs uppercase tracking-wider transition text-center">
+            Rifiuta tutti
+          </button>
+          <button type="button" onclick="handleCookieAction('accept_all'); closeCookiePreferences();" class="w-full sm:w-auto py-2.5 px-4 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-white border border-zinc-600 hover:border-zinc-400 font-racing italic font-bold text-xs uppercase tracking-wider transition text-center shadow">
+            Accetta tutti
+          </button>
+          <button type="button" onclick="saveCustomCookiePreferences()" class="w-full sm:w-auto py-2.5 px-5 rounded-xl bg-white hover:bg-zinc-200 text-zinc-950 font-racing italic font-bold text-xs uppercase tracking-wider transition text-center shadow">
+            Salva preferenze
+          </button>
+        </div>
       </div>
 
     </div>
@@ -1635,6 +1660,8 @@
     function showCookieBanner() {
       const banner = document.getElementById('cookie-banner');
       if (banner) {
+        banner.style.display = 'block';
+        banner.classList.add('is-active');
         banner.classList.remove('hidden');
       }
     }
@@ -1642,6 +1669,8 @@
     function hideCookieBanner() {
       const banner = document.getElementById('cookie-banner');
       if (banner) {
+        banner.style.display = 'none';
+        banner.classList.remove('is-active');
         banner.classList.add('hidden');
       }
     }
@@ -1668,6 +1697,8 @@
 
       const modal = document.getElementById('cookie-prefs-modal');
       if (modal) {
+        modal.style.display = 'flex';
+        modal.classList.add('is-active');
         modal.classList.remove('hidden');
         modal.classList.add('flex');
       }
@@ -1676,6 +1707,8 @@
     function closeCookiePreferences() {
       const modal = document.getElementById('cookie-prefs-modal');
       if (modal) {
+        modal.style.display = 'none';
+        modal.classList.remove('is-active');
         modal.classList.add('hidden');
         modal.classList.remove('flex');
       }
@@ -1691,11 +1724,30 @@
       closeCookiePreferences();
     }
 
+    function resetCookieConsent() {
+      try {
+        localStorage.removeItem(COOKIE_STORAGE_KEY);
+      } catch (e) {
+        console.error('Errore reset cookie:', e);
+      }
+      closeCookiePreferences();
+      showCookieBanner();
+    }
+
     function initCookieConsent() {
       const stored = getStoredCookieConsent();
       if (!stored) {
         showCookieBanner();
+      } else {
+        hideCookieBanner();
       }
+    }
+
+    // Inizializza subito il consenso cookie senza attendere il caricamento di site.json
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initCookieConsent);
+    } else {
+      initCookieConsent();
     }
 
     // Lightbox Gallery
