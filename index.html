@@ -171,6 +171,47 @@
         print-color-adjust: exact;
       }
     }
+
+    /* Toggle switch personalizzazione cookie */
+    .aon-cookie-switch {
+      position: relative;
+      display: inline-block;
+      width: 44px;
+      height: 24px;
+    }
+    .aon-cookie-switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .aon-cookie-slider {
+      position: absolute;
+      cursor: pointer;
+      inset: 0;
+      background-color: #3f3f46;
+      transition: background-color 0.2s ease;
+      border-radius: 9999px;
+    }
+    .aon-cookie-slider:before {
+      position: absolute;
+      content: "";
+      height: 18px;
+      width: 18px;
+      left: 3px;
+      bottom: 3px;
+      background-color: #ffffff;
+      transition: transform 0.2s ease;
+      border-radius: 50%;
+    }
+    .aon-cookie-switch input:checked + .aon-cookie-slider.slider-green {
+      background-color: #00a859;
+    }
+    .aon-cookie-switch input:checked + .aon-cookie-slider.slider-red {
+      background-color: #e10600;
+    }
+    .aon-cookie-switch input:checked + .aon-cookie-slider:before {
+      transform: translateX(20px);
+    }
   </style>
   <script type="application/ld+json">
   {
@@ -198,13 +239,39 @@
     "description": "Esperienze di guida in pista su monoposto Formula Predator's, prove libere e buoni regalo nei principali autodromi e circuiti italiani."
   }
   </script>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R63X5YEYKT"></script>
+  <!-- Google Consent Mode v2 & Google Tag (gtag.js) -->
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
 
+    // Inizializzazione Google Consent Mode v2: default negato (GDPR / Garante Privacy)
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied',
+      'analytics_storage': 'denied',
+      'wait_for_update': 500
+    });
+
+    // Controllo immediato scelta salvata in localStorage (chiave: aon_cookie_consent)
+    try {
+      var savedConsent = localStorage.getItem('aon_cookie_consent');
+      if (savedConsent) {
+        var parsedConsent = JSON.parse(savedConsent);
+        gtag('consent', 'update', {
+          'analytics_storage': parsedConsent.analytics ? 'granted' : 'denied',
+          'ad_storage': parsedConsent.marketing ? 'granted' : 'denied',
+          'ad_user_data': parsedConsent.marketing ? 'granted' : 'denied',
+          'ad_personalization': parsedConsent.marketing ? 'granted' : 'denied'
+        });
+      }
+    } catch (e) {
+      console.warn('Errore lettura aon_cookie_consent:', e);
+    }
+  </script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-R63X5YEYKT"></script>
+  <script>
+    gtag('js', new Date());
     gtag('config', 'G-R63X5YEYKT');
   </script>
 </head>
@@ -687,6 +754,7 @@
         <p id="footer-company">© 2026 AON RACING — Tutti i diritti riservati.</p>
         <div class="flex items-center gap-5">
           <button type="button" onclick="openPrivacyModal()" class="hover:text-zinc-300 transition">Privacy & Cookie Policy</button>
+          <button type="button" onclick="openCookiePreferences()" class="hover:text-zinc-300 transition">Preferenze Cookie</button>
           <a href="admin/" class="hover:text-zinc-300 transition">Area Riservata Team</a>
         </div>
       </div>
@@ -705,11 +773,144 @@
       <button onclick="closePrivacyModal()" class="absolute top-4 right-4 text-zinc-400 hover:text-white text-2xl leading-none">&times;</button>
       <span class="text-brand-green font-racing italic font-bold uppercase text-xs tracking-widest">Informativa Legale</span>
       <h3 class="font-racing italic font-black text-2xl uppercase text-white mt-1">Privacy & Cookie Policy</h3>
-      <div class="mt-4 space-y-3 text-xs sm:text-sm text-zinc-300 leading-relaxed">
-        <p><strong class="text-white">Titolare del Trattamento:</strong> <span id="privacy-company">AON RACING</span> — Contatto: <span id="privacy-email">info@aonracing.net</span>.</p>
-        <p><strong class="text-white">Tipologia di dati trattati:</strong> Questo sito non utilizza cookie di profilazione di terze parti né salva direttamente dati personali sui propri server. I dati inseriti nel modulo di prenotazione (Nome, Cognome, Età, Altezza e Peso) vengono elaborati esclusivamente nel browser dell'utente per generare l'anteprima del voucher stampabile o il messaggio precompilato verso WhatsApp o Email.</p>
-        <p><strong class="text-white">Diritti dell'interessato:</strong> Ai sensi del Regolamento (UE) 2016/679 (GDPR), l'utente può richiedere in qualsiasi momento l'accesso, la rettifica o la cancellazione dei propri dati inviando una comunicazione all'indirizzo email sopra indicato.</p>
+      <div class="mt-4 space-y-4 text-xs sm:text-sm text-zinc-300 leading-relaxed">
+        <p><strong class="text-white">Titolare del Trattamento:</strong> <span id="privacy-company">AON RACING di Nappa Aldo Ottavio</span> — Contatto: <span id="privacy-email">info@aonracing.net</span> — P.IVA: IT02165930435 — Via Bronzini 5, 62017 Porto Recanati (MC), Italia.</p>
+        <p><strong class="text-white">Dati del modulo prenotazione/voucher:</strong> I dati inseriti nel configuratore del voucher (Nome, Cognome, Età, Altezza, Peso e recapiti) vengono elaborati esclusivamente in locale nel browser dell'utente per generare l'anteprima stampabile o il messaggio precompilato WhatsApp/email. Nessun dato personale viene archiviato o salvato su database di backend dal sito.</p>
+        <div>
+          <h4 class="font-racing italic font-bold uppercase text-white text-sm mb-1.5">Cookie e Strumenti di Misurazione Web</h4>
+          <p class="mb-2">Questo sito rispetta rigorosamente la privacy degli utenti e le Linee Guida del Garante Privacy (GDPR):</p>
+          <ul class="list-disc pl-5 space-y-2 text-zinc-400">
+            <li>
+              <strong class="text-zinc-200">Cloudflare Web Analytics (Cookie-Free):</strong> Per monitorare statistiche aggregate di base sulle prestazioni e il traffico senza tracciare gli utenti, il sito integra Cloudflare Web Analytics (token: <code>196a2a8e40864a06824dc30286fbecb3</code>). È un servizio anonimo che non impiega cookie, non raccoglie dati personali, non memorizza indirizzi IP e non richiede consenso preventivo.
+            </li>
+            <li>
+              <strong class="text-zinc-200">Google Tag & Google Analytics / Google Ads (G-R63X5YEYKT):</strong> Utilizziamo il Google Tag configurato nativamente con <span class="text-zinc-200 font-semibold">Google Consent Mode v2</span>. Di default, tutti i consensi (<code>analytics_storage</code>, <code>ad_storage</code>, <code>ad_user_data</code>, <code>ad_personalization</code>) sono impostati su <span class="text-zinc-200 font-semibold">"denied"</span>. Il tracciamento statistico o pubblicitario viene attivato <em>esclusivamente</em> qualora l'utente abbia espresso consenso preventivo ed esplicito tramite il banner o il centro preferenze.
+            </li>
+          </ul>
+        </div>
+        <div class="p-3.5 bg-zinc-900/80 rounded-xl border border-zinc-800 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
+          <div>
+            <span class="text-xs font-racing italic font-bold uppercase text-white block">Vuoi aggiornare le tue preferenze?</span>
+            <span class="text-[11px] text-zinc-400">Puoi modificare o revocare i tuoi consensi in qualunque momento.</span>
+          </div>
+          <button type="button" onclick="closePrivacyModal(); openCookiePreferences();" class="shrink-0 py-2 px-3.5 rounded-lg bg-zinc-800 hover:bg-zinc-700 text-white font-racing italic font-bold text-xs uppercase tracking-wider transition border border-zinc-700">
+            Preferenze Cookie
+          </button>
+        </div>
+        <p><strong class="text-white">Diritti dell'interessato:</strong> Ai sensi del Regolamento (UE) 2016/679 (GDPR), puoi richiedere l'accesso, la rettifica o la cancellazione dei tuoi dati in qualsiasi momento inviando un'email a <span class="text-zinc-200">info@aonracing.net</span>.</p>
       </div>
+    </div>
+  </div>
+
+  <!-- BANNER COOKIE (CONFORME GARANTE PRIVACY / GDPR) -->
+  <div id="cookie-banner" class="fixed bottom-0 inset-x-0 z-[60] p-3 sm:p-5 hidden">
+    <div class="max-w-4xl mx-auto bg-brand-card/95 backdrop-blur-md border border-zinc-700/80 rounded-2xl p-4 sm:p-6 shadow-2xl relative text-zinc-200">
+      
+      <!-- X di chiusura in alto a destra: equivale a Rifiuto / Solo Necessari -->
+      <button type="button" onclick="handleCookieAction('reject')" aria-label="Chiudi e rifiuta cookie facoltativi" class="absolute top-3.5 right-3.5 w-8 h-8 rounded-lg flex items-center justify-center text-zinc-400 hover:text-white hover:bg-zinc-800 transition text-2xl leading-none">
+        &times;
+      </button>
+
+      <div class="pr-8">
+        <div class="flex items-center gap-2 mb-2">
+          <span class="inline-block w-2.5 h-2.5 rounded-full bg-brand-red animate-pulse"></span>
+          <span class="text-brand-red font-racing italic font-bold uppercase text-xs tracking-widest">Informativa Cookie & Privacy</span>
+        </div>
+        <p class="text-xs sm:text-sm text-zinc-300 leading-relaxed">
+          AON RACING e terze parti selezionate utilizzano cookie e tecnologie simili per finalità tecniche necessarie e, previo tuo consenso, per analizzare il traffico del sito (<strong class="text-white">Google Analytics</strong>) e per attività promozionali personalizzate (<strong class="text-white">Google Ads</strong>). Chiudendo questa informativa con la &times; o cliccando &laquo;Rifiuta&raquo; continuerai la navigazione con i soli strumenti tecnici necessari (incluso Cloudflare Web Analytics, anonimo e cookie-free). Maggiori dettagli nella nostra <button type="button" onclick="openPrivacyModal()" class="text-white underline hover:text-brand-red transition">Privacy Policy</button>.
+        </p>
+      </div>
+
+      <!-- 3 pulsanti con uguale peso visivo e dimensione (Linee Guida Garante Privacy) -->
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 sm:gap-3 mt-4 pt-3 border-t border-zinc-800/80">
+        <button type="button" onclick="handleCookieAction('accept_all')" class="w-full py-2.5 px-3 rounded-xl bg-zinc-800 hover:bg-zinc-700 active:bg-zinc-900 border border-zinc-600 hover:border-zinc-400 text-white font-racing italic font-bold text-xs uppercase tracking-wider transition text-center shadow">
+          Accetta tutti
+        </button>
+        <button type="button" onclick="handleCookieAction('reject')" class="w-full py-2.5 px-3 rounded-xl bg-zinc-800 hover:bg-zinc-700 active:bg-zinc-900 border border-zinc-600 hover:border-zinc-400 text-white font-racing italic font-bold text-xs uppercase tracking-wider transition text-center shadow">
+          Rifiuta
+        </button>
+        <button type="button" onclick="openCookiePreferences()" class="w-full py-2.5 px-3 rounded-xl bg-zinc-800 hover:bg-zinc-700 active:bg-zinc-900 border border-zinc-600 hover:border-zinc-400 text-white font-racing italic font-bold text-xs uppercase tracking-wider transition text-center shadow">
+          Personalizza
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- MODALE PERSONALIZZAZIONE COOKIE (GDPR) -->
+  <div id="cookie-prefs-modal" onclick="if(event.target.id==='cookie-prefs-modal') closeCookiePreferences()" class="fixed inset-0 z-[70] hidden items-center justify-center bg-black/85 backdrop-blur-sm p-4">
+    <div class="bg-brand-card border border-zinc-800 rounded-2xl max-w-xl w-full max-h-[90vh] overflow-y-auto p-5 sm:p-7 relative shadow-2xl text-zinc-200">
+      
+      <button type="button" onclick="closeCookiePreferences()" aria-label="Chiudi preferenze cookie" class="absolute top-4 right-4 text-zinc-400 hover:text-white text-2xl leading-none">&times;</button>
+      
+      <span class="text-brand-red font-racing italic font-bold uppercase text-xs tracking-widest">Centro Preferenze Consenso</span>
+      <h3 class="font-racing italic font-black text-xl sm:text-2xl uppercase text-white mt-1">Gestione Cookie</h3>
+      <p class="mt-2 text-xs text-zinc-400 leading-relaxed">
+        Personalizza i tuoi consensi per le categorie di tracciamento. Con Google Consent Mode v2, in assenza di autorizzazione i servizi Google Analytics e Google Ads restano disattivati.
+      </p>
+
+      <div class="mt-5 space-y-3.5">
+        
+        <!-- Cookie Tecnici e Necessari -->
+        <div class="p-3.5 rounded-xl bg-zinc-900/80 border border-zinc-800">
+          <div class="flex items-center justify-between gap-3">
+            <div>
+              <h4 class="text-xs sm:text-sm font-racing italic font-bold uppercase text-white">Tecnici & Necessari</h4>
+              <p class="text-[11px] sm:text-xs text-zinc-400 mt-0.5">Indispensabili per il funzionamento sicuro del sito. Include Cloudflare Web Analytics (anonimo, senza cookie).</p>
+            </div>
+            <span class="text-[10px] font-racing italic font-bold uppercase bg-zinc-800 text-zinc-400 px-2.5 py-1 rounded-md border border-zinc-700 shrink-0">Sempre Attivi</span>
+          </div>
+        </div>
+
+        <!-- Toggle 1: Statistiche / Google Analytics -->
+        <div class="p-3.5 rounded-xl bg-zinc-900/80 border border-zinc-800">
+          <div class="flex items-center justify-between gap-3">
+            <div class="pr-2">
+              <label for="cookie-toggle-analytics" class="cursor-pointer text-xs sm:text-sm font-racing italic font-bold uppercase text-white block">
+                Statistiche (Google Analytics)
+              </label>
+              <p class="text-[11px] sm:text-xs text-zinc-400 mt-0.5">
+                Misurazione aggregata e anonima delle visite e delle pagine visualizzate (Google Tag G-R63X5YEYKT) per ottimizzare l'esperienza utente.
+              </p>
+            </div>
+            <div class="shrink-0 flex items-center">
+              <label class="aon-cookie-switch" for="cookie-toggle-analytics">
+                <input type="checkbox" id="cookie-toggle-analytics">
+                <span class="aon-cookie-slider slider-green"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Toggle 2: Marketing / Google Ads -->
+        <div class="p-3.5 rounded-xl bg-zinc-900/80 border border-zinc-800">
+          <div class="flex items-center justify-between gap-3">
+            <div class="pr-2">
+              <label for="cookie-toggle-marketing" class="cursor-pointer text-xs sm:text-sm font-racing italic font-bold uppercase text-white block">
+                Marketing (Google Ads)
+              </label>
+              <p class="text-[11px] sm:text-xs text-zinc-400 mt-0.5">
+                Monitoraggio delle conversioni ed erogazione di annunci personalizzati in linea con le tue preferenze sui circuiti pubblicitari Google.
+              </p>
+            </div>
+            <div class="shrink-0 flex items-center">
+              <label class="aon-cookie-switch" for="cookie-toggle-marketing">
+                <input type="checkbox" id="cookie-toggle-marketing">
+                <span class="aon-cookie-slider slider-red"></span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Azioni Salva Preferenze -->
+      <div class="mt-5 pt-4 border-t border-zinc-800 flex flex-col sm:flex-row items-center justify-end gap-2.5">
+        <button type="button" onclick="saveCustomCookiePreferences()" class="w-full sm:w-auto py-2.5 px-6 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-white border border-zinc-600 hover:border-zinc-400 font-racing italic font-bold text-xs uppercase tracking-wider transition text-center shadow">
+          Salva preferenze
+        </button>
+      </div>
+
     </div>
   </div>
 
@@ -1376,6 +1577,7 @@
       initDigitalCounters();
       initAllSpotlightCards();
       initCursorFlowTrail();
+      initCookieConsent();
     }
 
     // Privacy Modal
@@ -1388,6 +1590,112 @@
       const m = document.getElementById('privacy-modal');
       m.classList.add('hidden');
       m.classList.remove('flex');
+    }
+
+    // ==========================================
+    // COOKIE BANNER & CONSENT MODE v2 MANAGEMENT
+    // ==========================================
+    const COOKIE_STORAGE_KEY = 'aon_cookie_consent';
+
+    function getStoredCookieConsent() {
+      try {
+        const item = localStorage.getItem(COOKIE_STORAGE_KEY);
+        return item ? JSON.parse(item) : null;
+      } catch (e) {
+        return null;
+      }
+    }
+
+    function applyGtagConsent(analytics, marketing) {
+      if (typeof gtag === 'function') {
+        gtag('consent', 'update', {
+          'analytics_storage': analytics ? 'granted' : 'denied',
+          'ad_storage': marketing ? 'granted' : 'denied',
+          'ad_user_data': marketing ? 'granted' : 'denied',
+          'ad_personalization': marketing ? 'granted' : 'denied'
+        });
+      }
+    }
+
+    function setCookieConsent(analytics, marketing) {
+      const consentObj = {
+        analytics: Boolean(analytics),
+        marketing: Boolean(marketing),
+        timestamp: new Date().toISOString()
+      };
+      try {
+        localStorage.setItem(COOKIE_STORAGE_KEY, JSON.stringify(consentObj));
+      } catch (e) {
+        console.error('Impossibile salvare preferenze cookie:', e);
+      }
+      applyGtagConsent(consentObj.analytics, consentObj.marketing);
+      hideCookieBanner();
+    }
+
+    function showCookieBanner() {
+      const banner = document.getElementById('cookie-banner');
+      if (banner) {
+        banner.classList.remove('hidden');
+      }
+    }
+
+    function hideCookieBanner() {
+      const banner = document.getElementById('cookie-banner');
+      if (banner) {
+        banner.classList.add('hidden');
+      }
+    }
+
+    function handleCookieAction(action) {
+      if (action === 'accept_all') {
+        setCookieConsent(true, true);
+      } else if (action === 'reject') {
+        setCookieConsent(false, false);
+      }
+    }
+
+    function openCookiePreferences() {
+      const current = getStoredCookieConsent();
+      const analyticsInput = document.getElementById('cookie-toggle-analytics');
+      const marketingInput = document.getElementById('cookie-toggle-marketing');
+
+      if (analyticsInput) {
+        analyticsInput.checked = current ? Boolean(current.analytics) : false;
+      }
+      if (marketingInput) {
+        marketingInput.checked = current ? Boolean(current.marketing) : false;
+      }
+
+      const modal = document.getElementById('cookie-prefs-modal');
+      if (modal) {
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
+      }
+    }
+
+    function closeCookiePreferences() {
+      const modal = document.getElementById('cookie-prefs-modal');
+      if (modal) {
+        modal.classList.add('hidden');
+        modal.classList.remove('flex');
+      }
+    }
+
+    function saveCustomCookiePreferences() {
+      const analyticsInput = document.getElementById('cookie-toggle-analytics');
+      const marketingInput = document.getElementById('cookie-toggle-marketing');
+      const analytics = analyticsInput ? analyticsInput.checked : false;
+      const marketing = marketingInput ? marketingInput.checked : false;
+
+      setCookieConsent(analytics, marketing);
+      closeCookiePreferences();
+    }
+
+    function initCookieConsent() {
+      const stored = getStoredCookieConsent();
+      if (!stored) {
+        showCookieBanner();
+      }
     }
 
     // Lightbox Gallery
